@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
     <title>EhB-Studenten</title>
 </head>
 <body>
     <div id="main-profile">
-        <img id="profile-img" src="../pics/ehb_logos/EhB-logo-zwarte-achtergrond.jpg" alt="profile-img">
+    <div id="login">
+        <img id="profile-img" src="{{ asset('images/ehb_logos/EhB-logo-zwarte-achtergrond.jpg') }}" alt="profile-img">
         <div id="text">
             <p id="firstname">Firstname: </p>
             <p id="lastname">Lastname: </p>

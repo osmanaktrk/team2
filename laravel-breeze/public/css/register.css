@@ -12,7 +12,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url(/pics/ehb_logos/EhB-logo-transparant.png);
+    background-image: url("../images/ehb_logos/EhB-logo-transparant.png");
     background-repeat: no-repeat;
     background-position: center;
 }
