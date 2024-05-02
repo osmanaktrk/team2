@@ -12,19 +12,69 @@
             <img src="{{ asset('images/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" alt="ehb-logo">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <input type="text" name="username" id="username" placeholder="Username" required>
+                <!-- Username -->
+                <x-text-input id="email"
+                                type="email"
+                                name="email"
+                                :value="old('email')"
+                                placeholder="Email"
+                                required autofocus autocomplete="email" />
+
+                <x-input-error :messages="$errors->get('email')" class="alert-danger" />
                 <br>
-                <input type="password" name="password" id="password" placeholder="Password" required>
+
+                <!-- Password -->
+                <x-text-input id="password"
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                                required autocomplete="current-password" />
+
+                <x-input-error :messages="$errors->get('password')" class="alert-danger" />
                 <br>
                 <br>
-                <button id="login-btn" type="button">Log in</button>
-                <button id="singup-btn" type="button">Sign Up</button>
+                
+                <!-- Remember Me
+                <div class="block mt-4">
+                    <label for="remember_me" class="inline-flex items-center">
+                        <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
+                        <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                    </label>
+                </div>
+                -->
+                <x-primary-button id="login-btn">
+                    {{ __('Log in') }}
+                </x-primary-button>
+                <x-primary-button id="signup-btn">
+                    {{ __('Sign up') }}
+                </x-primary-button>
                 <br>
-                <button id="forget" type="button">Forgot Password?</button>
+                @if (Route::has('password.request'))
+                <x-primary-button id="forget-btn">
+                    {{ __('Forgot your password?') }}
+                </x-primary-button>
+                @endif
             </form>
         </div>
         <div id="info"></div>
     </div>
     
+    <script>
+        document.getElementById('forget-btn').addEventListener('click', function() {
+            // Prevent the default action of the click event
+            event.preventDefault();
+
+            // Redirect to the password reset page
+            window.location.href = "{{ route('password.request') }}";
+        });
+
+        document.getElementById('signup-btn').addEventListener('click', function() {
+            // Prevent the default action of the click event
+            event.preventDefault();
+
+            // Redirect to the register page
+            window.location.href = "{{ route('register') }}";
+        });
+    </script>
 </body>
 </html>

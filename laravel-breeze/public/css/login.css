@@ -26,6 +26,11 @@ body{
     padding: 20px;
     
 }
+.alert-danger {
+    background-color: #f8d7da!important;
+    border-color: #f5c6cb!important;
+    color: #721c24!important;
+}
 #login{
     width: 300px;
     padding: 30px;
