@@ -1,0 +1,116 @@
+body {
+  margin: 0px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  margin-left: 130px;
+  margin-right: 130px;
+  border-color: black;
+  background-color: burlywood;
+  box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.2); /* Adjust the shadow */
+
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-expansion-button {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+.expansionbutton-asset {
+  height: 30px;
+}
+
+.header-logo {
+  color: black;
+  height: 50px;
+  margin-right: 5px;
+}
+
+.erasmus-logo {
+  height: 50px;
+}
+
+.header-middle {
+  display: flex;
+}
+
+.header-search-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  padding-right: 0px;
+}
+
+.searchbutton-asset {
+  height: 30px;
+}
+
+.header-text-field {
+  border-radius: 12px;
+  border: none;
+  width: 300px;
+  border: 1px solid gray;
+}
+
+
+.header-right {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.header-chat-button {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  margin-right: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+.chatbutton-asset {
+height: 30px;
+}
+
+
+
+.header-profile-button-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  
+}
+
+.header-profile-button {
+  height: 34px;
+  width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  border-radius: 17px;
+  background-color: transparent;
+}
+
+.profilebutton-asset {
+  height: 30px;
+border-radius: 30px;
+}
