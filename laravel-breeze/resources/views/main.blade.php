@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=
-  , initial-scale=1.0">
-  <title>Main pagina</title>
-  <link rel="stylesheet" href="MainPagina-header.css">
-  <link rel="stylesheet" href="MainPagina-main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ __('Main page') }}</title>
+  <link rel="stylesheet" href="{{ asset('css/MainPagina-header.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/MainPagina-main.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -17,11 +16,11 @@
   <div class="header-left">
     
     <button class="header-expansion-button" onclick="window.location.href='https://www.google.be/?hl=nl'">
-      <img class="expansionbutton-asset" src="Groepswerk/assets/hamburger-menu.svg" alt="">
+      <img class="expansionbutton-asset" src="{{ asset('images/main/hamburger-menu.svg') }}" alt="menu">
     </button>
 
     <div class="header-logo">
-      <img class="erasmus-logo" src="Groepswerk/assets/logo-ehb-small.svg" alt="">
+      <img class="erasmus-logo" src="{{ asset('images/ehb_logos/logo-ehb-small.svg') }}" alt="ehb-logo">
     </div>
   
   </div>
@@ -29,10 +28,11 @@
   <div class="header-middle">
 
     <button class="header-search-button" onclick="window.location.href='https://www.google.be/?hl=nl'">
-      <img class="searchbutton-asset" src="Groepswerk/assets/search.svg" alt="">
+      <img class="searchbutton-asset" src="{{ asset('images/main/search.svg') }}" alt="search-button">
+
     </button>
 
-    <input type="text" class="header-text-field" placeholder="   Search on website...">
+    <input type="text" class="header-text-field" placeholder="{{ __('   Search on website...') }}">
     
   </div>
   
@@ -40,11 +40,11 @@
   <div class="header-right">
   
     <button class="header-chat-button" onclick="window.location.href='https://www.google.be/?hl=nl'">
-      <img class="chatbutton-asset" src="Groepswerk/assets/image.png" alt="">
+      <img class="chatbutton-asset" src="{{ asset('images/main/image.png') }}" alt="chat-button">
     </button>
   
     <button class="header-profile-button" onclick="window.location.href='https://www.google.be/?hl=nl'">
-      <img class="profilebutton-asset" src="Groepswerk/assets/90d1ac48711f63c6a290238c8382632f.jpg" alt="">
+      <img class="profilebutton-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="profile-button">
     </button>
 
   </div>
@@ -58,55 +58,55 @@
     <button class="leftmenu-top" onclick="window.location.href='https://www.google.be/?hl=nl'">
       
       <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="Groepswerk/assets/90d1ac48711f63c6a290238c8382632f.jpg" alt="">
+        <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
       <div class="left-manage-word">
-        Topics
+        {{ __('Topics') }}
       </div>
     </button>
 
     <button class="leftmenu-top" onclick="window.location.href='https://www.google.be/?hl=nl'">
       
       <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="Groepswerk/assets/90d1ac48711f63c6a290238c8382632f.jpg" alt="">
+        <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
       <div class="left-manage-word">
-        My posts
+        {{ __('My posts') }}
       </div>
     </button>
 
     <button class="leftmenu-top" onclick="window.location.href='https://www.google.be/?hl=nl'">
       
       <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="Groepswerk/assets/90d1ac48711f63c6a290238c8382632f.jpg" alt="">
+        <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
       <div class="left-manage-word">
-        Review
+        {{ __('Review') }}
       </div>
     </button>
 
     <button class="leftmenu-top" onclick="window.location.href='https://www.google.be/?hl=nl'">
       
       <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="Groepswerk/assets/90d1ac48711f63c6a290238c8382632f.jpg" alt="">
+      <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
       <div class="left-manage-word">
-        Admin
+        {{ __('Admin') }}
       </div>
     </button>
 
     <button class="leftmenu-top" onclick="window.location.href='https://www.google.be/?hl=nl'">
       
       <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="Groepswerk/assets/90d1ac48711f63c6a290238c8382632f.jpg" alt="">
+      <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
       <div class="left-manage-word">
-        Users
+        {{ __('Users') }}
       </div>
     </button>
 
@@ -116,7 +116,7 @@
       <div class="collapsible-div">
         <div class="collapsible-assetdiv">
         </div>
-        Categories
+        {{ __('Categories') }}
       </div>
 
     </button>
@@ -130,7 +130,7 @@
         </div>
 
         <div class="left-manage-word">
-          General
+          {{ __('General') }}
         </div>
 
       </button>
@@ -142,7 +142,7 @@
         </div>
         
         <div class="left-manage-word">
-          Site Feedback
+          {{ __('Site Feedback') }}
         </div>
 
       </button>
@@ -154,7 +154,7 @@
         </div>
         
         <div class="left-manage-word">
-          Staff
+          {{ __('Staff') }}
         </div>
 
       </button>
@@ -166,7 +166,7 @@
       <div class="collapsible-div">
         <div class="collapsible-assetdiv">
         </div>
-        Tags
+        {{ __('Tags') }}
       </div>
 
     </button>
@@ -180,7 +180,7 @@
         </div>
 
         <div class="left-manage-word">
-          News
+          {{ __('News') }}
         </div>
 
       </button>
@@ -192,7 +192,7 @@
         </div>
         
         <div class="left-manage-word">
-          Blog
+          {{ __('Blog') }}
         </div>
 
       </button>
@@ -204,7 +204,7 @@
         </div>
         
         <div class="left-manage-word">
-          Code
+          {{ __('Code') }}
         </div>
 
       </button>
@@ -216,7 +216,7 @@
       <div class="collapsible-div">
         <div class="collapsible-assetdiv">
         </div>
-        Channels
+        {{ __('Channels') }}
       </div>
 
     </button>
@@ -230,7 +230,7 @@
         </div>
 
         <div class="left-manage-word">
-          General
+          {{ __('General') }}
         </div>
 
       </button>
@@ -242,7 +242,7 @@
         </div>
         
         <div class="left-manage-word">
-          Staff
+          {{ __('Staff') }}
         </div>
 
       </button>
@@ -263,26 +263,26 @@
 
     <div class="right-ceiling">
       <div class="right-sorting">
-        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">All categories</button>
-        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">All tags</button>
-        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">Latest</button>
-        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">Unread</button>
-        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">Top</button>
+        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">{{ __('All categories') }}</button>
+        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">{{ __('All tags') }}</button>
+        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">{{ __('Latest') }}</button>
+        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">{{ __('Unread') }}</button>
+        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">{{ __('Top') }}</button>
       </div>
 
       <button class="createpostbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">
-        + New Post
+        {{ __('+ New Post') }}
       </button>
     </div>
 
     <div class="infobar">
-      <div class="infobar-word">Replies</div>
-      <div class="infobar-word">Views</div>
-      <div class="infobar-word">Activity</div>
+      <div class="infobar-word">{{ __('Replies') }}</div>
+      <div class="infobar-word">{{ __('Views') }}</div>
+      <div class="infobar-word">{{ __('Activity') }}</div>
     </div>
     
     <div class="postbar">
-      <div class="postname" id="#1">placeholder</div>
+      <div class="postname" id="#1">{{ __('placeholder') }}</div>
       <div class="postinfo">
         <div class="replies"></div>
         <div class="views"></div>
