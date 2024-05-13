@@ -170,8 +170,8 @@
         </div>
     </section>
 
-    <footer class="text-center text-sm text-black dark:text-white/70">
-        &copy {{ config('app.name', 'EhB-Studenten') }}
+    <footer class="text-center text-sm text-danger">
+        <h5 class="font-weight-light" style="font-size: small;">&copy EhB-Studenten</h5>
     </footer>
     
 </body>
