@@ -28,7 +28,7 @@
                     @if (Route::has('login'))
                     @auth
                     @else
-                        <a href="#" class="nav-link text-danger">{{ __('Sign In') }}</a>
+                        <a href="{{ route('login') }}" class="nav-link text-danger">{{ __('Sign In') }}</a>
                     @endauth
                     </li>
                     <li class="nav-item">
@@ -49,7 +49,7 @@
                     <div class="d-flex">
                         <a href="#about" class="btn btn-outline-danger" style="margin-right: 10px; margin-top: 10px;">{{ __('More info') }}</a>
                         @if (Route::has('register'))
-                        <a href="#join-now" class="btn btn-outline-danger" style="margin-left: 10px; margin-top: 10px;">{{ __('Join now!') }}</a>
+                        <a href="{{ route('register') }}" class="btn btn-outline-danger" style="margin-left: 10px; margin-top: 10px;">{{ __('Join now!') }}</a>
                         @endif
                     @endauth
                     </div>
