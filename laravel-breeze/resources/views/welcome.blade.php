@@ -171,7 +171,7 @@
     </section>
 
     <footer class="text-center text-sm text-danger">
-        <h5 class="font-weight-light" style="font-size: small;">&copy EhB-Studenten</h5>
+        <h5 class="font-weight-light" style="font-size: small;">&copy EraStudent</h5>
     </footer>
     
 </body>
