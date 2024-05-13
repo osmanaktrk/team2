@@ -13,9 +13,9 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <!-- Name -->
-            <x-text-input id="firstname" type="text" name="firstname" :value="old('firstname')" placeholder="First Name" required autofocus autocomplete="firstname" />
+            <x-text-input id="firstname" type="text" name="firstname" :value="old('firstname')" placeholder="{{ __('First Name') }}" required autofocus autocomplete="firstname" />
             <x-input-error :messages="$errors->get('name')" class="alert-danger" />
-            <x-text-input id="lastname" type="text" name="lastname" :value="old('lastname')" placeholder="Last Name" required autofocus autocomplete="lastname" />
+            <x-text-input id="lastname" type="text" name="lastname" :value="old('lastname')" placeholder="{{ __('Last Name') }}" required autofocus autocomplete="lastname" />
             <x-input-error :messages="$errors->get('name')" class="alert-danger" />
             <br>
 
@@ -28,7 +28,7 @@
             <x-text-input id="password"
                                 type="password"
                                 name="password"
-                                placeholder="Enter Password"
+                                placeholder="{{ __('Enter Password') }}"
                                 required autocomplete="new-password" />
             <x-input-error :messages="$errors->get('password')" class="alert-danger" />
             <br>
@@ -36,8 +36,8 @@
             <!-- Confirm Password -->
             <x-text-input id="password-check"
                                 type="password"
-                                name="password-check"
-                                placeholder="Repeat Password" required autocomplete="new-password" />
+                                name="password_confirmation"
+                                placeholder="{{ __('Repeat Password') }}" required autocomplete="new-password" />
             <x-input-error :messages="$errors->get('password_confirmation')" class="alert-danger" />
             <br>
 
