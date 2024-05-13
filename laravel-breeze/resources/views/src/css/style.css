@@ -1,0 +1,125 @@
+/* General */
+*{
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    scroll-behavior: smooth, cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+html::-webkit-scrollbar {
+    display: none;
+}
+
+#main-nav {
+    background-color: transparent;
+}
+
+.nav-item {
+    margin-right: 20px; 
+    font-size: medium;
+}
+
+section {
+    padding: 50px 0; 
+}
+
+/* Home Section */
+#home {
+    background-image: url("../img/Guy.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; 
+}
+
+.custom-col {
+    margin-top: 20%; 
+}
+
+/* About Section */
+.bg-light.pt-5 {
+    padding-top: 100px; }
+
+/* Goals Section */
+#lees-verder {
+    padding: 50px 0; 
+    margin-bottom: 50px; 
+}
+
+.box {
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 20px; 
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.box i {
+    position: absolute;
+    top: -30px; /* Adjusted top position for icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+}
+.spacing {
+    margin-top: 10%;
+}
+
+img {
+    filter: none;
+}
+
+.block {
+    height: 0.3rem;
+    width: 6rem;
+    background-color: black;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2rem;
+    opacity: 0.5;
+}
+
+#SC {
+    color: #1ABCB6;
+}
+
+#logo {
+    height: 45px;
+}
+
+.viewer-inputs {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Smaller Screens */
+@media (max-width: 768px) {
+    .nav-item {
+        margin-right: 10px; 
+        font-size: small; 
+    }
+    #home{
+        background-image: url("../img/erasmushogeschool_brussel_cover-2.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .custom-col {
+        margin-top: 10%; 
+    }
+    .col-md-6 {
+        width: 100%;
+    }
+    .col-md-4 {
+        width: 100%;
+    }
+}
