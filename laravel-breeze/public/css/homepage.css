@@ -9,10 +9,6 @@ html {
 body {
     scroll-behavior: smooth, cubic-bezier(0.25, 0.1, 0.25, 1);
 }
-html::-webkit-scrollbar {
-    display: none;
-}
-
 #main-nav {
     background-color: transparent;
 }
@@ -28,7 +24,7 @@ section {
 
 /* Home Section */
 #home {
-    background-image: url("{{ asset('images/home/Guy.png') }}");
+    background-image: url("{{ asset('../images/home/Guy.png') }}");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -107,7 +103,7 @@ img {
         font-size: small; 
     }
     #home{
-        background-image: url("{{ asset('images/home/erasmushogeschool_brussel_cover-2.png') }}");
+        background-image: url("{{ asset('../images/home/erasmushogeschool_brussel_cover-2.png') }}");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
