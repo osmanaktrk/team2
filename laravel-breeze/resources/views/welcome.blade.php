@@ -170,7 +170,7 @@
         </div>
     </section>
 
-    <footer class="py-16 text-center text-sm text-black dark:text-white/70">
+    <footer class="text-center text-sm text-black dark:text-white/70">
         &copy {{ config('app.name', 'EhB-Studenten') }}
     </footer>
     
