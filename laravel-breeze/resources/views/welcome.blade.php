@@ -24,12 +24,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
+                @if (Route::has('login'))
                     <li class="nav-item">
-                    @if (Route::has('login'))
                     @auth
+                        <!-- User is logged in, do not show the sign-in link -->
                     @else
                         <a href="{{ route('login') }}" class="nav-link text-danger">{{ __('Sign In') }}</a>
                     @endauth
+                @endif
                     </li>
                     <li class="nav-item">
                         <a href="#contact" class="nav-link text-info">{{ __('Contact') }}</a>
@@ -48,10 +50,12 @@
                     <p class="lead font-weight-light text-dark" style="margin-top: 15px;">{{ __('Your community for academic progress.') }}</p>
                     <div class="d-flex">
                         <a href="#about" class="btn btn-outline-danger" style="margin-right: 10px; margin-top: 10px;">{{ __('More info') }}</a>
-                        @if (Route::has('register'))
+                    @if (Route::has('register'))
+                        @guest
+                        <!-- Only show the "Join now" button if the user is not logged in -->
                         <a href="{{ route('register') }}" class="btn btn-outline-danger" style="margin-left: 10px; margin-top: 10px;">{{ __('Join now!') }}</a>
-                        @endif
-                    @endauth
+                        @endguest
+                    @endif
                     </div>
                 </div>
             </div>
