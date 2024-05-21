@@ -15,7 +15,7 @@
 <body>
     <nav id="main-nav" class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #e8e8e8; height: 80px;">
         <div class="container">
-            <a href="https://www.erasmushogeschool.be/nl" class="navbar-brand fa-3x">
+            <a href="https://www.erasmushogeschool.be/nl" class="navbar-brand fa-3x" target="_blank">
                 <img src="{{ asset('images/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" id="logo" class="mb-3">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
