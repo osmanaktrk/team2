@@ -29,7 +29,7 @@
                     @auth
                         <!-- User is logged in, do not show the sign-in link -->
                     @else
-                        <a href="{{ route('login') }}" class="nav-link text-danger">{{ __('Sign In') }}</a>
+                        <a href="{{ route('login') }}" class="nav-link text-danger" target="_blank">{{ __('Sign In') }}</a>
                     @endauth
                 @endif
                     </li>
@@ -53,7 +53,7 @@
                     @if (Route::has('register'))
                         @guest
                         <!-- Only show the "Join now" button if the user is not logged in -->
-                        <a href="{{ route('register') }}" class="btn btn-outline-danger" style="margin-left: 10px; margin-top: 10px;">{{ __('Join now!') }}</a>
+                        <a href="{{ route('register') }}" class="btn btn-outline-danger" style="margin-left: 10px; margin-top: 10px;" target="_blank">{{ __('Join now!') }}</a>
                         @endguest
                     @endif
                     </div>
