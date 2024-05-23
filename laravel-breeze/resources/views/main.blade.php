@@ -17,10 +17,10 @@
     
     <!-- <button class="header-expansion-button" onclick="window.location.href='https://www.google.be/?hl=nl'">
       <img class="expansionbutton-asset" src="{{ asset('images/main/hamburger-menu.svg') }}" alt="menu">
-    </button>
+    </button> -->
 
-    <div class="header-logo">
-      <img class="erasmus-logo" src="{{ asset('images/ehb_logos/logo-ehb-small.svg') }}" alt="ehb-logo"> -->
+     <div class="header-logo">
+      <img class="erasmus-logo" src="{{ asset('images/main/download.png') }}" alt="ehb-logo">
     </div>
   
   </div>
