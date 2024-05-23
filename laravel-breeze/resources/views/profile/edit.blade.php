@@ -1,19 +1,17 @@
-@yield('css')
-<link rel="stylesheet" href="{{ asset('css/profile-edit.css') }}">
-
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ asset('css/profile-edit.css') }}">
+</head>
+<body>
 @php
-    // use App\Models\Course;
+    use App\Models\Course;
 
-    // $courses = Course::all();
+    $courses = Course::all();
 @endphp
 
-<x-app-layout>
-    <x-slot name="header">
-        <!-- Does this show up all the way at the bottom? -->
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
 
     <div id="profil-foto">
         <div id="foto-div">
@@ -72,113 +70,55 @@
                 <br>
                 <select class="select-edu edu" name="Graduaat" id="Graduaat" style="display: none;">
                 @foreach($courses as $course)
-                <option value="{{ $course->id }}" {{ $user->course? ($user->course->id == $course->id? 'selected' : '') : '' }}>{{ $course->title }}</option>
-                @endforeach
-                <!-- <option value="Accounting Administration">Accounting Administration </option>
-                <option value="Accounting Administration (E-learning)">Accounting Administration (E-learning) </option>
-                <option value="Basisverpleegkunde">Basisverpleegkunde </option>
-                <option value="Educatief Graduaat Secundair Onderwijs">Educatief Graduaat Secundair Onderwijs </option>
-                <option value="Elektromechanische Systemen">Elektromechanische Systemen </option>
-                <option value="Informatiebeheer">Informatiebeheer </option>
-                <option value="Internet Of Things">Internet Of Things </option>
-                <option value="Juridisch-Administratieve Ondersteuning (Werktraject)">Juridisch-Administratieve Ondersteuning (Werktraject) </option>
-                <option value="Juridisch-Administratieve Ondersteuning">Juridisch-Administratieve Ondersteuning </option>
-                <option value="Logies-, Restaurant- & Cateringmanagement">Logies-, Restaurant- & Cateringmanagement </option>
-                <option value="Marketing- & Communicatiesupport">Marketing- & Communicatiesupport </option>
-                <option value="Programmeren">Programmeren </option>
-                <option value="Sociaal-Cultureel Werk">Sociaal-Cultureel Werk </option>
-                <option value="Systeem- & Netwerkbeheer">Systeem- & Netwerkbeheer </option>
-                <option value="Winkelmanagement">Winkelmanagement </option> -->              
+                    @if ($course->type == ["Graduaat"] || $course->type == ['Graduaat', 'Lerarenopleiding'])
+                    <option value="{{ $course->title }}">{{ $course->title }}</option>
+                    @endif
+                @endforeach     
                 
                 </select>
 
                 <select class="select-edu edu" name="Bachelor" id="Bachelor" style="display: none;">
                 @foreach($courses as $course)
-                <option value="{{ $course->id }}" {{ $user->course? ($user->course->id == $course->id? 'selected' : '') : '' }}>{{ $course->title }}</option>
+                    @if ($course->type == ["Bachelor"] || $course->type == ['Bachelor', 'Lerarenopleiding'])
+                    <option value="{{ $course->title }}">{{ $course->title }}</option>
+                    @endif
                 @endforeach
-                <!-- <option value="Biomedische Laboratoriumtechnologie">Biomedische Laboratoriumtechnologie </option>
-                <option value="Communicatie">Communicatie </option>
-                <option value="Hotelmanagement">Hotelmanagement </option>
-                <option value="Idea And Innovation Management">Idea And Innovation Management </option>
-                <option value="Journalistiek">Journalistiek </option>
-                <option value="Kleuteronderwijs">Kleuteronderwijs </option>
-                <option value="Lager Onderwijs">Lager Onderwijs </option>
-                <option value="Landschaps- & Tuinarchitectuur">Landschaps- & Tuinarchitectuur </option>
-                <option value="Multimedia & Creatieve Technologie">Multimedia & Creatieve Technologie </option>
-                <option value="Organisatie & Management">Organisatie & Management </option>
-                <option value="Pedagogie Van Het Jonge Kind">Pedagogie Van Het Jonge Kind </option>
-                <option value="Secundair Onderwijs">Secundair Onderwijs </option>
-                <option value="Sociaal Werk">Sociaal Werk </option>
-                <option value="Toegepaste Informatica">Toegepaste Informatica </option>
-                <option value="Toerisme- & Recreatiemanagement">Toerisme- & Recreatiemanagement </option>
-                <option value="Verkorte Educatieve Bachelor Lager Onderwijs">Verkorte Educatieve Bachelor Lager Onderwijs </option>
-                <option value="Verkorte Educatieve Bachelor Secundair Onderwijs">Verkorte Educatieve Bachelor Secundair Onderwijs </option>
-                <option value="Verpleegkunde">Verpleegkunde </option>
-                <option value="Voedings-& Dieetkunde">Voedings-& Dieetkunde </option>
-                <option value="Vroedkunde">Vroedkunde </option> -->
-                
+
                 </select>
 
                 <select class="select-edu edu" name="Lerarenopleiding" id="Lerarenopleiding" style="display: none;">
                 @foreach($courses as $course)
-                <option value="{{ $course->id }}" {{ $user->course? ($user->course->id == $course->id? 'selected' : '') : '' }}>{{ $course->title }}</option>
+                    @if ($course->type == ['Graduaat', 'Lerarenopleiding'] || $course->type == ['Bachelor', 'Lerarenopleiding'])
+                    <option value="{{ $course->title }}">{{ $course->title }}</option>
+                    @endif
                 @endforeach
-                <!-- <option value="Educatief Graduaat Secundair Onderwijs">Educatief Graduaat Secundair Onderwijs </option>
-                <option value="Kleuteronderwijs">Kleuteronderwijs </option>
-                <option value="Lager Onderwijs">Lager Onderwijs </option>
-                <option value="Secundair Onderwijs">Secundair Onderwijs </option>
-                <option value="Verkorte Educatieve Bachelor Lager Onderwijs">Verkorte Educatieve Bachelor Lager Onderwijs </option>
-                <option value="Verkorte Educatieve Bachelor Secundair Onderwijs">Verkorte Educatieve Bachelor Secundair Onderwijs </option> -->
 
                 </select>
 
                 <select class="select-edu edu" name="Kunstopleiding" id="Kunstopleiding" style="display: none;">
                 @foreach($courses as $course)
-                <option value="{{ $course->id }}" {{ $user->course? ($user->course->id == $course->id? 'selected' : '') : '' }}>{{ $course->title }}</option>
+                    @if ($course->type == ["Kunstopleiding"])
+                    <option value="{{ $course->title }}">{{ $course->title }}</option>
+                    @endif
                 @endforeach
-                <!-- <option value="Academische Bachelor/Master Audiovisuele Kunsten">Academische Bachelor/Master Audiovisuele Kunsten </option>
-                <option value="Academische Bachelor/Master Drama">Academische Bachelor/Master Drama </option>
-                <option value="Academische Bachelor/Master Muziek">Academische Bachelor/Master Muziek </option>
-                <option value="Educatieve Opleidingen In De Kunsten">Educatieve Opleidingen In De Kunsten </option>
-                <option value="Podium-En Eventtechnieken">Podium-En Eventtechnieken </option>
-                <option value="Professionele Bachelor Audiovisuele Kunsten">Professionele Bachelor Audiovisuele Kunsten </option>
-                <option value="Professionele Bachelor/Master Musical">Professionele Bachelor/Master Musical </option> -->
 
                 </select>
 
                 <select class="select-edu edu" name="Postgraduaat" id="Postgraduaat" style="display: none;">
                 @foreach($courses as $course)
-                <option value="{{ $course->id }}" {{ $user->course? ($user->course->id == $course->id? 'selected' : '') : '' }}>{{ $course->title }}</option>
+                    @if ($course->type == ["Postgraduaat"])
+                    <option value="{{ $course->title }}">{{ $course->title }}</option>
+                    @endif
                 @endforeach
-                <!-- <option value="Applied Artificial Intelligence ('24-'25)">Applied Artificial Intelligence ('24-'25) </option>
-                <option value="Applied Bio-Informatics In Research & Diagnostics">Applied Bio-Informatics In Research & Diagnostics </option>
-                <option value="Bedrijfsverpleegkunde">Bedrijfsverpleegkunde </option>
-                <option value="Coding (Online)">Coding (Online) </option>
-                <option value="Cosmetic Sciences">Cosmetic Sciences </option>
-                <option value="Diabeteseducator">Diabeteseducator </option>
-                <option value="Fiscaliteit ('24-'25)">Fiscaliteit ('24-'25) </option>
-                <option value="Forensisch Hulpverlenend Expert">Forensisch Hulpverlenend Expert </option>
-                <option value="Forensisch Onderzoek - Volzet">Forensisch Onderzoek - Volzet </option>
-                <option value="Forensisch Verpleegkundig Expert">Forensisch Verpleegkundig Expert </option>
-                <option value="Health Coach">Health Coach </option>
-                <option value="Informatiemanagement ('24-'25)">Informatiemanagement ('24-'25) </option>
-                <option value="Musical">Musical </option>
-                <option value="Muziek">Muziek </option>
-                <option value="Niet-Confessionele Zedenleer">Niet-Confessionele Zedenleer </option>
-                <option value="Palliatieve Zorg">Palliatieve Zorg </option>
-                <option value="Pediatrie & Neonatologie">Pediatrie & Neonatologie </option>
-                <option value="Peri-Operatieve Zorgen">Peri-Operatieve Zorgen </option>
-                <option value="Procesbegeleider Ethiek In Zorg En Welzijn">Procesbegeleider Ethiek In Zorg En Welzijn </option>
-                <option value="Technologisch Verpleegkundige">Technologisch Verpleegkundige </option>
-                <option value="Toegepaste Artificiële Intelligentie">Toegepaste Artificiële Intelligentie </option> -->
 
                 </select>
 
                 <select class="select-edu edu" name="Bachelor-na-bachelor" id="Bachelor-na-bachelor" style="display: none;">
                 @foreach($courses as $course)
-                <option value="{{ $course->id }}" {{ $user->course? ($user->course->id == $course->id? 'selected' : '') : '' }}>{{ $course->title }}</option>
+                    @if ($course->type == ["Bachelor-na-bachelor"])
+                    <option value="{{ $course->title }}">{{ $course->title }}</option>
+                    @endif
                 @endforeach
-                <!-- <option value="Zorgmanagement">Zorgmanagement </option> -->
 
                 </select>
                 <br>
@@ -195,8 +135,6 @@
         </div>
         </form>
     </div>
-
-    @yield('js')
     <script src="{{ asset('js/components/profile-edit.js') }}"></script>
-</x-app-layout>
-
+</body>
+</html>
