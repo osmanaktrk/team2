@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Models\Role;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -18,11 +19,19 @@ class RegistrationTest extends TestCase
 
     public function test_new_users_can_register(): void
     {
+        // Fetch the first role from the database
+        $firstRole = Role::orderBy('id')->first();
+
+        // Use the ID of the first role found
+        $roleId = $firstRole? $firstRole->id : 1;
+
         $response = $this->post('/register', [
-            'name' => 'Test User',
+            'firstname' => 'Test',
+            'lastname' => 'User',
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
+            'role_id' => $roleId,
         ]);
 
         $this->assertAuthenticated();

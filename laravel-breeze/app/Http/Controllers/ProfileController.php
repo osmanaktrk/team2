@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Course;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +17,10 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $courses = Course::all();
         return view('profile.edit', [
             'user' => $request->user(),
+            'courses' => $courses,
         ]);
     }
 
@@ -30,6 +33,15 @@ class ProfileController extends Controller
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
+        }
+
+            // Check if a course ID is provided in the request
+        if ($request->has('course_id')) {
+            // Find the course by ID
+            $course = Course::find($request->input('course_id'));
+
+            // Associate the course with the user
+            $user->course()->associate($course);
         }
 
         $request->user()->save();
