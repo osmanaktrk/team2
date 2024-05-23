@@ -56,6 +56,14 @@
                         <!-- Only show the "Join now" button if the user is not logged in -->
                         <a href="{{ route('register') }}" class="btn btn-outline-danger" style="margin-left: 10px; margin-top: 10px;" target="_blank">{{ __('Join now!') }}</a>
                         @endguest
+                        
+                        @auth
+                        <a href="{{ route('main') }}" class="btn btn-outline-danger" style="margin-left: 10px; margin-top: 10px;" target="_blank">{{ __('Main') }}</a>
+
+                        @endauth
+
+                        
+                    
                     @endif
                     </div>
                 </div>
