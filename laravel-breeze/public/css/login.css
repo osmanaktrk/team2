@@ -30,7 +30,11 @@ body{
 .alert-danger {
     background-color: #f8d7da!important;
     border-color: #f5c6cb!important;
+    border-radius: 25px;
     color: #721c24!important;
+    list-style: none;
+    padding: 2px;
+
 }
 #login{
     width: 300px;
