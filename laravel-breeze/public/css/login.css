@@ -16,7 +16,8 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 800px;
-    height: 400px;
+    height: auto;
+    min-height: 400px;
     background-image: url("../images/website.jpg");
     background-size: contain;
     background-repeat: no-repeat;
