@@ -2,7 +2,9 @@
 <link rel="stylesheet" href="{{ asset('css/profile-edit.css') }}">
 
 @php
-    $courses = Course::all();
+    // use App\Models\Course;
+
+    // $courses = Course::all();
 @endphp
 
 <x-app-layout>

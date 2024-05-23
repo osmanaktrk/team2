@@ -13,6 +13,14 @@ class RolesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        Role::factory(2)->create(); // Creates 2 roles, e.g., Student and Teacher
+        // Create Student role
+        Role::factory()->create([
+            'name' => 'Student',
+        ]);
+
+        // Create Teacher role
+        Role::factory()->create([
+            'name' => 'Teacher',
+        ]);
     }
 }

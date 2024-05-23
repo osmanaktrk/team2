@@ -18,8 +18,8 @@ class Course extends Model
         'type' => 'json',
     ];
 
-    public function student()
+    public function user()
     {
-        return $this->belongsTo(Student::class);
+        return $this->belongsTo(User::class);
     }
 }
