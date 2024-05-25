@@ -18,7 +18,7 @@ Route::get('/register', function () {
 
 Route::get('/main', function () {
     return view('main');
-});
+})->name('main');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

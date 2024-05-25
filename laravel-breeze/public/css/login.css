@@ -16,7 +16,8 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 800px;
-    height: 400px;
+    height: auto;
+    min-height: 400px;
     background-image: url("../images/website.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -29,7 +30,11 @@ body{
 .alert-danger {
     background-color: #f8d7da!important;
     border-color: #f5c6cb!important;
+    border-radius: 25px;
     color: #721c24!important;
+    list-style: none;
+    padding: 2px;
+
 }
 #login{
     width: 300px;
