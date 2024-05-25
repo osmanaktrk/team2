@@ -56,6 +56,14 @@
                         <!-- Only show the "Join now" button if the user is not logged in -->
                         <a href="{{ route('register') }}" class="btn btn-outline-danger" style="margin-left: 10px; margin-top: 10px;" target="_blank">{{ __('Join now!') }}</a>
                         @endguest
+                        
+                        @auth
+                        <a href="{{ route('main') }}" class="btn btn-outline-danger" style="margin-left: 10px; margin-top: 10px;" target="_blank">{{ __('Main') }}</a>
+
+                        @endauth
+
+                        
+                    
                     @endif
                     </div>
                 </div>
@@ -143,7 +151,9 @@
     </section>
     
     
-
+    @if (Route::has('register'))
+    @guest
+    <!-- Only show the "Join now" button if the user is not logged in -->
     <section id="contact">
         <div class="container">
             <div class="text-center">
@@ -174,6 +184,15 @@
             </div>
         </div>
     </section>
+    @endguest
+    
+    
+
+    
+
+@endif
+    
+    
 
     <footer class="text-center text-sm text-danger">
         <h5 class="font-weight-light" style="font-size: small;">&copy EraStudent</h5>
