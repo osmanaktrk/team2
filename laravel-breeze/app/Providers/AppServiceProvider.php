@@ -20,6 +20,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Event::listen([UserRoleListener::class, 'handle'], User::class);
+        //
     }
 }
