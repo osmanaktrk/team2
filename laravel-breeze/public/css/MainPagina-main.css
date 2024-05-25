@@ -1,10 +1,10 @@
 * {
   font-family: Roboto;
-  font-weight: 600;
 }
 html, body {
-  height: 100%;
-  margin: 0;
+  width: 100%;
+    height: 100%;
+    overflow-x: hidden;
 }
 body {
   background-color: white;
@@ -17,7 +17,7 @@ body {
   margin-left: 130px;
   margin-right: 130px;
   margin-bottom: 15px;
-  height: 100vh;
+  height: 100%;
   /* border: 2px solid #000; Border with a width of 2px, solid style, and black color */
 
 }
@@ -26,10 +26,11 @@ body {
 /* Left menu */
 
 .left-menu {
-  background-color: transparent;
+  background-color: transparent;  
   height: 100vh;
   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2); /* Adjust the shadow */
   bottom: 0px;
+  border-radius: 10px;
 }
 
 .leftmenu-top {
@@ -109,16 +110,21 @@ body {
   margin-right: 10px;
 }
 
+.education {
+  background-color: red;
+  border-radius: 10px;
+}
 .general {
   background-color: blue;
   border-radius: 10px;
 }
-.feedback {
-  background-color: gray;
+
+.general2 {
+  background-color: rgb(0, 145, 255);
   border-radius: 10px;
 }
 .staff {
-  background-color: red;
+  background-color: rgb(255, 162, 0);
   border-radius: 10px;
 }
 
@@ -133,6 +139,8 @@ body {
 }
 
 
+/* ------------------------------------------------------------------- DIVIDER */
+
 
 
 .divider {
@@ -142,7 +150,7 @@ body {
 
 
 
-/* -------------------------- */
+/* ------------------------------------------------------------------- RIGHT SIDE OF DIVIDER MENU */
 
 .right {
   background-color: white;
@@ -171,7 +179,7 @@ body {
 .sortingbutton {
   margin-right: 8px;
   padding: 10px 8px;
-  background-color: coral;
+  background-color: #1ABCB6;
   transition: 0.5s;
   border: none;
   color: white;
@@ -185,10 +193,14 @@ body {
   cursor: pointer;
 }
 
+.sortingbutton:active {
+  background-color: rgb(207, 0, 0);
+}
+
 .createpostbutton {
   margin-right: 8px;
   padding: 10px 8px;
-  background-color: darkgray;
+  background-color: rgb(214, 213, 213);
   transition: 0.5s;
   border: none;
   border-radius: 5px;
@@ -201,10 +213,102 @@ body {
 
 }
 
+.createpostbutton:active {
+  background-color: rgb(207, 0, 0);
+}
+
+
+
+/* -----------------------------------------------------------------------------------  POPUP MENU*/
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  text-align: left;
+}
+
+.popup-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.popup-close:hover,
+.popup-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.popup input[type="text"],
+.popup textarea {
+  width: 100%;
+  max-width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.popup select {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+}
+
+.popup button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+
+
+
+
+/* ------------------------------------------------------------------- INFOBAR (REDUNDANT) */
 
 /* Replies-Views-Activity Bar */
 
-.infobar {
+/* .infobar {
   color: rgba(0, 0, 0, 0.65);
   display: flex;
   height: 60px;
@@ -212,23 +316,23 @@ body {
   justify-content: end;
   margin-top: 12px;
   box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2); /* Adjust the shadow */
-}
+/* } */
 
-.infobar-word {
+/* .infobar-word {
   margin-right: 12px;
   margin-left: 8px;
-}
+} */
 
 
 
 /* Bar with info about posts - name & replies & views & activity */
 
-.postbar {
+/* .postbar {
   display: grid;
   height: 120px;
-}
+} */
 
-.postname {
+/* .postname {
   padding-left: 42px;
   margin-top: 20px;
   height: 38px;
@@ -247,25 +351,75 @@ body {
   color: grey;
 }
 
+*/
 
 
 
 
 
+/* -------------------------------------------------------------- POST */
 
+.post {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
 
+.post-header {
+  margin-bottom: 10px;
+  max-width: 	100%;
+  max-height: 100%;
+  font-weight: 600;
+}
 
+/* .post-header-text {
+  
+} */
 
+.post-body p {
+  margin-bottom: 10px;
+}
 
+.post-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+}
 
+.post-footer button {
+  margin-right: 10px;
+}
 
+.post-footer {
+  margin-left: 10px;
+}
 
+.upvote-downvote-btn {
+  color: red;
+  background-color: white;
+  border-radius: 6px;
+  padding: 5px 5px;
+  border: 1px solid red;
+}
 
+.upvote-downvote-btn:hover {
+  cursor: pointer;
+}
 
+.share-report-btn {
+  color: grey;
+  background-color: white;
+  border-radius: 6px;
+  padding: 5px 5px;
+  border: 1px solid grey;
+}
 
-
-
-
+.share-report-btn:hover {
+  cursor: pointer;
+}
 
 
 
