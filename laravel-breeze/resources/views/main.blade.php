@@ -26,12 +26,16 @@
   
   <div class="header-middle">
 
-    <button class="header-search-button" onclick="window.location.href='https://www.google.be/?hl=nl'">
-      <img class="searchbutton-asset" src="{{ asset('images/main/search.svg') }}" alt="search-button">
+  <div class="search-bar-container">
+    <div class="text-center">
+        <div class="search-bar">
+            <input
+              class="input-search-bar" type="search" placeholder="Search for topics" aria-label="Search">
+            <button class="submit-search-btn" type="submit">Search</button>
+        </div>
+    </div>
+  </div>
 
-    </button>
-
-    <input type="text" class="header-text-field" placeholder="{{ __('Search on website...') }}">
     
   </div>
   
@@ -60,7 +64,7 @@
         <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
-      <div class="left-manage-word">
+      <div class="left-manage-word" id="collapsible-topics">
         {{ __('Topics') }}
       </div>
     </button>
