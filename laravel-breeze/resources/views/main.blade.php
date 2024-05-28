@@ -43,7 +43,7 @@
   <div class="header-right">
   
     <button class="header-chat-button" onclick="window.location.href='https://www.google.be/?hl=nl'">
-      <img class="chatbutton-asset" src="{{ asset('images/main/image.png') }}" alt="chat-button">
+      <img class="chatbutton-asset" src="{{ asset('images/main/chatbutton-image.png') }}" alt="chat-button">
     </button>
   
     <button class="header-profile-button" onclick="window.location.href='https://www.google.be/?hl=nl'">
@@ -297,46 +297,412 @@
     </div>
       
     <div class="postbar">
-      <div class="post">
-        <div class="post-header">
-          <h3 class="post-header-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis iure libero architecto unde tenetur dignissimos reprehenderit eos voluptatibus. A atque assumenda ipsa excepturi quidem ea, fuga minima, enim molestiae autem doloribus omnis distinctio optio illo ut maiores dolores reiciendis recusandae. Temporibus, eos beatae. Provident ex inventore quasi, distinctio quas nostrum quae dolor labore, atque magni recusandae est earum sit perspiciatis amet libero voluptates officia officiis ab ullam nesciunt. Consequatur qui nisi neque maiores eaque eius ea, adipisci ratione consectetur. Nihil sapiente maiores sequi, commodi sunt alias est. Debitis aspernatur dicta ducimus quas voluptatibus adipisci architecto magni nesciunt illo quasi. Repellendus!</h3>
-        </div>
-        <div class="post-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-              eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-        </div>
-        <div class="post-footer">
+      <div class="posts-container">
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis iure libero architecto unde tenetur dignissimos reprehenderit eos voluptatibus. A atque assumenda ipsa excepturi quidem ea, fuga minima, enim molestiae autem doloribus omnis distinctio optio illo ut maiores dolores reiciendis recusandae. Temporibus, eos beatae. Provident ex inventore quasi, distinctio quas nostrum quae dolor labore, atque magni recusandae est earum sit perspiciatis amet libero voluptates officia officiis ab ullam nesciunt. Consequatur qui nisi neque maiores eaque eius ea, adipisci ratione consectetur. Nihil sapiente maiores sequi, commodi sunt alias est. Debitis aspernatur dicta ducimus quas voluptatibus adipisci architecto magni nesciunt illo quasi. Repellendus!</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
             <div>
               <button class="upvote-downvote-btn">Upvote</button>
               <button class="upvote-downvote-btn">Downvote</button>
               <span class="post-comments-amount">123 Comments</span>
             </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
             <div>
               <button class="share-report-btn">Share</button>
               <button class="share-report-btn">Report</button>
             </div>
+          </div>
         </div>
-      </div>
 
-      <div class="post">
-        <div class="post-header">
-          <h3 class="post-header-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis sit asperiores qui quae alias deserunt eveniet tempore aspernatur nemo. Perferendis ducimus accusantium ea doloremque perspiciatis quasi sed eligendi recusandae error culpa consequatur sit quo eaque fugiat, facilis beatae iure quia facere illo. Vel nam deserunt modi est, impedit quibusdam maxime reprehenderit voluptate iste sunt, quia debitis explicabo quos quas ex ipsa porro dicta, laborum quis culpa blanditiis odio nihil eligendi voluptatibus. Asperiores quod vero iusto recusandae molestiae impedit voluptatibus qui excepturi error aliquam. Accusantium officiis iste odit alias id qui, sit repellendus laboriosam ipsum nisi iure quos perferendis exercitationem autem.</h3>
-        </div>
-        <div class="post-body">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima earum minus molestiae quod tempore, non magni accusamus similique ipsum illo ea, soluta dolorem quasi tempora. Veritatis impedit dignissimos labore ad.</p>
-        </div>
-        <div class="post-footer">
-          <div>
-            <button class="upvote-downvote-btn">Upvote</button>
-            <button class="upvote-downvote-btn">Downvote</button>
-            <span class="post-comments-amount">123 Comments</span>
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 2</h3>
           </div>
-          <div>
-            <button class="share-report-btn">Share</button>
-            <button class="share-report-btn">Report</button>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
           </div>
         </div>
-      </div>
+        
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 3</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 4</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 5</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 6</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 7</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 8</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 9</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 10</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 11</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 12</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 13</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 14</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 15</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <h3 class="post-header-text">Post Title 15</h3>
+          </div>
+          <div class="post-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
+                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+          </div>
+          <div class="post-footer">
+            <div>
+              <button class="upvote-downvote-btn">Upvote</button>
+              <button class="upvote-downvote-btn">Downvote</button>
+              <span class="post-comments-amount">123 Comments</span>
+            </div>
+            <div class="category-container">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <span class="category-text">Education</span>
+            </div>
+            <div>
+              <button class="share-report-btn">Share</button>
+              <button class="share-report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+
+      <div class="pagination" id="pagination"></div>
+
+     </div>
+
+
     </div>
   </div>
 </div>
@@ -380,6 +746,7 @@
     });
   });
 
+  /* ------------------------------------------------------------------- CREATE POST BUTTON SETTINGS */
   document.addEventListener("DOMContentLoaded", function() {
   const createPostBtn = document.querySelector('.createpostbutton');
   const popup = document.getElementById('postPopup');
@@ -402,15 +769,13 @@
   const postForm = document.getElementById('postForm');
   postForm.addEventListener('submit', function(event) {
     event.preventDefault();
-    // Handle form submission logic here
     alert('Post submitted!');
     popup.style.display = 'none';
   });
-});
+  });
 
 
-// JavaScript
-document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
   const maxTitleLength = 300; // verander dit aantal om maximale lengte van de invoer voor de titel bij post-aanmaak te veranderen
   const maxContentLength = 40000; // verander dit aantal om maximale lengte van de invoer voor de content bij post-aanmaak te veranderen
 
@@ -428,9 +793,75 @@ document.addEventListener("DOMContentLoaded", function() {
       contentInput.value = contentInput.value.substring(0, maxContentLength);
     }
   });
-});
+  });
 
 
+
+  /* ------------------------------------------------------------------- PAGINATION */
+  document.addEventListener('DOMContentLoaded', function() {
+    const posts = document.querySelectorAll('.posts-container .post');
+    const postsPerPage = 5;
+    const paginationContainer = document.getElementById('pagination');
+    let currentPage = 1;
+    const totalPages = Math.ceil(posts.length / postsPerPage);
+
+    function showPage(page) {
+      const start = (page - 1) * postsPerPage;
+      const end = start + postsPerPage;
+
+      posts.forEach((post, index) => {
+        post.style.display = (index >= start && index < end) ? 'block' : 'none';
+      });
+
+      document.querySelectorAll('.pagination button').forEach(button => {
+        button.classList.remove('disabled');
+      });
+
+      if (page === 1) {
+        document.getElementById('pagination-prev-btn').classList.add('disabled');
+      }
+
+      if (page === totalPages) {
+        document.getElementById('pagination-next-btn').classList.add('disabled');
+      }
+
+      document.getElementById('pageNumber').textContent = `Page ${page} of ${totalPages}`;
+    }
+
+    function createPaginationButtons() {
+      const prevButton = document.createElement('button');
+      prevButton.id = 'pagination-prev-btn';
+      prevButton.textContent = 'Prev';
+      prevButton.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          showPage(currentPage);
+        }
+      });
+
+      const nextButton = document.createElement('button');
+      nextButton.id = 'pagination-next-btn';
+      nextButton.textContent = 'Next';
+      nextButton.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          showPage(currentPage);
+        }
+      });
+
+      const pageNumber = document.createElement('span');
+      pageNumber.id = 'pageNumber';
+      pageNumber.style.margin = '0 10px';
+      pageNumber.textContent = `Page 1 of ${totalPages}`;
+
+      paginationContainer.appendChild(prevButton);
+      paginationContainer.appendChild(pageNumber);
+      paginationContainer.appendChild(nextButton);
+    }
+
+    createPaginationButtons();
+    showPage(currentPage);
+  });
 </script>
 </body>
 </html>
