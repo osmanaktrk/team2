@@ -15,11 +15,11 @@
   use App\Models\Post;
 
   $posts = Post::withCount('comments')
-                ->with('category')
-                ->with('tags')
+                ->with(['category', 'tags'])
                 ->latest()
                 ->paginate(10);
 @endphp
+
 <div class="header">
 
   <div class="header-left">

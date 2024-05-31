@@ -3,8 +3,10 @@
 }
 html, body {
   width: 100%;
-    height: 100%;
-    overflow-x: hidden;
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 body {
   background-color: white;
@@ -15,20 +17,15 @@ body {
   display: grid;
   position: relative;
   grid-template-columns: 20% 2.5% 77.5%;
-  margin-left: 130px;
-  margin-right: 130px;
-  margin-bottom: 15px;
+  margin: 15px 130px;
   height: 100%;
 }
 
-
-/* ------------------------------------------------------------------- LEFT SIDE OF THE DIVIDER*/
 
 .left-menu {
   background-color: transparent;  
   height: 100vh;
   box-shadow: 0px 2px 2px 4px rgba(0, 0, 0, 0.2);
-  bottom: 0px;
   border-radius: 10px;
 }
 
@@ -39,19 +36,18 @@ body {
   height: 32px;
   width: 100%;
   border: none;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin: 3px 0;
   background-color: white;
   transition: 0.5s;
 }
 
 #leftmenu-top-one {
-  margin-top: 0px;
-  border-radius: 10px 10px 0px 0px;
+  margin-top: 0;
+  border-radius: 10px 10px 0 0;
 }
 
 #leftmenu-top-one:hover {
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 10px 10px 0 0;
 }
 
 .leftmenu-top:hover {
@@ -73,17 +69,12 @@ body {
   margin-left: 10px;
 }
 
-
-
-/* ------------------------------------------------------------------- COLLAPSIBLE MENU */
-
 .collapsible {
   align-items: center;
   background-color: #333;
   color: white;
   cursor: pointer;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin: 3px 0;
   height: 32px;
   border: none;
   text-align: left;
@@ -100,7 +91,6 @@ body {
 .collapsible-div {
   margin-left: 20px;
 }
-
 
 .collapsible-asset {
   height: 20px;
@@ -143,28 +133,14 @@ body {
   display: grid;
 }
 
-
-/* ------------------------------------------------------------------- DIVIDER */
-
-
-
 .divider {
   background-color: transparent;
 }
-
-
-
-
-/* ------------------------------------------------------------------- RIGHT SIDE OF DIVIDER */
 
 .right {
   max-height: 100vh;
   background-color: white;
 }
-
-
-
-/* Sorting bar */
 
 .right-ceiling {
   display: flex;
@@ -172,7 +148,6 @@ body {
   justify-content: space-between;
   box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2);
   height: 60px;
-
 }
 
 .right-sorting {
@@ -184,14 +159,13 @@ body {
 
 .sortingbutton {
   margin-right: 8px;
-  padding: 10px 10px;
+  padding: 10px;
   background-color: #1ABCB6;
   transition: 0.5s;
   border: none;
   color: white;
   border-radius: 5px;
 }
-
 
 .sortingbutton:hover {
   color: white;
@@ -205,7 +179,7 @@ body {
 
 .createpostbutton {
   margin-right: 8px;
-  padding: 10px 10px;
+  padding: 10px;
   background-color: rgb(214, 213, 213);
   transition: 0.5s;
   border: none;
@@ -216,16 +190,12 @@ body {
   background-color: red;
   color: white;
   cursor: pointer;
-
 }
 
 .createpostbutton:active {
   background-color: rgb(207, 0, 0);
 }
 
-
-
-/* -------------------------------------------------------------------  POPUP MENU*/
 .popup {
   display: none;
   position: fixed;
@@ -275,8 +245,7 @@ body {
 .popup textarea {
   width: 100%;
   max-width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -285,8 +254,7 @@ body {
 
 .popup select {
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 0px;
@@ -306,66 +274,6 @@ body {
   transition: 0.5s;
 }
 
-
-
-
-
-
-/* ------------------------------------------------------------------- INFOBAR (REDUNDANT) */
-
-/* Replies-Views-Activity Bar */
-
-/* .infobar {
-  color: rgba(0, 0, 0, 0.65);
-  display: flex;
-  height: 60px;
-  align-items: center;
-  justify-content: end;
-  margin-top: 12px;
-  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2); /* Adjust the shadow */
-/* } */
-
-/* .infobar-word {
-  margin-right: 12px;
-  margin-left: 8px;
-} */
-
-
-
-/* Bar with info about posts - name & replies & views & activity */
-
-/* .postbar {
-  display: grid;
-  height: 120px;
-} */
-
-/* .postname {
-  padding-left: 42px;
-  margin-top: 20px;
-  height: 38px;
-  width: 800px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.posttext {
-  font-size: 13px;
-  padding-left: 50px;
-  height: 32px;
-  width: 800px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: grey;
-}
-
-*/
-
-
-
-
-
-/* ------------------------------------------------------------------- POST */
-
 .post {
   padding: 20px;
   background-color: #ffffff;
@@ -376,14 +284,10 @@ body {
 
 .post-header {
   margin-bottom: 10px;
-  max-width: 	100%;
+  max-width: 100%;
   max-height: 100%;
   font-weight: 600;
 }
-
-/* .post-header-text {
-  
-} */
 
 .post-body p {
   margin-bottom: 10px;
@@ -400,15 +304,11 @@ body {
   margin-right: 10px;
 }
 
-.post-footer {
-  margin-left: 10px;
-}
-
 .upvote-downvote-btn {
   color: red;
   background-color: white;
   border-radius: 6px;
-  padding: 5px 5px;
+  padding: 5px;
   border: 1px solid red;
 }
 
@@ -432,21 +332,17 @@ body {
   color: #555;
 }
 
-
 .share-report-btn {
   color: grey;
   background-color: white;
   border-radius: 6px;
-  padding: 5px 5px;
+  padding: 5px;
   border: 1px solid grey;
 }
 
 .share-report-btn:hover {
   cursor: pointer;
 }
-
-
-
 
 .posts-container {
   max-height: 90vh;
@@ -459,13 +355,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
 }
-
 
 #pagination-prev-btn, 
 #pagination-next-btn {
-  padding: 10px 10px;
+  padding: 10px;
   border-radius: 5px;
   background-color: rgb(214, 213, 213);
   color: black;
@@ -479,9 +373,47 @@ body {
   cursor: pointer;
 }
 
-
-
-
 .left, .right {
   width: 100%;
+}
+
+
+@media (max-width: 1200px) {
+  .main {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+@media (max-width: 992px) {
+  .main {
+    grid-template-columns: 25% 5% 70%;
+    margin-left: 50px;
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .main {
+    grid-template-columns: 30% 1% 69%;
+  }
+  .left-menu {
+    margin: 5px 20px 15px 20px;
+    height: 90%;
+  }
+
+  .leftmenu-top {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .collapsible-div {
+    text-align: center;
+  }
+
+  .main {
+    grid-template-columns: 1fr;
+    margin: 0;
+  }
 }
