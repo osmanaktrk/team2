@@ -14,7 +14,7 @@ class TagSeeder extends Seeder
      */
     public function run(): void
     {
-        $tags = collect(['Fantastique', 'Fantaisie', 'Policier', 'Horreur', 'Epouvante', 'Action', 'Romance']);
+        $tags = collect(['Meme', 'Change My Mind', 'Rant', 'Suggestion']);
 
         $tags->each(fn ($tag) => Tag::create([
             'name' => $tag,

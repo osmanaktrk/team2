@@ -10,6 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"></head>
 <body>
+@php
+  use App\Models\Post;
+
+  $posts = Post::withCount('comments')
+                ->with('category')
+                ->with('tags')
+                ->latest()
+                ->paginate(10);
+@endphp
 <div class="header">
 
   <div class="header-left">
@@ -30,8 +39,8 @@
     <div class="text-center">
         <div class="search-bar">
             <input
-              class="input-search-bar" type="search" placeholder="Search for topics" aria-label="Search">
-            <button class="submit-search-btn" type="submit">Search</button>
+              class="input-search-bar" type="search" placeholder="{{ __('Search for topics') }}" aria-label="Search">
+            <button class="submit-search-btn" type="submit">{{ __('Search') }}</button>
         </div>
     </div>
   </div>
@@ -276,21 +285,21 @@
       <div id="postPopup" class="popup">
         <div class="popup-content">
           <span class="popup-close">&times;</span>
-          <h2>Create New Post</h2>
+          <h2>{{ __('Create New Post') }}</h2>
           <form id="postForm">
-            <label for="postTitle">Post Title:</label>
+            <label for="postTitle">{{ __('Post Title:') }}</label>
             <input type="text" id="postTitle" name="title" required>
             
-            <label for="postContent">Post Content:</label>
+            <label for="postContent">{{ __('Post Content:') }}</label>
             <textarea id="postContent" name="content" required></textarea>
             
-            <label for="postCategory">Category:</label>
+            <label for="postCategory">{{ __('Category:') }}</label>
             <select id="postCategory" name="category">
-              <option value="education">Education</option>
-              <option value="general">General</option>
+              <option value="education">{{ __('Education') }}</option>
+              <option value="general">{{ __('General') }}</option>
             </select>
             
-            <button type="submit">Submit</button>
+            <button type="submit">{{ __('Submit') }}</button>
           </form>
         </div>
       </div>
@@ -298,411 +307,38 @@
       
     <div class="postbar">
       <div class="posts-container">
+        @foreach($posts as $post)
         <div class="post">
           <div class="post-header">
-            <h3 class="post-header-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis iure libero architecto unde tenetur dignissimos reprehenderit eos voluptatibus. A atque assumenda ipsa excepturi quidem ea, fuga minima, enim molestiae autem doloribus omnis distinctio optio illo ut maiores dolores reiciendis recusandae. Temporibus, eos beatae. Provident ex inventore quasi, distinctio quas nostrum quae dolor labore, atque magni recusandae est earum sit perspiciatis amet libero voluptates officia officiis ab ullam nesciunt. Consequatur qui nisi neque maiores eaque eius ea, adipisci ratione consectetur. Nihil sapiente maiores sequi, commodi sunt alias est. Debitis aspernatur dicta ducimus quas voluptatibus adipisci architecto magni nesciunt illo quasi. Repellendus!</h3>
+            <h3 class="post-header-text">{{ $post->title }}</h3>
           </div>
           <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+            <p>{{ $post->excerpt }}</p>
           </div>
           <div class="post-footer">
             <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
+              <button class="upvote-downvote-btn">{{ __('Upvote') }}</button>
+              <button class="upvote-downvote-btn">{{ __('Downvote') }}</button>
+              <span class="post-comments-amount">{{ $post->comments_count }} {{ __('Comments') }}</span>
             </div>
+            @foreach($post->tags as $tag)
             <div class="category-container">
               <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
+              <span class="category-text">{{ $tag->name }}</span>
             </div>
+            @endforeach
             <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
+              <button class="share-report-btn">{{ __('Share') }}</button>
+              <button class="share-report-btn">{{ __('Report') }}</button>
             </div>
           </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 2</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 3</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 4</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 5</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 6</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 7</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 8</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 9</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 10</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 11</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 12</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 13</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 14</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 15</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">Post Title 15</h3>
-          </div>
-          <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">Upvote</button>
-              <button class="upvote-downvote-btn">Downvote</button>
-              <span class="post-comments-amount">123 Comments</span>
-            </div>
-            <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
-              <span class="category-text">Education</span>
-            </div>
-            <div>
-              <button class="share-report-btn">Share</button>
-              <button class="share-report-btn">Report</button>
-            </div>
-          </div>
-        </div>
-
+        </div> 
+        @endforeach
+    
       <div class="pagination" id="pagination"></div>
 
-     </div>
 
-
+      </div>
     </div>
   </div>
 </div>
