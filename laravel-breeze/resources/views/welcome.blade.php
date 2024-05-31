@@ -194,7 +194,7 @@
     
     
 
-    <footer class="text-center text-sm text-danger">
+    <footer class="text-center text-sm text-danger bg-light">
         <h5 class="font-weight-light" style="font-size: small;">&copy EraStudent</h5>
     </footer>
     

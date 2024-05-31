@@ -1,0 +1,24 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Category;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+
+class CategorySeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    { 
+        $categories = collect(['Education', 'General', 'Politics', 'Gaming', 'Movies & Series', 'Cooking']);
+
+        $categories->each(fn ($category) => Category::create([
+            'name' => $category,
+            'slug' => Str::slug($category),
+        ]));
+    }
+}
