@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="{{ asset('css/MainPagina-main.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"></head>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
 <body>
 <div class="header">
 
@@ -26,15 +27,15 @@
   
   <div class="header-middle">
 
-  <div class="search-bar-container">
-    <div class="text-center">
-        <div class="search-bar">
-            <input
-              class="input-search-bar" type="search" placeholder="Search for topics" aria-label="Search">
-            <button class="submit-search-btn" type="submit">Search</button>
-        </div>
+    <div class="search-bar-container">
+      <div class="text-center">
+          <div class="search-bar">
+              <input
+                class="input-search-bar" type="search" placeholder="Search for topics" aria-label="Search">
+              <button class="submit-search-btn" type="submit">Search</button>
+          </div>
+      </div>
     </div>
-  </div>
 
     
   </div>
@@ -42,11 +43,11 @@
   
   <div class="header-right">
   
-    <button class="header-chat-button" onclick="window.location.href='https://www.google.be/?hl=nl'">
+    <button class="header-chat-button">
       <img class="chatbutton-asset" src="{{ asset('images/main/chatbutton-image.png') }}" alt="chat-button">
     </button>
   
-    <button class="header-profile-button" onclick="window.location.href='https://www.google.be/?hl=nl'">
+    <button class="header-profile-button">
       <img class="profilebutton-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="profile-button">
     </button>
 
@@ -262,10 +263,10 @@
   <div class="right">
     <div class="right-ceiling">
       <div class="right-sorting">
-        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">{{ __('All categories') }}</button>
+        <button class="sortingbutton">{{ __('All categories') }}</button>
         <!-- <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">{{ __('All tags') }}</button> -->
-        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">{{ __('Latest') }}</button>
-        <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">{{ __('Unread') }}</button>
+        <button class="sortingbutton">{{ __('Latest') }}</button>
+        <button class="sortingbutton">{{ __('Unread') }}</button>
         <!-- <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">{{ __('Top') }}</button> -->
       </div>
 
@@ -328,8 +329,7 @@
             <h3 class="post-header-text">Post Title 2</h3>
           </div>
           <div class="post-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros
-                eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem deleniti reprehenderit delectus molestiae ipsam. Atque non sequi animi deleniti aperiam accusantium veritatis cumque ducimus reprehenderit eaque? Dolorem obcaecati laboriosam excepturi?</p>
           </div>
           <div class="post-footer">
             <div>
@@ -675,7 +675,7 @@
 
         <div class="post">
           <div class="post-header">
-            <h3 class="post-header-text">Post Title 15</h3>
+            <h3 class="post-header-text">Post Title 16</h3>
           </div>
           <div class="post-body">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros

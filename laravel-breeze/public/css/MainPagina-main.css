@@ -293,7 +293,7 @@ body {
 }
 
 .popup button[type="submit"] {
-  background-color: #4CAF50;
+  background-color: #1ABCB6;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -302,7 +302,8 @@ body {
 }
 
 .popup button[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #16aba6;
+  transition: 0.5s;
 }
 
 

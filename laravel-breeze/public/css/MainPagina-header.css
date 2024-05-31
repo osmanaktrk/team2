@@ -3,6 +3,7 @@ body {
 }
 
 .header {
+  position:relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,12 +51,16 @@ body {
 }
 
 .header-middle {
+  position: sticky;
   display: flex;
+  width: 400px;
+  justify-content: center;
 }
 
 .search-bar {
   display: flex;
-  align-items: center; /* Align items vertically */
+  max-width: 400px;
+  align-items: center;
 }
 
 .input-search-bar {
@@ -64,10 +69,6 @@ body {
   padding: 10px 10px;
   align-items: center;
   outline: none;
-  width: 400px;
-}
-
-.input-search-bar:hover {
 }
 
 .submit-search-btn {
@@ -109,6 +110,7 @@ body {
 
 
 .header-right {
+  position: sticky;
   display: flex;
   align-items: center;
   margin-right: 30px;
@@ -163,4 +165,84 @@ body {
   border-radius: 17px;
   align-items: center;
   justify-content: center;
+}
+
+
+@media (max-width: 1200px) {
+  .header {
+    margin: 5px 80px 15px 80px;
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    margin: 5px 50px 15px 50px;
+  }
+
+  .header-middle {
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    margin: 5px 20px 15px 20px;
+  }
+
+  .header-left, .header-middle, .header-right {
+    width: 100%;
+    justify-content: center;
+    margin: 5px 0;
+  }
+
+  .header-middle {
+    justify-content: center;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .input-search-bar, .submit-search-btn {
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    margin: 5px 10px 15px 10px;
+  }
+
+  .header-left {
+    justify-content: center;  
+  }
+
+  .erasmus-logo {
+    height: 50px;
+  }
+
+  .header-left, .header-middle, .header-right {
+    margin: 5px 0;
+  }
+
+  .header-middle {
+    justify-content: center;
+  }
+
+  .input-search-bar {
+    width: 300px;
+  }
+
+  .submit-search-btn {
+    width: 70px;
+  }
+
+  .input-search-bar, .submit-search-btn {
+    padding: 8px;
+  }
+
+
 }

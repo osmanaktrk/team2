@@ -1,4 +1,5 @@
 *{
+    font-family: Roboto;
     box-sizing: border-box;
 }
 html, body{
@@ -27,7 +28,7 @@ body{
     text-align: center;
     background-color: rgba(228,228,228, 0.5);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
 }
 
 
@@ -38,6 +39,7 @@ input{
     border: transparent;
     border-radius: 25px;
     width: 200px;
+    outline: none;
 }
 
 #e-mail, #password, #password-check{
@@ -47,17 +49,21 @@ input{
 button{
     padding: 10px;
     width: 200px;
-    background-color: rgb(49,179,175);
+    color: white;
+    background-color: #16aba6;
     border: transparent;
     border-radius: 20px;
+
 }
 input:focus{
     box-shadow: rgba(0, 0, 0, 0.5) 0px 54px 55px, rgba(0, 0, 0, 0.5) 0px -12px 30px, rgba(0, 0, 0, 0.5) 0px 4px 6px, rgba(0, 0, 0, 0.5) 0px 12px 13px, rgba(0, 0, 0, 0.5) 0px -3px 5px;
+    transition: 0.5s;
 
 }
 button:hover{
     background-color: red;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 54px 55px, rgba(0, 0, 0, 0.5) 0px -12px 30px, rgba(0, 0, 0, 0.5) 0px 4px 6px, rgba(0, 0, 0, 0.5) 0px 12px 13px, rgba(0, 0, 0, 0.5) 0px -3px 5px;
+    transition: 0.5s;
 }
 button:active{
     transform: translateY(4px);
@@ -65,6 +71,7 @@ button:active{
 img{
     display: none;
 }
+
 @media screen and (max-width:800px) {
     body{
         background-image: none;
