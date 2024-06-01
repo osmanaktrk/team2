@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" defer="defer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
-    <title>{{ __('EraStudent') }}</title>
+    <title>{{ config('app.name', 'EraStudent') }}</title>
 </head>
 <body>
     <nav id="main-nav" class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #e8e8e8; height: 80px;">

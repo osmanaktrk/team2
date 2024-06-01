@@ -17,7 +17,7 @@
   $posts = Post::withCount('comments')
                 ->with(['category', 'tags'])
                 ->latest()
-                ->paginate(10);
+                ->paginate(20);
 @endphp
 
 <div class="header">
@@ -324,7 +324,7 @@
             </div>
             @foreach($post->tags as $tag)
             <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Category" class="category-image">
+              <img src="{{ asset('images/main/tag-image.png') }}" alt="Tag" class="category-image">
               <span class="category-text">{{ $tag->name }}</span>
             </div>
             @endforeach
