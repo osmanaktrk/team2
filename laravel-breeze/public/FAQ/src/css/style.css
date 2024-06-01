@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    scroll-behavior: smooth, cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/*-- FAQ --*/
+
+
+.faq-section {
+    background-color: #f8f9fa;
+    padding: 100px 0;
+}
+.dropdown .btn-link i{
+    color: #1ABCB6;
+}
+.faq-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.faq-section p {
+    font-size: 18px;
+}
+
+.faq-section .accordion {
+    border: none;
+}
+
+.faq-section .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.faq-section .card-header {
+    background-color: #fff;
+}
+
+.faq-section .card-header button {
+    font-size: 18px;
+    color: #333;
+    text-align: left;
+}
+
+.faq-section .card-body {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.contact-section {
+    padding: 100px 0;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.contact-section p {
+    font-size: 18px;
+}
+
+.contact-section .btn-primary {
+    background-color: #1ABCB6;
+    border: none;
+}
+
+.contact-section .btn-primary:hover {
+    background-color: #17a2b8;
+}
+
+/*-- Profile --*/
+
+
+.profile-section {
+    padding: 100px 0;
+    background-color: #f8f9fa;
+}
+
+.profile-section .card {
+    border-radius: 10px;
+}
+
+.profile-section .card-header {
+    background-color: #fff;
+    padding: 30px;
+}
+
+.profile-section .card-body {
+    padding: 30px;
+}
+
+.profile-section .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.profile-section .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    font-size: 16px;
+}
+
+.profile-section .btn-primary {
+    background-color: #1ABCB6;
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.profile-section .btn-primary:hover {
+    background-color: #17a2b8;
+}
+
+.profile-section .btn-outline-primary {
+    border-color: #1ABCB6;
+    color: #1ABCB6;
+}
+
+.profile-section .btn-outline-primary:hover {
+    background-color: #1ABCB6;
+    color: #fff;
+}
+
+
+
+/*-- Contact --*/
+
+
+.block {
+    height: 0.3rem;
+    width: 6rem;
+    background-color: black;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2rem;
+    opacity: 0.5;
+}
+
+.contact-section {
+    padding: 100px 0;
+    background-color: #f8f9fa;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.contact-section p {
+    font-size: 18px;
+}
+
+.contact-section .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-section .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    font-size: 16px;
+}
+
+.contact-section .btn-primary {
+    background-color: #1ABCB6;
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.contact-section .btn-primary:hover {
+    background-color: #17a2b8;
+}
+
+
+
+/*-- Dashboard --*/
+
+
+.profile-photo {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 2px solid gray;
+}
+.customize-button {
+    display: block;
+    margin: 20px auto;
+}
+
+.activity-links a {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    margin: 5px 0;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.action-buttons .btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
