@@ -19,11 +19,6 @@
         <title>{{ config('app.name', 'EraStudent') }}</title>
     </head>
     <body class="bg-light">
-    @php
-        use App\Models\Course;
-    
-        $courses = Course::all();
-    @endphp
         <nav
             id="main-nav"
             class="navbar navbar-expand-md navbar-light fixed-top bg-light">
@@ -112,20 +107,69 @@
                                             <option value="Bachelor-na-bachelor">{{ __('Bachelor-na-bachelor') }}</option>
                                         </select>
                                     </div>
-                                    <div class="form-group" id="specializationGroup" style="display: none;">
-                                        <label for="specialization" class="font-weight-light">{{ __('Specialization') }}</label>
-                                        <select class="form-control font-weight-lighter" id="specialization"></select>
+                                    <div class="form-group specializationGroup" id="Graduaat" style="display: none;">
+                                    <label for="specializationGraduaat" class="font-weight-light">{{ __('Specialization') }}</label>
+                                        <select class="form-control font-weight-lighter" id="specializationGraduaat">
+                                            @foreach($courses as $course)
+                                                @if ($course->type == ["Graduaat"] || $course->type == ['Graduaat', 'Lerarenopleiding'])
+                                                <option value="{{ $course->title }}">{{ $course->title }}</option>
+                                                @endif
+                                            @endforeach     
+                                        </select>
                                     </div>
-                                    <div class="form-group" id="yearGroup" style="display: none;">
-                                        <label for="year" class="font-weight-light">{{ __('Year') }}</label>
+                                    <div class="form-group specializationGroup" id="Bachelor" style="display: none;">
+                                    <label for="specializationBachelor" class="font-weight-light">{{ __('Specialization') }}</label>
+                                        <select class="form-control font-weight-lighter" id="specializationBachelor">
+                                            @foreach($courses as $course)
+                                                @if ($course->type == ["Bachelor"] || $course->type == ['Bachelor', 'Lerarenopleiding'])
+                                                <option value="{{ $course->title }}">{{ $course->title }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group specializationGroup" id="Lerarenopleiding" style="display: none;">
+                                    <label for="specializationLerarenopleiding" class="font-weight-light">{{ __('Specialization') }}</label>
+                                        <select class="form-control font-weight-lighter" id="specializationLerarenopleiding">
+                                            @foreach($courses as $course)
+                                                @if ($course->type == ['Graduaat', 'Lerarenopleiding'] || $course->type == ['Bachelor', 'Lerarenopleiding'])
+                                                <option value="{{ $course->title }}">{{ $course->title }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group specializationGroup" id="Kunstopleiding" style="display: none;">
+                                    <label for="specializationKunstopleiding" class="font-weight-light">{{ __('Specialization') }}</label>
+                                        <select class="form-control font-weight-lighter" id="specializationKunstopleiding">
+                                            @foreach($courses as $course)
+                                                @if ($course->type == ["Kunstopleiding"])
+                                                <option value="{{ $course->title }}">{{ $course->title }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group specializationGroup" id="Postgraduaat" style="display: none;">
+                                    <label for="specializationPostgraduaat" class="font-weight-light">{{ __('Specialization') }}</label>
+                                        <select class="form-control font-weight-lighter" id="specializationPostgraduaat">
+                                            @foreach($courses as $course)
+                                                @if ($course->type == ["Postgraduaat"])
+                                                <option value="{{ $course->title }}">{{ $course->title }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group specializationGroup" id="Bachelor-na-bachelor" style="display: none;">
+                                    <label for="specializationBnB" class="font-weight-light">{{ __('Specialization') }}</label>
+                                        <select class="form-control font-weight-lighter" id="specializationBnB">
+                                            @foreach($courses as $course)
+                                                @if ($course->type == ["Bachelor-na-bachelor"])
+                                                <option value="{{ $course->title }}">{{ $course->title }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group" id="year" style="display: none;">
+                                        <label for="yearGroup" class="font-weight-light">{{ __('Year') }}</label>
                                         <select class="form-control font-weight-lighter" id="yearGroup">
-                                            <option value="2016">{{ __('2016-17') }}</option>
-                                            <option value="2017">{{ __('2017-18') }}</option>
-                                            <option value="2018">{{ __('2018-19') }}</option>
-                                            <option value="2019">{{ __('2019-20') }}</option>
-                                            <option value="2020">{{ __('2020-21') }}</option>
-                                            <option value="2021">{{ __('2021-22') }}</option>
-                                            <option value="2022">{{ __('2022-23') }}</option>
                                             <option value="2023">{{ __('2023-24') }}</option>
                                             <option value="2024">{{ __('2024-25') }}</option>
                                             <option value="2025">{{ __('2025-26') }}</option>
@@ -150,59 +194,7 @@
                                             <option value="Bachelor-na-bachelor">{{ __('Bachelor-na-bachelor') }}</option>
                                             </select>
                                             <br>
-                                            <select class="select-edu edu" name="Graduaat" id="Graduaat" style="display: none;">
-                                            @foreach($courses as $course)
-                                                @if ($course->type == ["Graduaat"] || $course->type == ['Graduaat', 'Lerarenopleiding'])
-                                                <option value="{{ $course->title }}">{{ $course->title }}</option>
-                                                @endif
-                                            @endforeach     
-                                            
-                                            </select>
-                            
-                                            <select class="select-edu edu" name="Bachelor" id="Bachelor" style="display: none;">
-                                            @foreach($courses as $course)
-                                                @if ($course->type == ["Bachelor"] || $course->type == ['Bachelor', 'Lerarenopleiding'])
-                                                <option value="{{ $course->title }}">{{ $course->title }}</option>
-                                                @endif
-                                            @endforeach
-                            
-                                            </select>
-                            
-                                            <select class="select-edu edu" name="Lerarenopleiding" id="Lerarenopleiding" style="display: none;">
-                                            @foreach($courses as $course)
-                                                @if ($course->type == ['Graduaat', 'Lerarenopleiding'] || $course->type == ['Bachelor', 'Lerarenopleiding'])
-                                                <option value="{{ $course->title }}">{{ $course->title }}</option>
-                                                @endif
-                                            @endforeach
-                            
-                                            </select>
-                            
-                                            <select class="select-edu edu" name="Kunstopleiding" id="Kunstopleiding" style="display: none;">
-                                            @foreach($courses as $course)
-                                                @if ($course->type == ["Kunstopleiding"])
-                                                <option value="{{ $course->title }}">{{ $course->title }}</option>
-                                                @endif
-                                            @endforeach
-                            
-                                            </select>
-                            
-                                            <select class="select-edu edu" name="Postgraduaat" id="Postgraduaat" style="display: none;">
-                                            @foreach($courses as $course)
-                                                @if ($course->type == ["Postgraduaat"])
-                                                <option value="{{ $course->title }}">{{ $course->title }}</option>
-                                                @endif
-                                            @endforeach
-                            
-                                            </select>
-                            
-                                            <select class="select-edu edu" name="Bachelor-na-bachelor" id="Bachelor-na-bachelor" style="display: none;">
-                                            @foreach($courses as $course)
-                                                @if ($course->type == ["Bachelor-na-bachelor"])
-                                                <option value="{{ $course->title }}">{{ $course->title }}</option>
-                                                @endif
-                                            @endforeach
-                            
-                                            </select>
+
                                             <br>
                                             <input type="number" name="year" class="edu" id="year" placeholder="Year" style="display: none;">
                             
