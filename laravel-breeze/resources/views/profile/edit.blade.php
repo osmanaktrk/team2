@@ -23,7 +23,7 @@
             id="main-nav"
             class="navbar navbar-expand-md navbar-light fixed-top bg-light">
             <div class="container">
-                <a href="https://www.erasmushogeschool.be/nl" class="navbar-brand">
+                <a href="{{ route('welcome') }}" class="navbar-brand">
                     <img class="text-danger" src="{{ asset('images/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" id="logo" alt="Logo" style="height: 50px;">
                 </a>
                 <!-- Logo will be added later -->
@@ -176,31 +176,6 @@
                                             <option value="2026">{{ __('2026-27') }}</option>
                                             <option value="2027">{{ __('2027-28') }}</option>
                                         </select>
-                                    <!-- </div>
-                                    <div id="education-container">
-
-                                        <div id="edu-label">
-                                            <label class="label-left" for="edu-type">{{ __('Education: ') }}</label>
-                                        </div>
-                            
-                                        <div class="educations">
-                                            <select class="select-edu" name="edu-type" id="edu-type">
-                                            <option value="Select">{{ __('Select') }}</option>
-                                            <option value="Graduaat">{{ __('Graduaat') }}</option>
-                                            <option value="Bachelor">{{ __('Bachelor') }}</option>
-                                            <option value="Lerarenopleiding">{{ __('Lerarenopleiding') }}</option>
-                                            <option value="Kunstopleiding">{{ __('Kunstopleiding') }}</option>
-                                            <option value="Postgraduaat">{{ __('Postgraduaat') }}</option>
-                                            <option value="Bachelor-na-bachelor">{{ __('Bachelor-na-bachelor') }}</option>
-                                            </select>
-                                            <br>
-
-                                            <br>
-                                            <input type="number" name="year" class="edu" id="year" placeholder="Year" style="display: none;">
-                            
-                                        </div>
-                                            
-                                    </div> -->
                                     <div class="text-center pt-3 pb-2">
                                         <button type="submit" class="btn btn-primary">{{ __('Save Changes') }}</button>
                                         <!-- Success prompt is needed here -->

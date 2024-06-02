@@ -13,12 +13,14 @@
 <body>
     <nav id="main-nav" class="navbar navbar-expand-md navbar-light fixed-top bg-light">
         <div class="container">
-            <a href="https://www.erasmushogeschool.be/nl" class="navbar-brand">
+            <a href="{{ route('welcome') }}" class="navbar-brand">
                 <img class="text-danger" src="{{ asset('images/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" id="logo" alt="Logo" style="height: 50px;">
             </a>
             <div class="ml-auto">
                 <div class="dropdown">
+                    @if (Route::has('login'))
                     <button class="btn btn-link text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @auth
                         <i class="fas fa-user-circle fa-lg"></i>
                     </button>
                     <!-- Logo will be added later -->
@@ -28,6 +30,12 @@
                         <a class="dropdown-item" href="#">{{ __('Logout') }}</a>
                         <!-- Logout function is needed -->
                     </div>
+                    @else
+                    <button class="btn btn-link text-decoration-none" type="button" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-item" href="{{ route('contact') }}">{{ __('Contact') }}</a>
+                    </button>
+                        @endauth
+                    @endif
                 </div>
             </div>
         </div>

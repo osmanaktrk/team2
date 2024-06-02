@@ -23,7 +23,7 @@
             id="main-nav"
             class="navbar navbar-expand-md navbar-light fixed-top bg-light">
             <div class="container">
-                <a href="https://www.erasmushogeschool.be/nl" class="navbar-brand">
+                <a href="{{ route('welcome') }}" class="navbar-brand">
                     <img class="text-danger" src="{{ asset('images/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" id="logo" alt="Logo" style="height: 50px;">
                 </a>
                 <div class="ml-auto">
