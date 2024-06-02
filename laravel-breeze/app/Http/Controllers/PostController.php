@@ -14,5 +14,15 @@ use Illuminate\View\View;
 
 class PostController extends Controller
 {
-    //
+    public function redirectToMain(Request $request): View
+    {
+        $posts = Post::withCount('comments')
+            ->with(['category', 'tags'])
+            ->latest()
+            ->paginate(20);
+
+        return view('main', [
+            'posts' => $posts,
+        ]);
+    }
 }

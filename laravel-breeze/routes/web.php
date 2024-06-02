@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\YourControllerName;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +17,7 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/main', function () {
-    return view('main');
-})->name('main');
+Route::get('/main', [PostController::class, 'redirectToMain'])->name('main');
 
 Route::get('/FAQ', function () {
     return view('FAQ');
