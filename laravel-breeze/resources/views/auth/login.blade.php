@@ -12,7 +12,7 @@
 <body>
     <div class="main-cart">
         <div id="login">
-            <img src="{{ asset('images/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" alt="ehb-logo">
+            <img src="{{ asset('img/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" alt="ehb-logo">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <!-- Username -->

@@ -1,27 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ config('app.name', 'EraStudent') }}</title>
+@extends('layouts.app')
+
+@section('title', 'Main')
+
+@push('head')
   <link rel="stylesheet" href="{{ asset('css/MainPagina-header.css') }}">
   <link rel="stylesheet" href="{{ asset('css/MainPagina-main.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-</head>
-<body>
+@endpush
 
+@section('content')
 <div class="header">
 
   <div class="header-left">
     
     <!-- <button class="header-expansion-button" onclick="window.location.href='https://www.google.be/?hl=nl'">
-      <img class="expansionbutton-asset" src="{{ asset('images/main/hamburger-menu.svg') }}" alt="menu">
+      <img class="expansionbutton-asset" src="{{ asset('img/main/hamburger-menu.svg') }}" alt="menu">
     </button> -->
 
      <div class="header-logo">
-      <img class="erasmus-logo" src="{{ asset('images/main/download.png') }}" alt="ehb-logo">
+      <img class="erasmus-logo" src="{{ asset('img/main/download.png') }}" alt="ehb-logo">
     </div>
   
   </div>
@@ -45,11 +44,11 @@
   <div class="header-right">
   
     <button class="header-chat-button">
-      <img class="chatbutton-asset" src="{{ asset('images/main/chatbutton-image.png') }}" alt="chat-button">
+      <img class="chatbutton-asset" src="{{ asset('img/main/chatbutton-image.png') }}" alt="chat-button">
     </button>
   
     <button class="header-profile-button">
-      <img class="profilebutton-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="profile-button">
+      <img class="profilebutton-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="profile-button">
     </button>
 
   </div>
@@ -63,7 +62,7 @@
     <button class="leftmenu-top" id="leftmenu-top-one"   onclick="window.location.href='{{ route('profile.edit') }}'">
       
       <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
+        <img class="left-manage-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
       <div class="left-manage-word" id="collapsible-topics">
@@ -74,7 +73,7 @@
     <button class="leftmenu-top"  onclick="window.location.href='{{ route('dashboard') }}'">
       
       <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
+        <img class="left-manage-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
       <div class="left-manage-word">
@@ -85,7 +84,7 @@
     <!-- <button class="leftmenu-top" onclick="window.location.href='https://www.google.be/?hl=nl'">
       
       <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
+        <img class="left-manage-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
       <div class="left-manage-word">
@@ -96,7 +95,7 @@
     <button class="leftmenu-top" onclick="window.location.href='{{ route('FAQ') }}'">
       
       <div class="left-manage-assetdiv">
-      <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
+      <img class="left-manage-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
       <div class="left-manage-word">
@@ -106,7 +105,7 @@
 
     <button class="leftmenu-top" onclick="window.location.href='{{ route('contact') }}'">
     <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
+        <img class="left-manage-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
     </div>
     <div class="left-manage-word">
         {{ __('Contact') }}
@@ -315,7 +314,7 @@
             </div>
             @foreach($post->tags as $tag)
             <div class="category-container">
-              <img src="{{ asset('images/main/tag-image.png') }}" alt="Tag" class="category-image">
+              <img src="{{ asset('img/main/tag-image.png') }}" alt="Tag" class="category-image">
               <span class="category-text">{{ $tag->name }}</span>
             </div>
             @endforeach
@@ -335,161 +334,5 @@
   </div>
 </div>
 
-<script>
-  var collapsibleButtons = document.querySelectorAll('.collapsible');
-
-  collapsibleButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-      this.classList.toggle('active');
-
-      var content = this.nextElementSibling;
-
-      content.classList.toggle('active');
-    });
-  });
-
-
-  document.addEventListener("DOMContentLoaded", function() {
-    const maxTitleLength = 100;  // verander dit aantal om maximale lengte van de weergegeven titel te veranderen (voordat het wordt afgebroken door '...')
-    const maxContentLength = 200; // verander dit aantal om maximale lengte van de weergegeven content te veranderen (voordat het wordt afgebroken door '...')
-    const titleElements = document.querySelectorAll('.post-header');
-    const contentElements = document.querySelectorAll('.post-body');
-
-    titleElements.forEach(titleElement => {
-      let titleText = titleElement.innerText;
-
-      if (titleText.length > maxTitleLength) {
-        titleText = titleText.substring(0, maxTitleLength) + '...';
-        titleElement.innerText = titleText;
-      }
-    });
-
-    contentElements.forEach(contentElement => {
-      let contentText = contentElement.innerText;
-
-      if (contentText.length > maxContentLength) {
-        contentText = contentText.substring(0, maxContentLength) + '...';
-        contentElement.innerText = contentText;
-      }
-    });
-  });
-
-  /* ------------------------------------------------------------------- CREATE POST BUTTON SETTINGS */
-  document.addEventListener("DOMContentLoaded", function() {
-  const createPostBtn = document.querySelector('.createpostbutton');
-  const popup = document.getElementById('postPopup');
-  const closeBtn = document.querySelector('.popup-close');
-
-  createPostBtn.addEventListener('click', function() {
-    popup.style.display = 'flex';
-  });
-
-  closeBtn.addEventListener('click', function() {
-    popup.style.display = 'none';
-  });
-
-  window.addEventListener('click', function(event) {
-    if (event.target === popup) {
-      popup.style.display = 'none';
-    }
-  });
-
-  const postForm = document.getElementById('postForm');
-  postForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('Post submitted!');
-    popup.style.display = 'none';
-  });
-  });
-
-
-  document.addEventListener("DOMContentLoaded", function() {
-  const maxTitleLength = 300; // verander dit aantal om maximale lengte van de invoer voor de titel bij post-aanmaak te veranderen
-  const maxContentLength = 40000; // verander dit aantal om maximale lengte van de invoer voor de content bij post-aanmaak te veranderen
-
-  const titleInput = document.getElementById('postTitle');
-  const contentInput = document.getElementById('postContent');
-
-  titleInput.addEventListener('input', function() {
-    if (titleInput.value.length > maxTitleLength) {
-      titleInput.value = titleInput.value.substring(0, maxTitleLength);
-    }
-  });
-
-  contentInput.addEventListener('input', function() {
-    if (contentInput.value.length > maxContentLength) {
-      contentInput.value = contentInput.value.substring(0, maxContentLength);
-    }
-  });
-  });
-
-
-
-  /* ------------------------------------------------------------------- PAGINATION */
-  document.addEventListener('DOMContentLoaded', function() {
-    const posts = document.querySelectorAll('.posts-container .post');
-    const postsPerPage = 5;
-    const paginationContainer = document.getElementById('pagination');
-    let currentPage = 1;
-    const totalPages = Math.ceil(posts.length / postsPerPage);
-
-    function showPage(page) {
-      const start = (page - 1) * postsPerPage;
-      const end = start + postsPerPage;
-
-      posts.forEach((post, index) => {
-        post.style.display = (index >= start && index < end) ? 'block' : 'none';
-      });
-
-      document.querySelectorAll('.pagination button').forEach(button => {
-        button.classList.remove('disabled');
-      });
-
-      if (page === 1) {
-        document.getElementById('pagination-prev-btn').classList.add('disabled');
-      }
-
-      if (page === totalPages) {
-        document.getElementById('pagination-next-btn').classList.add('disabled');
-      }
-
-      document.getElementById('pageNumber').textContent = `Page ${page} of ${totalPages}`;
-    }
-
-    function createPaginationButtons() {
-      const prevButton = document.createElement('button');
-      prevButton.id = 'pagination-prev-btn';
-      prevButton.textContent = 'Prev';
-      prevButton.addEventListener('click', () => {
-        if (currentPage > 1) {
-          currentPage--;
-          showPage(currentPage);
-        }
-      });
-
-      const nextButton = document.createElement('button');
-      nextButton.id = 'pagination-next-btn';
-      nextButton.textContent = 'Next';
-      nextButton.addEventListener('click', () => {
-        if (currentPage < totalPages) {
-          currentPage++;
-          showPage(currentPage);
-        }
-      });
-
-      const pageNumber = document.createElement('span');
-      pageNumber.id = 'pageNumber';
-      pageNumber.style.margin = '0 10px';
-      pageNumber.textContent = `Page 1 of ${totalPages}`;
-
-      paginationContainer.appendChild(prevButton);
-      paginationContainer.appendChild(pageNumber);
-      paginationContainer.appendChild(nextButton);
-    }
-
-    createPaginationButtons();
-    showPage(currentPage);
-  });
-</script>
-</body>
-</html>
+<script src="{{ asset('js/components/main.js') }}"></script>
+@endsection

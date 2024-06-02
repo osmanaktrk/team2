@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="main-sign">
-        <img src="{{ asset('images/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" alt="ehb-logo">
+        <img src="{{ asset('img/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" alt="ehb-logo">
         <h2>Sign Up Now</h2>
         <form method="POST" action="{{ route('register') }}">
             @csrf

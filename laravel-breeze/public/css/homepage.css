@@ -24,7 +24,7 @@ section {
 
 /* Home Section */
 #home {
-    background-image: url("../images/home/Guy.png");
+    background-image: url("../img/home/Guy.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -103,7 +103,7 @@ img {
         font-size: small; 
     }
     #home{
-        background-image: url("../images/home/erasmushogeschool_brussel_cover-2.png");
+        background-image: url("../img/home/erasmushogeschool_brussel_cover-2.png");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;

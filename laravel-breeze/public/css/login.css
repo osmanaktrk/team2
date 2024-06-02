@@ -19,7 +19,7 @@ body{
     width: 800px;
     height: auto;
     min-height: 400px;
-    background-image: url("../images/website.jpg");
+    background-image: url("../img/website.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -110,7 +110,7 @@ button:active{
         width: auto;
         display: flex;
         justify-content: center;
-        background-image: url("../images/ehb_logos/EhB-logo-transparant.png");
+        background-image: url("../img/ehb_logos/EhB-logo-transparant.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: contain;

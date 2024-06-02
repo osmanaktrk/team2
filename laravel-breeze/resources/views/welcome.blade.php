@@ -17,7 +17,7 @@
     <nav id="main-nav" class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #e8e8e8; height: 80px;">
         <div class="container">
             <a href="{{ route('welcome') }}" class="navbar-brand fa-3x">
-                <img src="{{ asset('images/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" id="logo" class="mb-3">
+                <img src="{{ asset('img/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" id="logo" class="mb-3">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,7 +79,7 @@
             </div>
             <div class="row align-items-center mt-5">
                 <div class="col-lg-6">
-                    <img src="{{ asset('images/home/Girl.png') }}"  class="pb-5" style="height: 700px; margin-left: 40px;" alt="Girl Image">
+                    <img src="{{ asset('img/home/Girl.png') }}"  class="pb-5" style="height: 700px; margin-left: 40px;" alt="Girl Image">
                 </div>
                 <div class="col-lg-6">
                     <h2 class="font-weight-lighter" style="color: #1ABCB6;">{{ __('The key to your academic success') }}</h2>

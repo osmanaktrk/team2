@@ -24,7 +24,7 @@
             class="navbar navbar-expand-md navbar-light fixed-top bg-light">
             <div class="container">
                 <a href="{{ route('welcome') }}" class="navbar-brand">
-                    <img class="text-danger" src="{{ asset('images/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" id="logo" alt="Logo" style="height: 50px;">
+                    <img class="text-danger" src="{{ asset('img/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" id="logo" alt="Logo" style="height: 50px;">
                 </a>
                 <!-- Logo will be added later -->
                 <div class="ml-auto">
