@@ -68,25 +68,25 @@
 
   <div class="left-menu">
 
-    <button class="leftmenu-top" id="leftmenu-top-one" onclick="window.location.href='https://www.google.be/?hl=nl'">
+    <button class="leftmenu-top" id="leftmenu-top-one"   onclick="window.location.href='{{ route('profile.edit') }}'">
       
       <div class="left-manage-assetdiv">
         <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
       <div class="left-manage-word" id="collapsible-topics">
-        {{ __('Topics') }}
+        {{ __('Profile') }}
       </div>
     </button>
 
-    <button class="leftmenu-top" onclick="window.location.href='https://www.google.be/?hl=nl'">
+    <button class="leftmenu-top"  onclick="window.location.href='{{ route('dashboard') }}'">
       
       <div class="left-manage-assetdiv">
         <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
       <div class="left-manage-word">
-        {{ __('My posts') }}
+        {{ __('Dashboard') }}
       </div>
     </button>
 
@@ -101,27 +101,26 @@
       </div> 
     </button> -->
 
-    <button class="leftmenu-top" onclick="window.location.href='https://www.google.be/?hl=nl'">
+    <button class="leftmenu-top" onclick="window.location.href='{{ route('FAQ') }}'">
       
       <div class="left-manage-assetdiv">
       <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
       </div>
       
       <div class="left-manage-word">
-        {{ __('Admin') }}
+        {{ __('FAQ') }}
       </div>
     </button>
 
-    <button class="leftmenu-top" onclick="window.location.href='https://www.google.be/?hl=nl'">
-      
-      <div class="left-manage-assetdiv">
-      <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
-      </div>
-      
-      <div class="left-manage-word">
-        {{ __('Users') }}
-      </div>
-    </button>
+    <button class="leftmenu-top" onclick="window.location.href='{{ route('contact') }}'">
+    <div class="left-manage-assetdiv">
+        <img class="left-manage-asset" src="{{ asset('images/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
+    </div>
+    <div class="left-manage-word">
+        {{ __('Contact') }}
+    </div>
+</button>
+
 
 
     <button class="collapsible">

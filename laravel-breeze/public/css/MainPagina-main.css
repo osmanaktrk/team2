@@ -396,11 +396,11 @@ body {
 @media (max-width: 768px) {
 
   .main {
-    grid-template-columns: 30% 1% 69%;
+    grid-template-columns: 25% 5% 70%;
   }
   .left-menu {
     margin: 5px 20px 15px 20px;
-    height: 90%;
+    height: 100%;
   }
 
   .leftmenu-top {
