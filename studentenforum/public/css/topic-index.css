@@ -1,0 +1,107 @@
+.body-main-conteiner{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 50px;
+}
+
+.body-container{
+    border: solid 2px rgba(33, 32, 32, 0.486);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    max-width: 1600px;
+    height: auto;
+    padding: 25px;
+    margin: 50px;
+    
+    
+    
+  
+}
+
+.container{
+    background-color: rgba(255, 255, 255, 0.902);
+    border-radius: 50px;
+    margin-bottom: 25px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 50px;
+}
+
+#topic{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#topic-top{
+    margin-bottom: 25px;
+}
+#topic-title{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-weight: bold;
+    border: 2px solid;
+    border-radius: 20px;
+    
+}
+
+
+#topic-bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+#topic-bottom>*{
+    margin: 15px;
+}
+
+.post{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.post-title, .post-content{
+    margin-bottom: 25px;
+}
+
+.post-bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    
+}
+
+.post-bottom>*{
+    margin: 15px;
+}
+
+.selections{
+    margin: 20px 0;
+}
+
+#content{
+    min-height: 400px;
+    width: 100%;
+}
+
+#button{
+    display: flex;
+    justify-content: center;
+    
+}
+.post-edit{
+    display: none;
+}
+
+
+.post-edit>button{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
