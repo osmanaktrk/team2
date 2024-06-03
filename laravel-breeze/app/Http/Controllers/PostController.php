@@ -19,7 +19,7 @@ class PostController extends Controller
         $posts = Post::withCount('comments')
             ->with(['category', 'tags'])
             ->latest()
-            ->paginate(20);
+            ->get();
 
         return view('main', [
             'posts' => $posts,
