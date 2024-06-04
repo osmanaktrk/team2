@@ -118,8 +118,6 @@
                         <input type="checkbox" name="category" id="Sience" value="Sience" style="display: none" checked>
                    
 
-
-
                 </div>
 
                 <div id="body-right">
@@ -229,39 +227,21 @@
                         </div>
 
                         @endforeach
-
                         
+                    
                         
-                        
-
-                        
-
+        
                     </div>
-
 
                 </div>
 
-
             </div>
-
-
-
 
 
         </div>
 
 
-
-
-
-
-
-
-
-
     </x-app-layout>
-
-
 
 
     <script src="{{ asset('js/main.js') }} "></script>

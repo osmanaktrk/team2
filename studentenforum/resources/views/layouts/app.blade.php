@@ -18,7 +18,6 @@
         body {
             box-sizing: border-box
             background-color: rgb(228, 228, 228);
-            background-image: url("../img/ehb_logos/EhB-logo-transparant.png");
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
