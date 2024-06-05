@@ -21,6 +21,14 @@
 @section('body-class', 'bg-light')
 
 @section('content')
+
+<x-slot name="header">
+    @if (session('status'))
+        <h2 x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"
+            class="text-xl text-green-600">{{ session('status') }}</h2>
+    @endif
+</x-slot>
+
 <nav
     id="main-nav"
     class="navbar navbar-expand-md navbar-light fixed-top bg-light">
@@ -56,6 +64,7 @@
 <section class="profile-section mt-5">
     <div class="container">
         <div class="row justify-content-center">
+        @include('profile.partials.update-profile-img-form')
             <div class="col-lg-8">
                 <div class="card shadow-sm">
                     <div class="card-header bg-white text-center">
@@ -68,6 +77,7 @@
                         <a href="#" class="btn btn-outline-primary btn-sm">{{ __('Edit Profile') }}</a>
                         <!-- Profile select function is needed -->
                     </div>
+
                     <div class="card-body">
                         <form>
                             <div class="form-group">

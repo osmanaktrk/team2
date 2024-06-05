@@ -48,9 +48,11 @@ class ProfileController extends Controller
     public function edit(Request $request): View
     {
         $courses = Course::all();
+        $schoolYears = ["2023-2024", "2024-2025", "2025-2026", "2026-2027", "2027-2028", "2028-2029", "2029-2030"];
         return view('profile.edit', [
             'user' => $request->user(),
             'courses' => $courses,
+            'schoolYears' => $schoolYears,
         ]);
     }
 
@@ -72,6 +74,11 @@ class ProfileController extends Controller
 
             // Associate the course with the user
             $user->course()->associate($course);
+        }
+
+        if ($request->has('education_year')) {
+            $schoolYear = $request->input('course_id');
+            $request->user()->education_year = $schoolYear;
         }
 
         $request->user()->save();
