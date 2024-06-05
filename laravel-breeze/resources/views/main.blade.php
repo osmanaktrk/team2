@@ -1,338 +1,259 @@
 @extends('layouts.app')
 
-@section('title', 'Main')
+@section('full-title', 'Main')
 
 @push('head')
-  <link rel="stylesheet" href="{{ asset('css/MainPagina-header.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/MainPagina-main.css') }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/main.css') }} ">
 @endpush
 
 @section('content')
-<div class="header">
 
-  <div class="header-left">
-    
-    <!-- <button class="header-expansion-button" onclick="window.location.href='https://www.google.be/?hl=nl'">
-      <img class="expansionbutton-asset" src="{{ asset('img/main/hamburger-menu.svg') }}" alt="menu">
-    </button> -->
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Main') }}
+        </h2>
+        @if (session('status'))
+            <h2 x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"
+                class="text-xl text-green-600">{{ session('status') }}</h2>
+        @endif
 
-     <div class="header-logo">
-      <img class="erasmus-logo" src="{{ asset('img/main/download.png') }}" alt="ehb-logo">
-    </div>
-  
-  </div>
-  
-  <div class="header-middle">
+    </x-slot>
 
-  <div class="search-bar-container">
-    <div class="text-center">
-        <div class="search-bar">
-            <input
-              class="input-search-bar" type="search" placeholder="{{ __('Search for topics') }}" aria-label="Search">
-            <button class="submit-search-btn" type="submit">{{ __('Search') }}</button>
+
+    <div id="popup-container">
+        <div id="popup">
+            @include('post.create-pop')
         </div>
     </div>
-  </div>
 
-    
-  </div>
-  
-  
-  <div class="header-right">
-  
-    <button class="header-chat-button">
-      <img class="chatbutton-asset" src="{{ asset('img/main/chatbutton-image.png') }}" alt="chat-button">
-    </button>
-  
-    <button class="header-profile-button">
-      <img class="profilebutton-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="profile-button">
-    </button>
+    <div id="body-main-conteiner">
+        <div id="body-container">
 
-  </div>
-  
-</div>
+            <div id="body-left">
 
-<div class="main">
+                <label for="all-topics"
+                        class="cat-select inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                        ALL POSTS:<span class="total">{{$posts->count()}}</span>
+                </label>
+                <input type="checkbox" name="all-topics" id="all-topics" value="all-topics" style="display: none" checked>
+                
+                <span id="head-cat">CATEGORIES</span>
 
-  <div class="left-menu">
+                
+                    <label for="General"
+                        class="cat-select inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                        GENERAL
+                    </label>
+                    <input type="checkbox" name="category" id="General" value="General" style="display: none" checked>
+                
 
-    <button class="leftmenu-top" id="leftmenu-top-one"   onclick="window.location.href='{{ route('profile.edit') }}'">
-      
-      <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
-      </div>
-      
-      <div class="left-manage-word" id="collapsible-topics">
-        {{ __('Profile') }}
-      </div>
-    </button>
+                
+                    <label for="Education"
+                        class="cat-select inline-flex items-center px-4 py-2 bg-blue-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                        EDUCATION
+                    </label>
+                    <input type="checkbox" name="category" id="Education" value="Education" style="display: none" checked>
 
-    <button class="leftmenu-top"  onclick="window.location.href='{{ route('dashboard') }}'">
-      
-      <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
-      </div>
-      
-      <div class="left-manage-word">
-        {{ __('Dashboard') }}
-      </div>
-    </button>
+                
 
-    <!-- <button class="leftmenu-top" onclick="window.location.href='https://www.google.be/?hl=nl'">
-      
-      <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
-      </div>
-      
-      <div class="left-manage-word">
-        {{ __('Review') }}
-      </div> 
-    </button> -->
+                
+                    <label for="Game"
+                        class="cat-select inline-flex items-center px-4 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                        GAME
+                    </label>
+                    <input type="checkbox" name="category" id="Game" value="Game" style="display: none" checked>
+                
 
-    <button class="leftmenu-top" onclick="window.location.href='{{ route('FAQ') }}'">
-      
-      <div class="left-manage-assetdiv">
-      <img class="left-manage-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
-      </div>
-      
-      <div class="left-manage-word">
-        {{ __('FAQ') }}
-      </div>
-    </button>
+                
+                    <label for="Movie"
+                        class="cat-select inline-flex items-center px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                        MOVIE
+                    </label>
+                    <input type="checkbox" name="category" id="Movie" value="Movie" style="display: none" checked>
+              
 
-    <button class="leftmenu-top" onclick="window.location.href='{{ route('contact') }}'">
-    <div class="left-manage-assetdiv">
-        <img class="left-manage-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}" alt="">
-    </div>
-    <div class="left-manage-word">
-        {{ __('Contact') }}
-    </div>
-</button>
+                
+                    <label for="Music"
+                        class="cat-select inline-flex items-center px-4 py-2 bg-yellow-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-700 focus:bg-yellow-700 active:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                        MUSIC
+                    </label>
+                    <input type="checkbox" name="category" id="Music" value="Music" style="display: none" checked>
+              
+
+                
+                    <label for="Nature"
+                        class="cat-select inline-flex items-center px-4 py-2 bg-orange-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-orange-700 focus:bg-orange-700 active:bg-orange-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                        NATURE
+                    </label>
+                    <input type="checkbox" name="category" id="Nature" value="Nature" style="display: none" checked>
+                
+
+                
+                    <label for="Politic"
+                        class="cat-select inline-flex items-center px-4 py-2 bg-pink-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-pink-700 focus:bg-pink-700 active:bg-pink-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                        POLITIC
+                    </label>
+                    <input type="checkbox" name="category" id="Politic" value="Politic" style="display: none" checked>
+                
+
+                
+                    <label for="Social"
+                        class="cat-select inline-flex items-center px-4 py-2 bg-purple-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-purple-700 focus:bg-purple-700 active:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                        SOCIAL
+                    </label>
+                    <input type="checkbox" name="category" id="Social" value="Social" style="display: none" checked>
+              
+
+                
+                    <label for="Sience"
+                        class="cat-select inline-flex items-center px-4 py-2 bg-indigo-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                        SIENCE
+                    </label>
+                    <input type="checkbox" name="category" id="Sience" value="Sience" style="display: none" checked>
+                
 
 
 
-    <button class="collapsible">
-      
-      <div class="collapsible-div">
-        <div class="collapsible-assetdiv">
-        </div>
-        {{ __('Categories') }}
-      </div>
-
-    </button>
-    
-    <div class="content">
-      
-      <button class="collapsible-contentbutton">
-
-        <div class="left-manage-assetdiv">
-          <div class="icon education"></div>
-        </div>
-
-        <div class="left-manage-word">
-          {{ __('Education') }}
-        </div>
-
-      </button>
-
-      <button class="collapsible-contentbutton">
-
-        <div class="left-manage-assetdiv">
-          <div class="icon general"></div>
-        </div>
-        
-        <div class="left-manage-word">
-          {{ __('General') }}
-        </div>
-
-      </button>
-
-      <!-- <button class="collapsible-contentbutton">
-
-        <div class="left-manage-assetdiv">
-          <div class="icon staff"></div>
-        </div>
-        
-        <div class="left-manage-word">
-          {{ __('Staff') }}
-        </div>
-
-      </button> -->
-
-    </div>
-
-    <!-- <button class="collapsible">
-      
-      <div class="collapsible-div">
-        <div class="collapsible-assetdiv">
-        </div>
-        {{ __('Tags') }} -->
-      <!-- </div> -->
-
-    </button>
-    
-    <div class="content">
-      
-      <button class="collapsible-contentbutton">
-
-        <div class="left-manage-assetdiv">
-          <div class="icon general"></div>
-        </div>
-
-        <div class="left-manage-word">
-          {{ __('News') }}
-        </div>
-
-      </button>
-
-      <button class="collapsible-contentbutton">
-
-        <div class="left-manage-assetdiv">
-          <div class="icon feedback"></div>
-        </div>
-        
-        <div class="left-manage-word">
-          {{ __('Blog') }}
-        </div>
-
-      </button>
-
-      <button class="collapsible-contentbutton">
-
-        <div class="left-manage-assetdiv">
-          <div class="icon staff"></div>
-        </div>
-        
-        <div class="left-manage-word">
-          {{ __('Code') }}
-        </div>
-
-      </button>
-
-    </div>
-
-    <button class="collapsible">
-      
-      <div class="collapsible-div">
-        <div class="collapsible-assetdiv">
-        </div>
-        {{ __('Channels') }}
-      </div>
-
-    </button>
-    
-    <div class="content">
-      
-      <button class="collapsible-contentbutton">
-
-        <div class="left-manage-assetdiv">
-          <div class="icon general2"></div>
-        </div>
-
-        <div class="left-manage-word">
-          {{ __('General') }}
-        </div>
-
-      </button>
-
-      <button class="collapsible-contentbutton">
-
-        <div class="left-manage-assetdiv">
-          <div class="icon staff"></div>
-        </div>
-        
-        <div class="left-manage-word">
-          {{ __('Staff') }}
-        </div>
-
-      </button>
-
-      </button>
-
-    </div>
-
-  </div>
-
-  <div class="divider">
-  </div>
-
-  <div class="right">
-    <div class="right-ceiling">
-      <div class="right-sorting">
-        <button class="sortingbutton">{{ __('All categories') }}</button>
-        <!-- <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">{{ __('All tags') }}</button> -->
-        <button class="sortingbutton">{{ __('Latest') }}</button>
-        <button class="sortingbutton">{{ __('Unread') }}</button>
-        <!-- <button class="sortingbutton" onclick="window.location.href='https://www.google.be/?hl=nl'">{{ __('Top') }}</button> -->
-      </div>
-
-      <button class="createpostbutton">
-        {{ __('+ New Post') }}
-      </button>
-
-      <div id="postPopup" class="popup">
-        <div class="popup-content">
-          <span class="popup-close">&times;</span>
-          <h2>{{ __('Create New Post') }}</h2>
-          <form id="postForm">
-            <label for="postTitle">{{ __('Post Title:') }}</label>
-            <input type="text" id="postTitle" name="title" required>
-            
-            <label for="postContent">{{ __('Post Content:') }}</label>
-            <textarea id="postContent" name="content" required></textarea>
-            
-            <label for="postCategory">{{ __('Category:') }}</label>
-            <select id="postCategory" name="category">
-              <option value="education">{{ __('Education') }}</option>
-              <option value="general">{{ __('General') }}</option>
-            </select>
-            
-            <button type="submit">{{ __('Submit') }}</button>
-          </form>
-        </div>
-      </div>
-    </div>
-      
-    <div class="postbar">
-      <div class="posts-container">
-        @foreach($posts as $post)
-        <div class="post">
-          <div class="post-header">
-            <h3 class="post-header-text">{{ $post->title }}</h3>
-          </div>
-          <div class="post-body">
-            <p>{{ $post->excerpt }}</p>
-          </div>
-          <div class="post-footer">
-            <div>
-              <button class="upvote-downvote-btn">{{ __('Upvote') }}</button>
-              <button class="upvote-downvote-btn">{{ __('Downvote') }}</button>
-              <span class="post-comments-amount">{{ $post->comments_count }} {{ __('Comments') }}</span>
             </div>
-            @foreach($post->tags as $tag)
-            <div class="category-container">
-              <img src="{{ asset('img/main/tag-image.png') }}" alt="Tag" class="category-image">
-              <span class="category-text">{{ $tag->name }}</span>
-            </div>
-            @endforeach
-            <div>
-              <button class="share-report-btn">{{ __('Share') }}</button>
-              <button class="share-report-btn">{{ __('Report') }}</button>
-            </div>
-          </div>
-        </div> 
-        @endforeach
-    
-      <div class="pagination" id="pagination"></div>
+
+            <div id="body-right">
+
+                <div id="body-rigt-nav">
+                    <div id="body-rigt-nav-top">
+
+                        <div id="general-selected"
+                            class="close-selected inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            GENERAL <span class="close-sembol">X</span>
+                        </div>
+
+                        <div id="education-selected"
+                            class="close-selected inline-flex items-center px-4 py-2 bg-blue-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            EDUCATION <span class="close-sembol">X</span>
+                        </div>
+
+                        <div id="game-selected"
+                            class="close-selected inline-flex items-center px-4 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            GAME <span class="close-sembol">X</span>
+                        </div>
+
+                        <div id="movie-selected"
+                            class="close-selected inline-flex items-center px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            MOVIE <span class="close-sembol">X</span>
+                        </div>
+
+                        <div id="music-selected"
+                            class="close-selected inline-flex items-center px-4 py-2 bg-yellow-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-700 focus:bg-yellow-700 active:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            MUSIC <span class="close-sembol">X</span>
+                        </div>
+
+                        <div id="nature-selected"
+                            class="close-selected inline-flex items-center px-4 py-2 bg-orange-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-orange-700 focus:bg-orange-700 active:bg-orange-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            NATURE <span class="close-sembol">X</span>
+                        </div>
+
+                        <div id="politic-selected"
+                            class="close-selected inline-flex items-center px-4 py-2 bg-pink-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-pink-700 focus:bg-pink-700 active:bg-pink-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            POLITIC <span class="close-sembol">X</span>
+                        </div>
+
+                        <div id="social-selected"
+                            class="close-selected inline-flex items-center px-4 py-2 bg-purple-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-purple-700 focus:bg-purple-700 active:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            SOCIAL <span class="close-sembol">X</span>
+                        </div>
+
+                        <div id="science-selected"
+                            class="close-selected inline-flex items-center px-4 py-2 bg-indigo-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            SIENCE <span class="close-sembol">X</span>
+                        </div>
+                    </div>
+
+                    <div id="body-rigt-nav-bottom">
+                        
+
+                        <div id="search-div">
+                            <input class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" type="search" name="search" id="search" placeholder="Search">
+                            <label id="search-sembol" for="search">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#5f6368"><path d="M792-120.67 532.67-380q-30 25.33-69.64 39.67Q423.39-326 378.67-326q-108.44 0-183.56-75.17Q120-476.33 120-583.33t75.17-182.17q75.16-75.17 182.5-75.17 107.33 0 182.16 75.17 74.84 75.17 74.84 182.27 0 43.23-14 82.9-14 39.66-40.67 73l260 258.66-48 48Zm-414-272q79.17 0 134.58-55.83Q568-504.33 568-583.33q0-79-55.42-134.84Q457.17-774 378-774q-79.72 0-135.53 55.83-55.8 55.84-55.8 134.84t55.8 134.83q55.81 55.83 135.53 55.83Z"/></svg>
+                            </label>
+                        </div>
+
+                        <div id="popup-open"
+                            class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            + New Post
+                        </div>
+                    </div>
+                </div>
+
+                <div id="body-right-content">
+
+                    @foreach ($posts as $post)
+                        
+                    <div class="topics" category="{{$post->category}}" title="{{$post->title}}">
+                        <div class="topic-top">
+                            <a class="topic-title" href="{{route('post.index', $post->id)}}">{{$post->title}}</a>
+                            
+                        </div>
+
+                        <div class="topic-bottom">
+                        
+                            <div 
+                            class="topic-owner-username inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            Username: {{$post->user->firstname}}
+                            </div>
+
+                            <div 
+                            class="topic-owner-mail inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            E-mail: {{$post->user->email}}
+                            </div>
+
+                            <div 
+                            class="topic-category inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            Category: {{$post->category}}
+                            </div>
+
+                            <div 
+                            class="topic-time inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            Time: {{$post->created_at->format('d/m/Y \a\t H:m')}}
+                            </div>
+                        
+                            
+                        </div>
+                        
+                        
+                    </div>
+
+                    @endforeach
+
+                    
+                    
+                    
+
+                    
+
+                </div>
 
 
-      </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
     </div>
-  </div>
-</div>
 
-<script src="{{ asset('js/components/main.js') }}"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="{{ asset('js/components/main.js') }} "></script>
 @endsection

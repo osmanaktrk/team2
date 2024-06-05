@@ -14,6 +14,11 @@ use Illuminate\View\View;
 
 class PostController extends Controller
 {
+    public function index()
+    {
+        return view('post/create');
+    }
+
     public function redirectToMain(Request $request): View
     {
         $posts = Post::withCount('comments')
@@ -24,5 +29,25 @@ class PostController extends Controller
         return view('main', [
             'posts' => $posts,
         ]);
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            "category" => ["required"],
+            "title" => ["required", "min:5"],
+            "content" => ["required", "min:5"],
+        ]);
+
+
+        $post = new Post();
+        $post->user_id = Auth::user()->id;
+        $topic->category = $validated["category"];
+        $post->title = $validated["title"];
+        $post->content = $validated["content"];
+        $post->save();
+        
+        
+        return redirect()->route('main')->with("status", "Post Created");
     }
 }

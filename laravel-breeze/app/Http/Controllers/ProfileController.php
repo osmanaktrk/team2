@@ -4,14 +4,44 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Course;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    public function photoUpload(Request $request){
+        $request->validate([
+            'photo' => ['required', 'image', 'max:10240', 'extensions:jpg, jpeg, png, bmp, gif, svg, webp']
+        ]);
+
+        $imgname = Auth::user()->email;
+        $imgext = $request->photo->getClientOriginalExtension();
+        $img = $imgname.'.'.$imgext;
+        $request->photo->move(public_path('img/users'), $img);
+
+        User::where('id', Auth::user()->id)->update([
+            'profile_photo_path' => 'img/users/'.$img,
+        ]);
+        
+        return redirect()->route('profile.edit')->with('status', 'Profile Photo Updated');
+    }
+
+    public function photoDelete(){
+        
+        File::delete(Auth::user()->profile_photo_path);
+
+        User::where('id', Auth::user()->id)->update([
+            'profile_photo_path' => 'img/users/default.svg',
+        ]);
+
+        return redirect()->route('profile.edit')->with('status', 'Profile Photo Deleted');
+    }
+
     /**
      * Display the user's profile form.
      */

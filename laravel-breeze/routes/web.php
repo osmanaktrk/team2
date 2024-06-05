@@ -35,14 +35,18 @@ Route::get('/profile', function () {
     return view('edit');
 })->middleware(['auth', 'verified'])->name('profile');
 
-Route::get('/test-faq', function () {
-    return view('testFAQ');
-});
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::post('/profile-photo.upload', [ProfileController::class, 'photoUpload'])->name("profile-photo.upload");
+    Route::delete('/profile-photo.deleted', [ProfileController::class, 'photoDelete'])->name("profile-photo.delete");
+
+    Route::get('/post/create', [PostController::class, 'index'])->name('post.create');
+    Route::post('/post/create', [PostController::class, 'store'])->name('post.store');
 });
 
 
