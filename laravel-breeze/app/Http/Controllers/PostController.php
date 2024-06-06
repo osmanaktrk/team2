@@ -31,6 +31,16 @@ class PostController extends Controller
         ]);
     }
 
+    public function postShow($tagId){
+        $tag = Tag::findOrFail($tagId);
+    
+        $posts = Post::where("tag_id", $tagId)->latest()->get();
+    
+    
+        return view('post.index', compact('posts', 'tag'));
+    
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([

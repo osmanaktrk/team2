@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -22,6 +23,7 @@ class PostFactory extends Factory
         $created_at = fake()->dateTimeBetween('-1 year');
 
         return [
+            'user_id' => User::first()->id,
             'title' => $title,
             'slug' => Str::slug($title),
             'excerpt' => Str::limit($content, 150),

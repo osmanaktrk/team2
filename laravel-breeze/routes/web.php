@@ -47,6 +47,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/post/create', [PostController::class, 'index'])->name('post.create');
     Route::post('/post/create', [PostController::class, 'store'])->name('post.store');
+
+    Route::get('/post/id-{postId}', [PostController::class, 'postShow'])->name('post.index');
 });
 
 
