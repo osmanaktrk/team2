@@ -63,6 +63,12 @@ class ProfileController extends Controller
     {
         $request->user()->fill($request->validated());
 
+        // Update the username
+        if ($request->has('username')) {
+            $request->user()->username = $request->input('username');
+        }
+        
+        // If the email address is changed, the email verification timestamp is reset
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }

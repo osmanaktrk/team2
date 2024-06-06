@@ -22,8 +22,13 @@
         <x-input-error :messages="$errors->get('name')" class="alert-danger" />
         <br>
 
+        <!-- Username -->
+        <x-text-input id="username" type="username" name="username" placeholder="Username" :value="old('username')" required autocomplete="username" />
+        <x-input-error :messages="$errors->get('username')" class="alert-danger" />
+        <br>
+
         <!-- Email Address -->
-        <x-text-input id="e-mail" type="email" name="email" placeholder="E-mail Address" :value="old('email')" required autocomplete="username" />
+        <x-text-input id="e-mail" type="email" name="email" placeholder="E-mail Address" :value="old('email')" required autocomplete="email" />
         <x-input-error :messages="$errors->get('email')" class="alert-danger" />
         <br>
 

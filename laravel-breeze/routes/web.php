@@ -17,7 +17,7 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/main', [PostController::class, 'redirectToMain'])->name('main');
+Route::get('/main', [PostController::class, 'redirectToMain'])->middleware(['auth', 'verified'])->name('main');
 
 Route::get('/FAQ', function () {
     return view('FAQ');

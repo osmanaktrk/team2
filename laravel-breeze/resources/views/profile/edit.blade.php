@@ -21,7 +21,6 @@
 @section('body-class', 'bg-light')
 
 @section('content')
-
 <x-slot name="header">
     @if (session('status'))
         <h2 x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"

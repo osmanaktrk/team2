@@ -11,26 +11,9 @@
     </title>
     <link rel="icon" type="image/png" href="{{ asset('img/ehb.png') }}" />
     @stack('head')
-
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <style>
-        body {
-            box-sizing: border-box
-            background-color: rgb(228, 228, 228);
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
-    </style>
 </head>
 <body class="@yield('body-class')">
+    @if(auth()->check())
 
     <div class="min-h-screen" style="width:100%; ">
         @include('layouts.navigation')
@@ -47,5 +30,24 @@
 
     @yield('content')
     </div>
+    @else
+        <!-- Redirect to login or display a message -->
+        <div class="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-md w-full space-y-8">
+                <div>
+                    <img class="mx-auto h-12 w-auto" src="{{ asset('img/ehb.png') }}" alt="EraStudent">
+                    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                        Welcome to EraStudent
+                    </h2>
+                    <p class="mt-2 text-center text-sm text-gray-600">
+                        Please login to continue
+                    </p>
+                    <a href="{{ route('register') }}" class="btn btn-outline-danger" style="margin-left: 10px; margin-top: 10px;">
+                        {{ __('Join now!') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    @endif
 </body>
 </html>

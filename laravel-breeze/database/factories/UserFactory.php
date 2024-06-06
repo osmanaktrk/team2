@@ -31,8 +31,10 @@ class UserFactory extends Factory
         $roleId = $firstRole? $firstRole->id : 1;
 
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'firstname' => $this->faker->firstname(),
+            'lastname' => $this->faker->lastname(),
+            'username' => $this->faker->username(),
+            'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),

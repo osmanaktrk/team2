@@ -42,7 +42,7 @@ input{
     outline: none;
 }
 
-#e-mail, #password, #password-check{
+#username, #e-mail, #password, #password-check{
     width: 420px;
 }
 
