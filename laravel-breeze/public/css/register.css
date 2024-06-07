@@ -1,7 +1,7 @@
 *{
-    font-family: Roboto;
     box-sizing: border-box;
 }
+
 html, body{
     margin: 0;
     padding: 0;
@@ -13,9 +13,12 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-sizing: border-box;
     background-image: url("../img/ehb_logos/EhB-logo-transparant.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
+    background-attachment: fixed;
 }
 
 #main-sign{
@@ -25,79 +28,35 @@ body{
     display: inline-block;
     width: 700px;
     padding: 50px;
-    text-align: center;
     background-color: rgba(228,228,228, 0.5);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
 }
 
-
-
-input{
-    margin: 10px;
-    padding: 10px;
-    border: transparent;
-    border-radius: 25px;
-    width: 200px;
-    outline: none;
-}
-
-#username, #e-mail, #password, #password-check{
-    width: 420px;
-}
-
-button{
-    padding: 10px;
-    width: 200px;
-    color: white;
-    background-color: #16aba6;
-    border: transparent;
-    border-radius: 20px;
-    cursor: pointer;
-}
-input:focus{
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 54px 55px, rgba(0, 0, 0, 0.5) 0px -12px 30px, rgba(0, 0, 0, 0.5) 0px 4px 6px, rgba(0, 0, 0, 0.5) 0px 12px 13px, rgba(0, 0, 0, 0.5) 0px -3px 5px;
-    transition: 0.5s;
-
-}
-button:hover{
-    background-color: red;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 54px 55px, rgba(0, 0, 0, 0.5) 0px -12px 30px, rgba(0, 0, 0, 0.5) 0px 4px 6px, rgba(0, 0, 0, 0.5) 0px 12px 13px, rgba(0, 0, 0, 0.5) 0px -3px 5px;
-    transition: 0.5s;
-}
-button:active{
-    transform: translateY(4px);
-}
-img{
-    display: none;
+#main-text{
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    color:#451829;
 }
 
 @media screen and (max-width:800px) {
     body{
         background-image: none;
         background-color: rgba(209, 199, 199, 0.422);
-
     }
+
     #main-sign{
         margin: auto;
         border: transparent;
         border-radius: 50px;
         display: inline-block;
-        width: 300px;
+        width: auto;
         padding: 50px;
         text-align: center;
         background-color: rgba(228,228,228, 0.5);
         box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
         backdrop-filter: blur(10px);
-    }
-   
-    #e-mail, #password, #password-check{
-        width: 200px;
-    }
-    img{
-        display: inline-block;
-        width: 140px;
-        margin-bottom: 15px;
     }
 }
 

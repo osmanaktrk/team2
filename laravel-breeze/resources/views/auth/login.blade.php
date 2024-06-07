@@ -1,82 +1,73 @@
-@extends('layouts.guest')
-
+<!DOCTYPE html>
 @section('full-title', 'Login')
 
 @push('head')
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 @endpush
 
-@section('content')
 <div class="main-cart">
     <div id="login">
         <img src="{{ asset('img/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" alt="ehb-logo">
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-            <!-- Username -->
-            <x-text-input id="email"
-                            type="email"
-                            name="email"
-                            :value="old('email')"
-                            placeholder="Email"
-                            required autofocus autocomplete="email" />
-
-            <x-input-error :messages="$errors->get('email')" class="alert-danger" />
-            <br>
-
-            <!-- Password -->
-            <x-text-input id="password"
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="alert-danger" />
-            <br>
-            <br>
+        <x-guest-layout>
+                <!-- Session Status -->
+                <x-auth-session-status class="" :status="session('status')" />
             
-            <!-- Remember Me
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                    <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-                </label>
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+            
+                    <!-- Email Address -->
+                    <div>
+                        <x-input-label for="email" :value="__('Email')" />
+                        <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            
+                    </div>
+            
+                    <!-- Password -->
+                    <div class="mt-4">
+                        <x-input-label for="password" :value="__('Password')" />
+            
+                        <x-text-input id="password" class="block mt-1 w-full"
+                                        type="password"
+                                        name="password"
+                                        required autocomplete="current-password" />
+            
+                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    </div>
+            
+                    <!-- Remember Me -->
+                    <div class="mt-4">
+                        <label for="remember_me" class="inline-flex items-center">
+                            <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                            <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                        </label>
+                    </div>
+            
+                    <div class="flex items-center justify-center mt-4">
+                        @if (Route::has('password.request'))
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                                {{ __('Forgot your password?') }}
+                            </a>
+                        @endif
+            
+                        <x-primary-button class="ms-3 flex items-center gap-4">
+                            {{ __('Log in') }}
+                        </x-primary-button>
+                        
+                    </div>
+                </form>
+                <br>
+                <div class="flex items-center justify-center">
+                {{-- <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
+                    {{ __('REGISTER') }} 
+                </a> --}}
+                <a class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" href="{{ route('register') }}">
+                    {{ __('REGISTER') }}
+                </a>
+               
             </div>
-            -->
-            <x-primary-button id="login-btn">
-                {{ __('Log in') }}
-            </x-primary-button>
-            <x-primary-button id="signup-btn">
-                {{ __('Sign up') }}
-            </x-primary-button>
-            <br>
-            @if (Route::has('password.request'))
-            <x-primary-button id="forget-btn">
-                {{ __('Forgot your password?') }}
-            </x-primary-button>
-            @endif
-        </form>
+                
+            </x-guest-layout>
     </div>
     <div id="info"></div>
 </div>
-
-<script>
-    document.getElementById('forget-btn').addEventListener('click', function() {
-        // Prevent the default action of the click event
-        event.preventDefault();
-
-        // Redirect to the password reset page
-        window.location.href = "{{ route('password.request') }}";
-    });
-
-    document.getElementById('signup-btn').addEventListener('click', function() {
-        // Prevent the default action of the click event
-        event.preventDefault();
-
-        // Redirect to the register page
-        window.location.href = "{{ route('register') }}";
-    });
-</script>
-@endsection

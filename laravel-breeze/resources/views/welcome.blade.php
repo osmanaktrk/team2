@@ -1,8 +1,9 @@
-@extends('layouts.guest')
-
-@section('title', 'Home')
-
-@push('head')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="120">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
@@ -10,9 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" defer="defer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
-@endpush
-
-@section('content')
+    <title>{{ __('Home') }}</title>
+</head>
+<body>
 <nav id="main-nav" class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #e8e8e8; height: 80px;">
     <div class="container">
         <a href="{{ route('welcome') }}" class="navbar-brand fa-3x">
@@ -182,4 +183,3 @@
 <footer class="text-center text-sm text-danger bg-light">
     <h5 class="font-weight-light" style="font-size: small;">&copy EraStudent</h5>
 </footer>
-@endsection
