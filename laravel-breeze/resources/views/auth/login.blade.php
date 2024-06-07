@@ -8,12 +8,12 @@
             box-sizing: border-box;
         }
 
-        html, #body-sign{
+        html, body{
             margin: 0;
             padding: 0;
         }
 
-        #body-sign{
+        body{
             height: 100dvh;
             width: 100dvw;
             background-color: rgb(228,228,228);
