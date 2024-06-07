@@ -15,36 +15,6 @@
 @section('body-class', 'bg-light')
 
 @section('content')
-<nav id="main-nav" class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-    <div class="container">
-        <a href="{{ route('welcome') }}" class="navbar-brand">
-            <img class="text-danger" src="{{ asset('img/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" id="logo" alt="Logo" style="height: 50px;">
-        </a>
-        <div class="ml-auto">
-            <div class="dropdown">
-                @if (Route::has('login'))
-                <button class="btn btn-link text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @auth
-                    <i class="fas fa-user-circle fa-lg"></i>
-                </button>
-                <!-- Logo will be added later -->
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
-                    <a class="dropdown-item" href="{{ route('FAQ') }}">{{ __('FAQ') }}</a>
-                    <a class="dropdown-item" href="#">{{ __('Logout') }}</a>
-                    <!-- Logout function is needed -->
-                </div>
-                @else
-                <button class="btn btn-link text-decoration-none" type="button" aria-haspopup="true" aria-expanded="false">
-                    <a class="dropdown-item" href="{{ route('FAQ') }}">{{ __('FAQ') }}</a>
-                </button>
-                    @endauth
-                @endif
-            </div>
-        </div>
-    </div>
-</nav>
-
 <section class="contact-section py-5 mt-5">
     <div class="container">
         <div class="row justify-content-center">

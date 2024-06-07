@@ -2,23 +2,25 @@
     margin: 0;
     padding: 0;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
     scroll-behavior: smooth, cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 /*-- FAQ --*/
-
-
 .faq-section {
     background-color: #f8f9fa;
     padding: 100px 0;
 }
+
 .dropdown .btn-link i{
     color: #1ABCB6;
 }
+
 .faq-section h2 {
     font-size: 36px;
     font-weight: bold;
@@ -77,8 +79,6 @@ body {
 }
 
 /*-- Profile --*/
-
-
 .profile-section {
     padding: 100px 0;
     background-color: #f8f9fa;
@@ -129,11 +129,7 @@ body {
     color: #fff;
 }
 
-
-
 /*-- Contact --*/
-
-
 .block {
     height: 0.3rem;
     width: 6rem;
@@ -180,11 +176,7 @@ body {
     background-color: #17a2b8;
 }
 
-
-
 /*-- Dashboard --*/
-
-
 .profile-photo {
     width: 260px;
     height: 260px;
@@ -196,6 +188,7 @@ body {
     margin: 0 auto;
     border: 2px solid gray;
 }
+
 .customize-button {
     display: block;
     margin: 20px auto;
@@ -210,6 +203,7 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
+
 .action-buttons .btn {
     width: 100px;
     height: 100px;

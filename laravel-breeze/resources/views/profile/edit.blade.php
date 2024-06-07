@@ -21,45 +21,6 @@
 @section('body-class', 'bg-light')
 
 @section('content')
-<x-slot name="header">
-    @if (session('status'))
-        <h2 x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"
-            class="text-xl text-green-600">{{ session('status') }}</h2>
-    @endif
-</x-slot>
-
-<nav
-    id="main-nav"
-    class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-    <div class="container">
-        <a href="{{ route('welcome') }}" class="navbar-brand">
-            <img class="text-danger" src="{{ asset('img/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" id="logo" alt="Logo" style="height: 50px;">
-        </a>
-        <!-- Logo will be added later -->
-        <div class="ml-auto">
-            <div class="dropdown">
-                <button
-                    class="btn btn-link text-decoration-none"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-                    <i class="fas fa-user-circle fa-lg"></i>
-                </button>
-                <div
-                    class="dropdown-menu dropdown-menu-right"
-                    aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
-                    <a class="dropdown-item" href="{{ route('FAQ') }}">{{ __('FAQ') }}</a>
-                    <a class="dropdown-item" href="#">{{ __('Logout') }}</a>
-                    <!-- Logout function is needed -->
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-
 <section class="profile-section mt-5">
     <div class="container">
         <div class="row justify-content-center">

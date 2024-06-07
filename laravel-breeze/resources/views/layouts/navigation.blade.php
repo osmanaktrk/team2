@@ -1,3 +1,33 @@
+<!-- <nav
+    id="main-nav"
+    class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+    <div class="container">
+        <a href="{{ route('welcome') }}" class="navbar-brand">
+            <img class="text-danger" src="{{ asset('img/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" id="logo" alt="Logo" style="height: 50px;">
+        </a>
+        <div class="ml-auto">
+            <div class="dropdown">
+                <button
+                    class="btn btn-link text-decoration-none text-danger"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+                    <i class="fas fa-user-circle fa-lg"></i>
+                </button>
+                <div
+                    class="dropdown-menu dropdown-menu-right"
+                    aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a>
+                    <a class="dropdown-item" href="{{ route('FAQ') }}">{{ __('FAQ') }}</a>
+                    <a class="dropdown-item" href="#">{{ __('Logout') }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav> -->
+
 <nav x-data="{ open: false }" class="pb-5 pt-5 bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,21 +59,12 @@
                     </x-nav-link>
                 </div>
 
-
-
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
                         {{ __('Profile') }}
                     </x-nav-link>
                 </div>
-
-
-
-
-
-
             </div>
-
             
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -79,7 +100,6 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-
             
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
@@ -92,7 +112,6 @@
             </div>
         </div>
     </div>
-
    
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">

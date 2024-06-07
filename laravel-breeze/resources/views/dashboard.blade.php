@@ -21,38 +21,6 @@
 @section('body-class', 'bg-light text-dark')
 
 @section('content')
-<nav
-    id="main-nav"
-    class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-    <div class="container">
-        <a href="{{ route('welcome') }}" class="navbar-brand">
-            <img class="text-danger" src="{{ asset('img/ehb_logos/horizontaal_EhB-logo_(transparante_achtergrond).png') }}" id="logo" alt="Logo" style="height: 50px;">
-        </a>
-        <div class="ml-auto">
-            <div class="dropdown">
-                <button
-                    class="btn btn-link text-decoration-none text-danger"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-                    <i class="fas fa-user-circle fa-lg"></i>
-                </button>
-                <!-- Logo will be added later -->
-                <div
-                    class="dropdown-menu dropdown-menu-right"
-                    aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a>
-                    <a class="dropdown-item" href="{{ route('FAQ') }}">{{ __('FAQ') }}</a>
-                    <a class="dropdown-item" href="#">{{ __('Logout') }}</a>
-                    <!-- Logout function is needed -->
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-
 <section class="dashboard-section py-5 mt-5">
     <div class="container">
         <div class="row justify-content-center mt-5">
