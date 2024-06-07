@@ -58,6 +58,29 @@ class PostController extends Controller
         $post->save();
         
         
-        return redirect()->route('main')->with("status", "Post Created");
+        return redirect()->back()->with("status", "Post Created");
+    }
+
+    public function edit(Request $request, $postId): RedirectResponse
+    {
+        $validated = $request->validate([
+            "category" => ["required"],
+            "title" => ["required", "min:5"],
+            "content" => ["required", "min:5"],
+        ]);
+
+        $post = Post::findOrFail($postId);
+        $post->category = $validated["category"];
+        $post->title = $validated["title"];
+        $post->content = $validated["content"];
+        $post->save();
+        return redirect()->route('main')->with("status", "Post Updated");
+    }
+
+    public function delete($postId): RedirectResponse
+    {
+        $post = Post::findOrFail($postId);
+        $post->delete();
+        return redirect()->route('main')->with("status", "Post Deleted");
     }
 }

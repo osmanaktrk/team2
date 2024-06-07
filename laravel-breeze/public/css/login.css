@@ -1,19 +1,4 @@
-*{
-    box-sizing: border-box;
-}
-
-html, body{
-    margin: 0;
-    padding: 0;
-}
-
-body{
-    height: 100dvh;
-    width: 100dvw;
-    background-color: rgb(228,228,228);
-}
-
-.main-cart{
+#main-cart{
     position: relative;
     top: 50%;
     left: 50%;
@@ -27,7 +12,6 @@ body{
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
-    
 }
 
 .alert-danger {
@@ -50,12 +34,11 @@ body{
 img{
     display: block;
     margin: auto;
-    width: 140px;
-    
+    width: 140px;   
 }
 
 @media only screen and (max-width:800px) {
-    .main-cart{
+    #main-cart{
         position:unset;
         width: auto;
         margin: 0;
@@ -67,7 +50,7 @@ img{
         text-shadow: 3px 3px 20px #d6d3d4, -2px 1px 30px #d6d3d4;
     }
    
-    body{
+    #body-sign{
         margin: 0;
         padding: 0;
         padding-top: 100px;
@@ -79,10 +62,6 @@ img{
         background-repeat: no-repeat;
         background-position: center center;
         background-size: contain;
-    }
-
-    #info{
-        display: none;
     }
 
     #login{

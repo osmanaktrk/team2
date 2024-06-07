@@ -10,7 +10,7 @@
         @show
     </title>
     <link rel="icon" type="image/png" href="{{ asset('img/ehb.png') }}" />
-    @stack('head')
+@stack('head')
 </head>
 <body class="@yield('body-class')">
 

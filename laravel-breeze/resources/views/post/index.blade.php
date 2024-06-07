@@ -152,7 +152,7 @@
 
                 <div class="body-container new-post">
 
-                    <form action="{{ route('post.store', $topic->id) }} " method="post">
+                    <form action="{{ route('post.store') }} " method="post">
                         @csrf
                         <div class="selections">
                             <label class="labels" for="post_title">Post Title:</label>
