@@ -1,3 +1,7 @@
+* {
+    font-family: Roboto;
+}
+
 .body-main-conteiner{
     width: 100%;
     height: auto;
@@ -15,10 +19,6 @@
     height: auto;
     padding: 25px;
     margin: 50px;
-    
-    
-    
-  
 }
 
 .container{
@@ -40,11 +40,12 @@
 }
 #topic-title{
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Roboto;
     font-size: 30px;
     font-weight: bold;
     border: 2px solid;
     border-radius: 20px;
+    padding: 10px 8px;
     
 }
 

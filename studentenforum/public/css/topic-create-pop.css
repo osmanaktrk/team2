@@ -1,4 +1,6 @@
-
+* {
+    font-family: Roboto;
+}
 
 
 .create-pop{
@@ -22,9 +24,10 @@
 }
 
 .container{
+    position: relative;
     padding: 50px;         
     border: solid 2px rgba(33, 32, 32, 0.486);
-    border-radius: 50px;
+    border-radius: 50px 50px 50px 50px;
     background-color: rgba(255, 255, 255, 0.902);
 
 }
@@ -47,14 +50,18 @@
     width: 100%;
 }
 
-.radios{
-    display: inline-block;
+.categories:hover > label:hover{
+cursor: pointer;
 }
 
 #categories{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+#category-box {
+    margin-bottom: 30px
 }
 
 .radios>label{
@@ -74,27 +81,25 @@
     display: block;
     text-align: center;
     margin-bottom: 30px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
     font-size: 30px;
+    cursor: pointer;
 }
 
 #category_select{
     display: block;
     text-align: center;
     margin-top: 30px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
     font-size: 20px;
 }
 
 #popup-close{
-    display: inline-block;
     position: absolute;
-    right: 10px;
-    top: 10px;
+    top: 20px;
+    right: 20px;
     border: solid 2px red;
     border-radius: 10px;
     background-color: red;
-    
+    cursor: pointer;
 }
 
 #popup-close:hover{
