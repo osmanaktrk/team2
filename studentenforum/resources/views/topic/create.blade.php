@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/topic-create.css') }} ">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Create Topic</title>
 </head>
 
@@ -28,7 +31,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <form action="{{route('topic.create')}}" method="post">
                     @csrf
-                    <div class="box p-4 sm:p-8  shadow sm:rounded-lg">
+                    <div class="  shadow sm:rounded-lg"  style="border-radius: 50px">
 
                         <div class="container">
                             <span id="category_coose">CHOOSE A CATEGORY</span>
@@ -54,7 +57,7 @@
                                 <div class="radios">
                                     <label for="Game"
                                         class="inline-flex items-center px-4 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                        GAME
+                                        GAMES
                                     </label>
                                     <input type="radio" name="category" id="Game" value="Game" style="display: none">
                                 </div>
@@ -62,7 +65,7 @@
                                 <div class="radios">
                                     <label for="Movie"
                                         class="inline-flex items-center px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                        MOVIE
+                                        MOVIES
                                     </label>
                                     <input type="radio" name="category" id="Movie" value="Movie" style="display: none">
                                 </div>
@@ -86,7 +89,7 @@
                                 <div class="radios">
                                     <label for="Politic"
                                         class="inline-flex items-center px-4 py-2 bg-pink-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-pink-700 focus:bg-pink-700 active:bg-pink-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                        POLITIC
+                                        POLITICS
                                     </label>
                                     <input type="radio" name="category" id="Politic" value="Politic" style="display: none">
                                 </div>
@@ -102,7 +105,7 @@
                                 <div class="radios">
                                     <label for="Sience"
                                         class="inline-flex items-center px-4 py-2 bg-indigo-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                        SIENCE
+                                        SCIENCE
                                     </label>
                                     <input type="radio" name="category" id="Sience" value="Sience" style="display: none">
                                 </div>
@@ -118,7 +121,7 @@
                         
                     </div>
 
-                    <div class="box p-4 sm:p-8  shadow sm:rounded-lg">
+                    <div class="shadow sm:rounded-lg" style="border-radius: 50px">
                         <div class="container input_labels">
                             <div class="selections">
                                 <label class="labels" for="topic_title">Topic Title:</label>

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/main.css') }} ">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Main</title>
 
 </head>
@@ -39,7 +42,7 @@
 
                     <label for="all-topics"
                             class="cat-select inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                            ALL TOPICS:<span class="total">{{$topics->count()}}</span>
+                            ALL POSTS: <span class="total"> {{$topics->count()}}</span>
                     </label>
                     <input type="checkbox" name="all-topics" id="all-topics" value="all-topics" style="display: none" checked>
                     
@@ -65,7 +68,7 @@
                    
                         <label for="Game"
                             class="cat-select inline-flex items-center px-4 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                            GAME
+                            GAMES
                         </label>
                         <input type="checkbox" name="category" id="Game" value="Game" style="display: none" checked>
                    
@@ -73,7 +76,7 @@
                     
                         <label for="Movie"
                             class="cat-select inline-flex items-center px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                            MOVIE
+                            MOVIES
                         </label>
                         <input type="checkbox" name="category" id="Movie" value="Movie" style="display: none" checked>
                   
@@ -97,7 +100,7 @@
                    
                         <label for="Politic"
                             class="cat-select inline-flex items-center px-4 py-2 bg-pink-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-pink-700 focus:bg-pink-700 active:bg-pink-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                            POLITIC
+                            POLITICS
                         </label>
                         <input type="checkbox" name="category" id="Politic" value="Politic" style="display: none" checked>
                    
@@ -113,7 +116,7 @@
                     
                         <label for="Sience"
                             class="cat-select inline-flex items-center px-4 py-2 bg-indigo-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                            SIENCE
+                            SCIENCE
                         </label>
                         <input type="checkbox" name="category" id="Sience" value="Sience" style="display: none" checked>
                    
@@ -123,6 +126,23 @@
                 <div id="body-right">
 
                     <div id="body-rigt-nav">
+
+                        <div id="body-rigt-nav-bottom">
+                            
+
+                            <div id="search-div">
+                                <input class="search-input-field" type="search" name="search" id="search" placeholder="Search">
+                                <label id="search-sembol" for="search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#5f6368"><path d="M792-120.67 532.67-380q-30 25.33-69.64 39.67Q423.39-326 378.67-326q-108.44 0-183.56-75.17Q120-476.33 120-583.33t75.17-182.17q75.16-75.17 182.5-75.17 107.33 0 182.16 75.17 74.84 75.17 74.84 182.27 0 43.23-14 82.9-14 39.66-40.67 73l260 258.66-48 48Zm-414-272q79.17 0 134.58-55.83Q568-504.33 568-583.33q0-79-55.42-134.84Q457.17-774 378-774q-79.72 0-135.53 55.83-55.8 55.84-55.8 134.84t55.8 134.83q55.81 55.83 135.53 55.83Z"/></svg>
+                                </label>
+                            </div>
+
+                            <div id="popup-open"
+                                class="">
+                                + New Topic
+                            </div>
+                        </div>
+                        
                         <div id="body-rigt-nav-top">
 
                             <div id="general-selected"
@@ -137,12 +157,12 @@
 
                             <div id="game-selected"
                                 class="close-selected inline-flex items-center px-4 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                GAME <span class="close-sembol">X</span>
+                                GAMES <span class="close-sembol">X</span>
                             </div>
 
                             <div id="movie-selected"
                                 class="close-selected inline-flex items-center px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                MOVIE <span class="close-sembol">X</span>
+                                MOVIES <span class="close-sembol">X</span>
                             </div>
 
                             <div id="music-selected"
@@ -157,7 +177,7 @@
 
                             <div id="politic-selected"
                                 class="close-selected inline-flex items-center px-4 py-2 bg-pink-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-pink-700 focus:bg-pink-700 active:bg-pink-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                POLITIC <span class="close-sembol">X</span>
+                                POLITICS <span class="close-sembol">X</span>
                             </div>
 
                             <div id="social-selected"
@@ -167,25 +187,11 @@
 
                             <div id="science-selected"
                                 class="close-selected inline-flex items-center px-4 py-2 bg-indigo-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                SIENCE <span class="close-sembol">X</span>
+                                SCIENCE <span class="close-sembol">X</span>
                             </div>
                         </div>
 
-                        <div id="body-rigt-nav-bottom">
-                            
-
-                            <div id="search-div">
-                                <input class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" type="search" name="search" id="search" placeholder="Search">
-                                <label id="search-sembol" for="search">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#5f6368"><path d="M792-120.67 532.67-380q-30 25.33-69.64 39.67Q423.39-326 378.67-326q-108.44 0-183.56-75.17Q120-476.33 120-583.33t75.17-182.17q75.16-75.17 182.5-75.17 107.33 0 182.16 75.17 74.84 75.17 74.84 182.27 0 43.23-14 82.9-14 39.66-40.67 73l260 258.66-48 48Zm-414-272q79.17 0 134.58-55.83Q568-504.33 568-583.33q0-79-55.42-134.84Q457.17-774 378-774q-79.72 0-135.53 55.83-55.8 55.84-55.8 134.84t55.8 134.83q55.81 55.83 135.53 55.83Z"/></svg>
-                                </label>
-                            </div>
-
-                            <div id="popup-open"
-                                class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                + New Topic
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <div id="body-right-content">

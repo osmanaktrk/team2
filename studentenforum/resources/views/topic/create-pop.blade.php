@@ -8,8 +8,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <!-- <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -18,7 +22,7 @@
     <title>Create Topic</title>
 </head>
 
-<body class="create-pop font-sans antialiased">
+<body class="create-pop">
 
 
 
@@ -31,19 +35,22 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <form action="{{ route('topic.create') }}" method="post">
                     @csrf
-                    <div class="box p-4 sm:p-8  shadow sm:rounded-lg">
-                        <div id="popup-close">
-                            <svg width="30" height="30" viewbox="0 0 40 40">
-                                <path d="M 10,10 L 30,30 M 30,10 L 10,30" stroke="white" stroke-width="5" />
-                            </svg>
-                        </div>
+                    <div class="shadow sm:rounded-lg" style="border-radius: 50px" id="category-box">
+                        
                         <div class="container">
 
                             <span id="category_choose">CHOOSE A CATEGORY</span>
+
+                            <div id="popup-close">
+                                <svg width="30" height="30" viewbox="0 0 40 40">
+                                    <path d="M 10,10 L 30,30 M 30,10 L 10,30" stroke="white" stroke-width="5" />
+                                </svg>
+                            </div>
+
                             <div id="categories">
                                 <div class="radios">
                                     <label for="General"
-                                        class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                                        class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" style="cursor:pointer">
                                         GENERAL
                                     </label>
                                     <input type="radio" name="category" id="General" value="General"
@@ -52,7 +59,7 @@
 
                                 <div class="radios">
                                     <label for="Education"
-                                        class="inline-flex items-center px-4 py-2 bg-blue-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                                        class="inline-flex items-center px-4 py-2 bg-blue-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" style="cursor:pointer">
                                         EDUCATION
                                     </label>
                                     <input type="radio" name="category" id="Education" value="Education"
@@ -62,8 +69,8 @@
 
                                 <div class="radios">
                                     <label for="Game"
-                                        class="inline-flex items-center px-4 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                        GAME
+                                        class="inline-flex items-center px-4 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" style="cursor:pointer">
+                                        GAMES
                                     </label>
                                     <input type="radio" name="category" id="Game" value="Game"
                                         style="display: none">
@@ -71,8 +78,8 @@
 
                                 <div class="radios">
                                     <label for="Movie"
-                                        class="inline-flex items-center px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                        MOVIE
+                                        class="inline-flex items-center px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" style="cursor:pointer">
+                                        MOVIES
                                     </label>
                                     <input type="radio" name="category" id="Movie" value="Movie"
                                         style="display: none">
@@ -80,7 +87,7 @@
 
                                 <div class="radios">
                                     <label for="Music"
-                                        class="inline-flex items-center px-4 py-2 bg-yellow-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-700 focus:bg-yellow-700 active:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                                        class="inline-flex items-center px-4 py-2 bg-yellow-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-700 focus:bg-yellow-700 active:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" style="cursor:pointer">
                                         MUSIC
                                     </label>
                                     <input type="radio" name="category" id="Music" value="Music"
@@ -89,7 +96,7 @@
 
                                 <div class="radios">
                                     <label for="Nature"
-                                        class="inline-flex items-center px-4 py-2 bg-orange-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-orange-700 focus:bg-orange-700 active:bg-orange-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                                        class="inline-flex items-center px-4 py-2 bg-orange-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-orange-700 focus:bg-orange-700 active:bg-orange-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" style="cursor:pointer">
                                         NATURE
                                     </label>
                                     <input type="radio" name="category" id="Nature" value="Nature"
@@ -98,8 +105,8 @@
 
                                 <div class="radios">
                                     <label for="Politic"
-                                        class="inline-flex items-center px-4 py-2 bg-pink-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-pink-700 focus:bg-pink-700 active:bg-pink-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                        POLITIC
+                                        class="inline-flex items-center px-4 py-2 bg-pink-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-pink-700 focus:bg-pink-700 active:bg-pink-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" style="cursor:pointer">
+                                        POLITICS
                                     </label>
                                     <input type="radio" name="category" id="Politic" value="Politic"
                                         style="display: none">
@@ -107,7 +114,7 @@
 
                                 <div class="radios">
                                     <label for="Social"
-                                        class="inline-flex items-center px-4 py-2 bg-purple-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-purple-700 focus:bg-purple-700 active:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                                        class="inline-flex items-center px-4 py-2 bg-purple-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-purple-700 focus:bg-purple-700 active:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition ease-in-out duration-150" style="cursor:pointer">
                                         SOCIAL
                                     </label>
                                     <input type="radio" name="category" id="Social" value="Social"
@@ -116,8 +123,8 @@
 
                                 <div class="radios">
                                     <label for="Sience"
-                                        class="inline-flex items-center px-4 py-2 bg-indigo-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                        SIENCE
+                                        class="inline-flex items-center px-4 py-2 bg-indigo-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" style="cursor:pointer">
+                                        SCIENCE
                                     </label>
                                     <input type="radio" name="category" id="Sience" value="Sience"
                                         style="display: none">
@@ -135,7 +142,7 @@
 
                     </div>
 
-                    <div class="box p-4 sm:p-8  shadow sm:rounded-lg">
+                    <div class="shadow sm:rounded-lg" style="border-radius: 50px">
                         <div class="container input_labels">
                             <div class="selections">
                                 <label class="labels" for="topic_title">Topic Title:</label>
