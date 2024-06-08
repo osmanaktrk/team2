@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-app-layout>
+@section('title', 'Create a post')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
+@push('head')
+    <link rel="stylesheet" href="{{ asset('css/post-create-pop.css') }} ">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    
-    <link rel="stylesheet" href="{{ asset('css/topic-create-pop.css') }} ">
-    <title>Create Topic</title>
-</head>
+    <script src="{{ asset('js/components/post-create-pop.js') }} "></script>
+@endpush
 
-<body class="create-pop font-sans antialiased">
+@section('body-class', 'create-pop font-sans antialiased')
+
+@section('content')
     <main>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -161,7 +158,5 @@
             </div>
         </div>
     </main>
-    <script src="{{ asset('js/topic-create-pop.js') }} "></script>
-</body>
-
-</html>
+    @endsection
+</x-app-layout>

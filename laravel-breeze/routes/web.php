@@ -45,12 +45,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/profile-photo.upload', [ProfileController::class, 'photoUpload'])->name("profile-photo.upload");
     Route::delete('/profile-photo.deleted', [ProfileController::class, 'photoDelete'])->name("profile-photo.delete");
 
-    Route::get('/post/create', [PostController::class, 'index'])->name('post.create');
+    Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('/post/create', [PostController::class, 'store'])->name('post.store');
-    // Route::get('/topic/create', [TopicController::class, 'index'])->name('topic.create');
-    // Route::post('/topic/create', [TopicController::class, 'store'])->name('topic.create');
 
-    Route::get('/post/id', [PostController::class, 'postShow'])->name('post.index');
+    // Route::get('/posts', [PostController::class, 'showAll'])->name('post.index');
+    Route::get('/post/{postId}', [PostController::class, 'postShow'])->name('post.show');
     Route::post('/post/{postId}/edit', [PostController::class, 'edit'])->name('post.edit');
     Route::get('/post/{postId}/delete', [PostController::class, 'delete'])->name('post.delete');
 });

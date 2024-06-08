@@ -14,11 +14,6 @@ use Illuminate\View\View;
 
 class PostController extends Controller
 {
-    public function index()
-    {
-        return view('post/create');
-    }
-
     public function redirectToMain(Request $request): View
     {
         $posts = Post::withCount('comments')
@@ -31,14 +26,23 @@ class PostController extends Controller
         ]);
     }
 
-    public function postShow($tagId){
-        $tag = Tag::findOrFail($tagId);
-    
-        $posts = Post::where("tag_id", $tagId)->latest()->get();
-    
-    
-        return view('post.index', compact('posts', 'tag'));
-    
+    public function create()
+    {
+        $categories = Category::all();
+        return view('post.create', compact('categories'));
+    }
+
+    // public function showAll()
+    // {
+    //     $posts = Post::with('user')->get();
+    //     return view('post.index', compact('posts'));
+    // }
+
+
+    public function postShow($postId)
+    {
+        $post = Post::with('user')->findOrFail($postId);
+        return view('post.index', compact('post'));
     }
 
     public function store(Request $request)
