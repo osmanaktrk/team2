@@ -5,41 +5,102 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+
+
+
+
+
+
+Route::get('/a', function(){
+    return view('contact');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+
+
 
 Route::get('/login', function () {
     return view('login');
 });
     
+
+
+
 Route::get('/register', function () {
     return view('register');
 });
 
+
+
+
+
 Route::get('/main', [PostController::class, 'redirectToMain'])->middleware(['auth', 'verified'])->name('main');
+
+
+
 
 Route::get('/FAQ', function () {
     return view('FAQ');
 })->name('FAQ');
 
+
+
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+
+
 Route::get('/profile', function () {
     return view('edit');
 })->middleware(['auth', 'verified'])->name('profile');
+
+
+
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
+
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/profile-photo.upload', [ProfileController::class, 'photoUpload'])->name("profile-photo.upload");
@@ -52,7 +113,48 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/post/{postId}', [PostController::class, 'postShow'])->name('post.show');
     Route::post('/post/{postId}/edit', [PostController::class, 'edit'])->name('post.edit');
     Route::get('/post/{postId}/delete', [PostController::class, 'delete'])->name('post.delete');
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
+
+
+
+
+
 
 
 require __DIR__.'/auth.php';
