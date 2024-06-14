@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Readed;
+use App\Models\ReadedModel;
 use Illuminate\Http\Request;
 
 class ReadedController extends Controller
@@ -34,7 +34,7 @@ class ReadedController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Readed $readed)
+    public function show(ReadedModel $readed)
     {
         //
     }
@@ -42,7 +42,7 @@ class ReadedController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Readed $readed)
+    public function edit(ReadedModel $readed)
     {
         //
     }
@@ -50,7 +50,7 @@ class ReadedController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Readed $readed)
+    public function update(Request $request, ReadedModel $readed)
     {
         //
     }
@@ -58,7 +58,7 @@ class ReadedController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Readed $readed)
+    public function destroy(ReadedModel $readed)
     {
         //
     }

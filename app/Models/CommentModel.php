@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class CommentModel extends Model
 {
     use HasFactory;
 
@@ -25,21 +25,21 @@ class Comment extends Model
 
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(UserModel::class);
     }
 
 
     public function post(){
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(PostModel::class);
     }
 
     public function cover(){
-        return $this->hasOne(Cover::class);
+        return $this->hasOne(CoverModel::class);
     }
 
 
     public function file(){
-        return $this->hasOne(File::class);
+        return $this->hasOne(FileModel::class);
     }
 
     public function commentlikes(){

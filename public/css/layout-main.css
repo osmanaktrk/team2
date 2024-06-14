@@ -73,6 +73,10 @@ main{
 }
 .header-right{
     margin-right: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .middle-bar {

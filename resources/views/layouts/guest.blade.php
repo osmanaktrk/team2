@@ -18,6 +18,8 @@
                 background-color: rgb(228,228,228);
             }
         </style>
+
+        
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class=" flex flex-col sm:justify-center items-center pt-6 sm:pt-0 ">

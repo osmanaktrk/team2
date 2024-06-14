@@ -24,7 +24,7 @@
                     <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"
                         class="text-xl text-red-600">{{ __('Deleted') }}</p>
                 @endif
-                <img id="profile-img" src="{{ Auth::user()->profile_photo_path }} " alt="profile foto" />
+                <img id="profile-img" src="{{ Auth::user()->avatar }} " alt="profile foto" />
                 
              
             

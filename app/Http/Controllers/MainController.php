@@ -2,17 +2,38 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\CategoryModel;
+use App\Models\CommentModel;
+use App\Models\CommentLike;
+use App\Models\ContactModel;
+use App\Models\CoverModel;
+use App\Models\FavoriteModel;
+use App\Models\FileModel; 
+use App\Models\MessageModel;
+use App\Models\PostModel;
+use App\Models\PostLike;
+use App\Models\ReadedModel;
+use App\Models\UserModel;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
+
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class MainController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $posts = PostModel::all();
+
+        $categories = CategoryModel::all();
+
+        return view('main', compact('posts', 'categories'));
+
     }
 
     /**
@@ -34,7 +55,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CategoryModel $category)
+    public function show(PostModel $post)
     {
         //
     }
@@ -42,7 +63,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CategoryModel $category)
+    public function edit(PostModel $post)
     {
         //
     }
@@ -50,7 +71,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CategoryModel $category)
+    public function update(Request $request, PostModel $post)
     {
         //
     }
@@ -58,7 +79,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CategoryModel $category)
+    public function destroy(PostModel $post)
     {
         //
     }

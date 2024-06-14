@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class UserModel extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -55,15 +55,15 @@ class User extends Authenticatable
     }
 
     public function posts(){
-        return $this->hasMany(Post::class);
+        return $this->hasMany(PostModel::class);
     }
 
     public function comments(){
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(CommentModel::class);
     }
 
     public function favorites(){
-        return $this->hasMany(Favorite::class);
+        return $this->hasMany(FavoriteModel::class);
     }
 
 
@@ -78,22 +78,22 @@ class User extends Authenticatable
 
 
     public function messages(){
-        return $this->hasMany(Message::class);
+        return $this->hasMany(MessageModel::class);
     }
 
 
     public function covers(){
-        return $this->hasMany(Cover::class);
+        return $this->hasMany(CoverModel::class);
     }
 
 
 
     public function files(){
-        return $this->hasMany(File::class);
+        return $this->hasMany(FileModel::class);
     }
 
     public function readeds(){
-        return $this->hasMany(Readed::class);
+        return $this->hasMany(ReadedModel::class);
     }
 
  

@@ -2,11 +2,25 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CommentLikeController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CoverController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\ReadedController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MainController;
 
 
-Route::get('/main', function(){
-    return view('main');
-})->name('main');
+Route::get('/main', [MainController::class, 'index'])->name('main');
+
+
+
 
 Route::get('/contact-admin', function(){
     return view('contact-admin');
@@ -18,11 +32,16 @@ Route::get('/faq', function(){
 })->name('faq');
 
 
-Route::get('/profile-new', function(){
-    return view('profile-new');
-})->name('profile-new');
+Route::get('/profile-index', function(){
+    return view('profile-index');
+})->name('profile-index');
 
+Route::put('/avatar', [UserController::class, 'avatarUpload'])->name("avatar.upload");
 
+Route::delete('/avatar', [UserController::class, 'avatarDelete'])->name("avatar.delete");
+    
+Route::put('/profile-education.upload', [UserController::class, 'educationUpdate'])->name('profile-education.upload');
+    
 
 
 

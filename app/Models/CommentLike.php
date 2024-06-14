@@ -18,13 +18,13 @@ class CommentLike extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(UserModel::class);
     }
 
 
 
     public function comment(){
-        return $this->belongsTo(Comment::class);
+        return $this->belongsTo(CommentModel::class);
     }
 
 

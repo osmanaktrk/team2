@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class PostModel extends Model
 {
     use HasFactory;
 
@@ -25,28 +25,28 @@ class Post extends Model
 
 
     public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(CategoryModel::class);
     }
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(UserModel::class);
     }
 
 
     public function cover(){
-        return $this->hasOne(Cover::class);
+        return $this->hasOne(CoverModel::class);
     }
 
     public function file(){
-        return $this->hasOne(File::class);
+        return $this->hasOne(FileModel::class);
     }
 
     public function readeds(){
-        return $this->hasMany(Readed::class);
+        return $this->hasMany(ReadedModel::class);
     }
 
     public function favorites(){
-        return $this->hasMany(Favorite::class);
+        return $this->hasMany(FavoriteModel::class);
     }
 
     public function postLikes(){

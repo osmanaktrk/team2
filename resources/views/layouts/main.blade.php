@@ -49,13 +49,13 @@
                                 <a class="middle-links-btn" href="">
                                     <li>NEW POST</li>
                                 </a>
-                                <a class="middle-links-btn" href="">
-                                    <li>2</li>
+                                <a class="middle-links-btn" href="{{route('faq')}}">
+                                    <li>FAQ</li>
                                 </a>
-                                <a class="middle-links-btn" href="">
-                                    <li>3</li>
+                                <a class="middle-links-btn" href="{{route('contact-admin')}}">
+                                    <li>CONTACT ADMIN</li>
                                 </a>
-                                <a class="middle-links-btn" href="{{route('profile-new')}}">
+                                <a class="middle-links-btn" href="{{route('profile-index')}}">
                                     <li>PROFILE</li>
                                 </a>
                             </ul>
@@ -68,9 +68,7 @@
 
             <div class="header-right">
 
-                {{-- <button class="header-chat-button">
-                    <img class="chatbutton-asset" src="{{ asset('img/main/chatbutton-image.png') }}" alt="chat-button">
-                </button> --}}
+                <span>Welcome </span>
 
                
 
