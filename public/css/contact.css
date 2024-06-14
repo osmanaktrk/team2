@@ -1,0 +1,52 @@
+
+
+/*-- Contact --*/
+
+
+.block {
+    height: 0.3rem;
+    width: 6rem;
+    background-color: black;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2rem;
+    opacity: 0.5;
+}
+
+.contact-section {
+    padding: 100px 0;
+    background-color: #f8f9fa;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.contact-section p {
+    font-size: 18px;
+}
+
+.contact-section .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-section .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    font-size: 16px;
+}
+
+.contact-section .btn-primary {
+    background-color: #1ABCB6;
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.contact-section .btn-primary:hover {
+    background-color: #17a2b8;
+}
+
+

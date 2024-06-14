@@ -15,5 +15,4 @@
         </div>
     </div>
 
-    <div>deneme: {{Auth::user()->password}} </div>
 </x-app-layout>
