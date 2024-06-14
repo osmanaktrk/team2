@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('file');
             $table->foreignId('user_id');
+            $table->foreignId('post_id')->nullable();
+            $table->foreignId('comment_id')->nullable();
             $table->timestamps();
         });
     }
