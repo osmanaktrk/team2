@@ -2,33 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
-use App\Models\Post;
-use App\Models\Readed;
+use App\Models\CommentDislike;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-
-class PostController extends Controller
+class CommentDislikeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index($id)
+    public function index()
     {
-        $post = Post::findOrFail($id);
-
-        $readed = new Readed();
-
-        $readed->post_id = $id;
-        $readed->user_id = Auth::user()->id;
-
-        $readed->save();
-
-       
-
-
-        return view('post', compact('post'));
+        //
     }
 
     /**
@@ -50,7 +34,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(CommentDislike $commentDislike)
     {
         //
     }
@@ -58,7 +42,7 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(CommentDislike $commentDislike)
     {
         //
     }
@@ -66,7 +50,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, CommentDislike $commentDislike)
     {
         //
     }
@@ -74,7 +58,7 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(CommentDislike $commentDislike)
     {
         //
     }

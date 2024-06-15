@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CoverModel;
+use App\Models\Cover;
 use Illuminate\Http\Request;
 
 class CoverController extends Controller
@@ -34,7 +34,7 @@ class CoverController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CoverModel $cover)
+    public function show(Cover $cover)
     {
         //
     }
@@ -42,7 +42,7 @@ class CoverController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CoverModel $cover)
+    public function edit(Cover $cover)
     {
         //
     }
@@ -50,7 +50,7 @@ class CoverController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CoverModel $cover)
+    public function update(Request $request, Cover $cover)
     {
         //
     }
@@ -58,7 +58,7 @@ class CoverController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CoverModel $cover)
+    public function destroy(Cover $cover)
     {
         //
     }

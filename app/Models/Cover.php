@@ -5,33 +5,31 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FileModel extends Model
+class Cover extends Model
 {
     use HasFactory;
 
-
-    protected $tabel = 'files';
+    protected $table = 'covers';
 
     protected $fillable = [
         'id',
-        'file',
+        'cover',
         'user_id',
         'post_id',
         'comment_id',
-
     ];
 
     public function user(){
-        return $this->belongsTo(UserModel::class);
+        return $this->belongsTo(User::class);
     }
-
 
     public function post(){
-        return $this->belongsTo(PostModel::class);
+        return $this->belongsTo(Post::class);
     }
 
+
     public function comment(){
-        return $this->belongsTo(CommentModel::class);
+        return $this->belongsTo(Comment::class);
     }
 
 

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryModel extends Model
+class Category extends Model
 {
     use HasFactory;
 
@@ -19,7 +19,7 @@ class CategoryModel extends Model
 
 
     public function posts(){
-        return $this->hasMany(PostModel::class);
+        return $this->hasMany(Post::class);
     }
 
 

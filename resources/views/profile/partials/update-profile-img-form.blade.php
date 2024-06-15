@@ -12,7 +12,7 @@
 
 
 
-        <form action="{{ route('profile-photo.upload') }} " method="post" enctype="multipart/form-data">
+        <form action="{{ route('avatar.upload') }} " method="post" enctype="multipart/form-data">
 
             @csrf
             <div id="foto-div">
@@ -51,7 +51,7 @@
         </form>
 
 
-        <form action="{{ route('profile-photo.delete') }}" method="post" >
+        <form action="{{ route('avatar.delete') }}" method="post" >
             @csrf
             @method('delete')
 

@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\CategoryModel;
-use App\Models\CommentModel;
+use App\Models\Category;
+use App\Models\Comment;
 use App\Models\CommentLike;
-use App\Models\ContactModel;
-use App\Models\CoverModel;
-use App\Models\FavoriteModel;
+use App\Models\Contact;
+use App\Models\Cover;
+use App\Models\Favorite;
 use App\Models\FileModel; 
-use App\Models\MessageModel;
-use App\Models\PostModel;
+use App\Models\Message;
+use App\Models\Post;
 use App\Models\PostLike;
-use App\Models\ReadedModel;
-use App\Models\UserModel;
+use App\Models\Readed;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -28,9 +28,9 @@ class MainController extends Controller
      */
     public function index()
     {
-        $posts = PostModel::all();
+        $posts = Post::where('is_published', true)->get()->all();
 
-        $categories = CategoryModel::all();
+        $categories = Category::all();
 
         return view('main', compact('posts', 'categories'));
 
@@ -55,7 +55,7 @@ class MainController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PostModel $post)
+    public function show(Post $post)
     {
         //
     }
@@ -63,7 +63,7 @@ class MainController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PostModel $post)
+    public function edit(Post $post)
     {
         //
     }
@@ -71,7 +71,7 @@ class MainController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PostModel $post)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -79,7 +79,7 @@ class MainController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PostModel $post)
+    public function destroy(Post $post)
     {
         //
     }

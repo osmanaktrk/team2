@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -20,7 +20,7 @@ class UserController extends Controller
         $avatar = $avatarName.'.'.$avatarExt;
         $request->avatar->move(public_path('img/users'), $avatar);
 
-        UserModel::where('id', Auth::user()->id)->update([
+        User::where('id', Auth::user()->id)->update([
             'profile_photo_path' => 'img/users/'.$avatar,
         ]);
         
@@ -32,7 +32,7 @@ class UserController extends Controller
         
         File::delete(Auth::user()->avatar);
 
-        UserModel::where('id', Auth::user()->id)->update([
+        User::where('id', Auth::user()->id)->update([
             'avatar' => 'img/users/default.svg',
         ]);
 
@@ -49,7 +49,7 @@ class UserController extends Controller
             "education_year" => ['required', 'digits:1'],
         ]);
 
-        UserModel::where('id', Auth::user()->id)->update([
+        User::where('id', Auth::user()->id)->update([
             'education_type' => $request->education_type,
             'education_name' => $request->education_name,
             'education_year' => $request->education_year,
@@ -91,7 +91,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(UserModel $user)
+    public function show(User $user)
     {
         //
     }
@@ -99,7 +99,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(UserModel $user)
+    public function edit(User $user)
     {
         //
     }
@@ -107,7 +107,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, UserModel $user)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -115,7 +115,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(UserModel $user)
+    public function destroy(User $user)
     {
         //
     }

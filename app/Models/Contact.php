@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ContactModel extends Model
+class Contact extends Model
 {
     use HasFactory;
 
@@ -16,7 +16,12 @@ class ContactModel extends Model
         'name',
         'email',
         'contact',
+        'user_id',
 
 
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

@@ -68,7 +68,7 @@
 
             <div class="header-right">
 
-                <span>Welcome </span>
+                <span>Welcome {{Auth::user()->username}}</span>
 
                
 
@@ -77,7 +77,7 @@
                         
                         <button class="btn btn-link text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="header-profile-button">
-                                <img class="profilebutton-asset" src="{{ asset('img/icon.jpg') }}" alt="profile-button">
+                                <img class="profilebutton-asset" src="{{ asset(Auth::user()->avatar) }}" alt="profile-button">
                             </div>
                         </button>
 
@@ -86,8 +86,12 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="">{{ __('Dashboard') }}</a>
                             <a class="dropdown-item" href="">{{ __('FAQ') }}</a>
-                            <a class="dropdown-item" href="">{{ __('Profile') }}</a>
+                            <a class="dropdown-item" href="{{ route('profile-index') }}">{{ __('Profile') }}</a>
                             <a class="dropdown-item" href="{{route('contact-admin')}}">{{ __('Contact With Admin') }}</a>
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <input class="dropdown-item" type="submit" value="Log Out" onclick="return confirm('ARE YOU SURE YOU WANT TO LOG OUT?')">
+                            </form>
                             
                             <!-- Logout function is needed -->
                         </div>

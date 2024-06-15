@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MessageModel extends Model
+class Message extends Model
 {
     use HasFactory;
 
@@ -21,7 +21,7 @@ class MessageModel extends Model
 
 
     public function users(){
-        return $this->belongsTo(UserModel::class);
+        return $this->belongsTo(User::class);
     }
 
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FileModel;
+use App\Models\PostDislike;
 use Illuminate\Http\Request;
 
-class FileController extends Controller
+class PostDislikeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class FileController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(FileModel $file)
+    public function show(PostDislike $postDislike)
     {
         //
     }
@@ -42,7 +42,7 @@ class FileController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(FileModel $file)
+    public function edit(PostDislike $postDislike)
     {
         //
     }
@@ -50,7 +50,7 @@ class FileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, FileModel $file)
+    public function update(Request $request, PostDislike $postDislike)
     {
         //
     }
@@ -58,7 +58,7 @@ class FileController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(FileModel $file)
+    public function destroy(PostDislike $postDislike)
     {
         //
     }

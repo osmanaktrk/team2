@@ -14,17 +14,17 @@ class CommentLike extends Model
     protected $fillable = [
         'id',
         'user_id',
-        'comment_id'
+        'comment_id',
     ];
 
     public function user(){
-        return $this->belongsTo(UserModel::class);
+        return $this->belongsTo(User::class);
     }
 
 
 
     public function comment(){
-        return $this->belongsTo(CommentModel::class);
+        return $this->belongsTo(Comment::class);
     }
 
 

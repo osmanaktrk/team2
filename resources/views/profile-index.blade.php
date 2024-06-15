@@ -11,57 +11,7 @@
 
 @section('content')
     
-{{-- <section class="dashboard-section py-5 mt-5">
-    
-    <div class="container">
-        <div class="row justify-content-center mt-5">
-            <div class="col-lg-4 text-center mb-4">
-                <div class="profile-photo mt-5">
-                    <span class="text-dark">{{ __('Profile photo') }}</span>
-                </div>
-                <div class="mt-5">
-                    <p class="font-weight-light">{{ __('Display name') }}</p>
-                    <hr>
-                    <p class="font-weight-light">{{ __('Field of study') }}</p>
-                    <hr>
-                    <a href="{{ route('profile.edit') }}">
-                        <button class="btn btn-danger customize-button">{{ __('Customize') }}</button>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-8 pl-5 mt-5">
-                <div class="text-center">
-                    <h5 class="font-weight-lighter text-info mb-3" style="font-size: 30px;">{{ __('Recent activities') }}</h5>
-                    <div class="block" style="background-color: #d9534f;"></div>
-                </div>
-                <div class="activity-links mt-5">
-                    <a href="#" class="bg-white text-primary border text-decoration-none">{{ __('a link') }}</a>
-                    <a href="#" class="bg-white text-primary border text-decoration-none">{{ __('a link') }}</a>
-                    <a href="#" class="bg-white text-primary border text-decoration-none">{{ __('a link') }}</a>
-                    <a href="#" class="bg-white text-primary border text-decoration-none">{{ __('a link') }}</a>
-                    <a href="#" class="bg-white text-primary border text-decoration-none">{{ __('a link') }}</a>
-                    <a href="#" class="bg-white text-primary border text-decoration-none">{{ __('a link') }}</a>
-                    <a href="#" class="bg-white text-primary border text-decoration-none">{{ __('a link') }}</a>
-                </div>
-            </div>
-        </div>
-        <div class="row text-center mt-4">
-            <div class="col-md-3 col-6 action-buttons">
-                <button class="btn btn-info">{{ __('Recent posts') }}</button>
-            </div>
-            <div class="col-md-3 col-6 action-buttons">
-                <button class="btn btn-info">{{ __('Another button') }}</button>
-            </div>
-            <div class="col-md-3 col-6 action-buttons">
-                <button class="btn btn-info">{{ __('Another button') }}</button>
-            </div>
-            <div class="col-md-3 col-6 action-buttons">
-                <button class="btn btn-info">{{ __('Main page') }}</button>
-            </div>
-            <!-- These button should be functional + renamed -->
-        </div>
-    </div>
-</section> --}}
+
 
 
 <section class="dashboard-section py-5 mt-5">
@@ -69,29 +19,32 @@
         <div class="row justify-content-center mt-5">
             <div class="col-lg-4 text-center mb-4">
                 <div class="profile-photo mt-5" id="dashboardProfilePhoto">
-                    <span class="text-dark">Profile photo</span>
+                    {{-- <span class="text-dark">Profile photo</span> --}}
+                    <img src="{{asset($user->avatar)}}" alt="">
                 </div>
                 <div class="mt-5">
-                    <p class="font-weight-light" id="dashboardName">Display name</p>
+                    <p class="font-weight-light" id="dashboardName">USER NAME: {{$user->username}} </p>
                     <hr>
-                    <p class="font-weight-light" id="dashboardFieldOfStudy">Field of study</p>
+                    <p class="font-weight-light" id="dashboardFieldOfStudy">USER TYPE: {{$user->usertype}}</p>
                     <hr>
                     <button class="btn btn-danger customize-button" data-toggle="modal" data-target="#customizeModal">Customize</button>
                 </div>
             </div>
             <div class="col-lg-8 pl-5 mt-5">
                 <div class="text-center">
-                    <h5 class="font-weight-lighter text-info mb-3" style="font-size: 30px;">Recent activities</h5>
+                    <h5 class="font-weight-lighter text-info mb-3" style="font-size: 30px;">PROFILE INFORMATION</h5>
                     <div class="block" style="background-color: #d9534f;"></div>
                 </div>
+
                 <div class="activity-links mt-5">
-                    <a href="#" class="bg-white text-primary border text-decoration-none">a link</a>
-                    <a href="#" class="bg-white text-primary border text-decoration-none">a link</a>
-                    <a href="#" class="bg-white text-primary border text-decoration-none">a link</a>
-                    <a href="#" class="bg-white text-primary border text-decoration-none">a link</a>
-                    <a href="#" class="bg-white text-primary border text-decoration-none">a link</a>
-                    <a href="#" class="bg-white text-primary border text-decoration-none">a link</a>
-                    <a href="#" class="bg-white text-primary border text-decoration-none">a link</a>
+                    <p class="bg-white text-primary border text-decoration-none">FIRST NAME: {{$user->firstname}}</p>
+                    <p class="bg-white text-primary border text-decoration-none">LAST NAME: {{$user->lastname}}</p>
+                    <p class="bg-white text-primary border text-decoration-none">USER NAME: {{$user->username}}</p>
+                    <p class="bg-white text-primary border text-decoration-none">USER TYPE: {{$user->usertype}}</p>
+                    <p class="bg-white text-primary border text-decoration-none">E-MAIL: {{$user->email}}</p>
+                    <p class="bg-white text-primary border text-decoration-none">{{$user->education_type}}</p>
+                    <p class="bg-white text-primary border text-decoration-none">{{$user->education_name}}</p>
+                    <p class="bg-white text-primary border text-decoration-none">{{$user->education_year}}</p>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ContactModel;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -34,7 +34,7 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ContactModel $contact)
+    public function show(Contact $contact)
     {
         //
     }
@@ -42,7 +42,7 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ContactModel $contact)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -50,7 +50,7 @@ class ContactController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ContactModel $contact)
+    public function update(Request $request, Contact $contact)
     {
         //
     }
@@ -58,7 +58,7 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ContactModel $contact)
+    public function destroy(Contact $contact)
     {
         //
     }

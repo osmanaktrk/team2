@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class UserModel extends Authenticatable
+class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -16,6 +16,9 @@ class UserModel extends Authenticatable
      *
      * @var array<int, string>
      */
+
+
+    protected $table = 'users';
     protected $fillable = [
         'id',
         'firstname',
@@ -55,50 +58,56 @@ class UserModel extends Authenticatable
     }
 
     public function posts(){
-        return $this->hasMany(PostModel::class);
+        return $this->hasMany(Post::class);
     }
 
     public function comments(){
-        return $this->hasMany(CommentModel::class);
+        return $this->hasMany(Comment::class);
     }
 
     public function favorites(){
-        return $this->hasMany(FavoriteModel::class);
+        return $this->hasMany(Favorite::class);
     }
 
 
-    public function commentlikes(){
+    public function commentLikes(){
         return $this->hasMany(CommentLike::class);
     }
 
+    public function commentDislikes(){
+        return $this->hasMany(CommentDislike::class);
+    }
 
     public function postLikes(){
         return $this->hasMany(PostLike::class);
     }
 
+    public function postDislikes(){
+        return $this->hasMany(PostDislike::class);
+    }
+
 
     public function messages(){
-        return $this->hasMany(MessageModel::class);
+        return $this->hasMany(Message::class);
     }
 
 
     public function covers(){
-        return $this->hasMany(CoverModel::class);
+        return $this->hasMany(Cover::class);
     }
 
 
 
-    public function files(){
-        return $this->hasMany(FileModel::class);
-    }
 
     public function readeds(){
-        return $this->hasMany(ReadedModel::class);
+        return $this->hasMany(Readed::class);
     }
 
  
 
-
+    public function contacts(){
+        return $this->hasMany(Contact::class);
+    }
 
 
 

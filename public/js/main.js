@@ -11,30 +11,30 @@ button.addEventListener('click', function() {
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-const maxTitleLength = 100;  // verander dit aantal om maximale lengte van de weergegeven titel te veranderen (voordat het wordt afgebroken door '...')
-const maxContentLength = 200; // verander dit aantal om maximale lengte van de weergegeven content te veranderen (voordat het wordt afgebroken door '...')
-const titleElements = document.querySelectorAll('.post-header');
-const contentElements = document.querySelectorAll('.post-body');
+// document.addEventListener("DOMContentLoaded", function() {
+// const maxTitleLength = 100;  // verander dit aantal om maximale lengte van de weergegeven titel te veranderen (voordat het wordt afgebroken door '...')
+// const maxContentLength = 200; // verander dit aantal om maximale lengte van de weergegeven content te veranderen (voordat het wordt afgebroken door '...')
+// const titleElements = document.querySelectorAll('.post-header');
+// const contentElements = document.querySelectorAll('.post-body');
 
-titleElements.forEach(titleElement => {
-    let titleText = titleElement.innerText;
+// titleElements.forEach(titleElement => {
+//     let titleText = titleElement.innerText;
 
-    if (titleText.length > maxTitleLength) {
-    titleText = titleText.substring(0, maxTitleLength) + '...';
-    titleElement.innerText = titleText;
-    }
-});
+//     if (titleText.length > maxTitleLength) {
+//     titleText = titleText.substring(0, maxTitleLength) + '...';
+//     titleElement.innerText = titleText;
+//     }
+// });
 
-contentElements.forEach(contentElement => {
-    let contentText = contentElement.innerText;
+// contentElements.forEach(contentElement => {
+//     let contentText = contentElement.innerText;
 
-    if (contentText.length > maxContentLength) {
-    contentText = contentText.substring(0, maxContentLength) + '...';
-    contentElement.innerText = contentText;
-    }
-});
-});
+//     if (contentText.length > maxContentLength) {
+//     contentText = contentText.substring(0, maxContentLength) + '...';
+//     contentElement.innerText = contentText;
+//     }
+// });
+// });
 
 /* ------------------------------------------------------------------- CREATE POST BUTTON SETTINGS */
 document.addEventListener("DOMContentLoaded", function() {
@@ -151,4 +151,12 @@ function createPaginationButtons() {
 
 createPaginationButtons();
 showPage(currentPage);
+});
+
+
+
+let search = document.querySelector('.input-search-bar');
+
+search.addEventListener('input', ()=>{
+    console.log(search.value);
 });

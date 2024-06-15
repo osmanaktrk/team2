@@ -66,13 +66,28 @@
     justify-content: center;
     margin: 0 auto;
     border: 2px solid gray;
+    overflow: hidden;
 }
+
+
+
+.profile-photo>img{
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: auto;
+    border-radius: 50%;
+}
+
+
+
 .customize-button {
     display: block;
     margin: 20px auto;
 }
 
-.activity-links a {
+
+
+.activity-links>* {
     display: block;
     padding: 10px;
     border: 1px solid #ced4da;
@@ -81,6 +96,8 @@
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
+
+
 .action-buttons .btn {
     width: 100px;
     height: 100px;

@@ -29,7 +29,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+
+
                 <ul class="navbar-nav ml-auto">
+
+
+
                     @if (Route::has('login'))
                         <li class="nav-item">
                             @auth
@@ -43,12 +50,20 @@
                             @else
                                 <a href="{{ route('login') }}" class="nav-link text-danger">{{ __('Sign In') }}</a>
                             @endauth
+                        </li>
                     @endif
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link text-info">{{ __('Contact') }}</a>
-                    </li>
+
+                    @guest
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link text-info">{{ __('Contact') }}</a>
+                        </li>
+                    @endguest
+
+
                 </ul>
+
+
+
             </div>
         </div>
     </nav>
@@ -100,11 +115,11 @@
                         {{ __('The key to your academic success') }}</h2>
                     <p class="lead mt-4">
                         {{ __('Discover a vibrant community of like minded students, share knowledge and
-                                                experiences, and support each other on your journey to success.') }}
+                                                                        experiences, and support each other on your journey to success.') }}
                         <br><br>
                         {{ __('Whether you\'re new to campus or a seasoned student, EraStudent provides the
-                                                tools you need to thrive. Find study partners, make friends, and let your
-                                                academic journey begin with EraStudent.') }}
+                                                                        tools you need to thrive. Find study partners, make friends, and let your
+                                                                        academic journey begin with EraStudent.') }}
                     </p>
                     <a href="#Read-more" class="btn btn-outline-danger mt-3">{{ __('Read more') }}</a>
                 </div>
@@ -189,7 +204,7 @@
                     <h2 class="display-4 font-weight-lighter">{{ __('Contact Us') }}</h2>
                     <div class="block mb-5" style="background-color: #1ABCB6;"></div>
                 </div>
-             
+
 
                 <div class="bg-light">
                     <section class="contact-section py-5 mt-5">
@@ -214,11 +229,11 @@
                                             <input type="email" class="form-control font-weight-lighter" id="email"
                                                 placeholder="{{ __('Enter your email') }}">
                                         </div>
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="subject" class="font-weight-light">{{ __('Subject') }}</label>
                                             <input type="text" class="form-control font-weight-lighter" id="subject"
                                                 placeholder="{{ __('Enter the subject') }}">
-                                        </div>
+                                        </div> --}}
                                         <div class="form-group">
                                             <label for="message" class="font-weight-light">{{ __('Message') }}</label>
                                             <textarea class="form-control font-weight-lighter" id="message" rows="10"

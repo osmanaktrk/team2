@@ -30,10 +30,10 @@
                             <label for="email" class="font-weight-light">{{ __('Email') }}</label>
                             <input type="email" class="form-control font-weight-lighter" id="email" placeholder="{{ __('Enter your email') }}">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="subject" class="font-weight-light">{{ __('Subject') }}</label>
                             <input type="text" class="form-control font-weight-lighter" id="subject" placeholder="{{ __('Enter the subject') }}">
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label for="message" class="font-weight-light">{{ __('Message') }}</label>
                             <textarea class="form-control font-weight-lighter" id="message" rows="10" placeholder="{{ __('Enter your message') }}"></textarea>

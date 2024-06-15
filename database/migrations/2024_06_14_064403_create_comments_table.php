@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('post_id');
             $table->foreignId('cover_id')->nullable();
-            $table->foreignId('file_id')->nullable();
             $table->timestamps();
         });
     }

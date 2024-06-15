@@ -16,14 +16,45 @@
             <button class="leftmenu-top" id="leftmenu-top-one">
 
                 <div class="left-manage-assetdiv">
+                    <div class="icon general"></div>
+
+                </div>
+
+                <div class="left-manage-word" id="collapsible-topics">
+                    {{ __('Profile') }}
+                </div>
+
+            </button>
+
+
+
+
+
+
+
+
+            <button class="leftmenu-top" id="leftmenu-top-one">
+
+                <div class="left-manage-assetdiv">
                     <img class="left-manage-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}"
-                        alt="">
+                        alt="profile">
                 </div>
 
                 <div class="left-manage-word" id="collapsible-topics">
                     {{ __('Profile') }}
                 </div>
             </button>
+
+
+
+
+
+
+
+
+
+
+
 
             <button class="leftmenu-top">
 
@@ -62,7 +93,7 @@
 
             <button class="leftmenu-top">
                 <div class="left-manage-assetdiv">
-                    <img class="left-manage-asset" src="{{ asset('img/main/90d1ac48711f63c6a290238c8382632f.jpg') }}"
+                    <img class="left-manage-asset" src=""
                         alt="">
                 </div>
                 <div class="left-manage-word">
@@ -84,27 +115,23 @@
 
             <div class="content">
 
-                
 
-                <button class="collapsible-contentbutton">
+                @foreach ($categories as $category)
+                    <div class="collapsible-contentbutton">
 
-                    <label class="left-manage-assetdiv ">
-                        <input class="left-manage-word icon" type="checkbox" name="a" id="a">
-                        {{ __('General') }}
-                    </label>
+                        <label class="left-manage-assetdiv ">
+                            <input class="left-manage-word icon" type="checkbox" value="{{ $category->id }}"
+                                name="{{ $category->id }}" id="{{ $category->id }}" checked>
+                            {{ $category->category }}
+                        </label>
 
-                </button>
+                    </div>
+                @endforeach
 
-                <button class="collapsible-contentbutton">
 
-                    <label class="left-manage-assetdiv ">
-                        <input class="left-manage-word icon" type="checkbox" name="b" id="a">
-                        {{ __('General') }}
-                    </label>
 
-                </button>
 
-                
+
             </div>
 
             {{-- <button class="collapsible">
@@ -205,8 +232,32 @@
         <div class="right">
             <div class="right-ceiling">
                 <div class="right-sorting">
-                    <button class="sortingbutton">{{ __('All categories') }}</button>
-                    <button class="sortingbutton">{{ __('Unread') }}</button>
+                   
+                    <label class="sortingbutton" for="all-posts">
+                        All Posts
+                        <input type="checkbox" name="all-posts" id="all-posts" checked>
+                    </label>
+
+                    <label class="sortingbutton" for="unread">
+                        Unread
+                        <input type="checkbox" name="unread" id="unread">
+                    </label>
+
+
+                </div>
+
+                <div class="search-bar-container">
+                    <div class="text-center">
+                        <div class="search-bar">
+                            <label>
+                                <input class="input-search-bar" type="search" placeholder="{{ __('Search for topics') }}"
+                                    aria-label="Search">
+                                <button class="submit-search-btn">{{ __('Search') }}</button>
+                            </label>
+
+
+                        </div>
+                    </div>
                 </div>
 
                 <button class="createpostbutton">
@@ -236,51 +287,145 @@
                 </div>
             </div>
 
+
+
             <div class="postbar">
                 <div class="posts-container">
 
-                    <div class="post">
-                        <div class="post-header">
-                            <h3 class="post-header-text">POST TITLE Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis aliquid quos commodi dolore cupiditate libero iure eos unde, dolores obcaecati, laudantium officiis qui nihil sequi aspernatur repellat assumenda! Optio excepturi fugit eligendi assumenda dolorum commodi obcaecati, temporibus iure iste minus? Numquam, aspernatur tempore cupiditate eveniet architecto deleniti inventore aliquid neque velit ipsa repellendus in asperiores magnam tempora incidunt iste eos rerum ab explicabo, officiis sapiente quibusdam similique fugit. Odit voluptates dignissimos cumque maiores incidunt architecto iste impedit. Architecto nobis exercitationem perferendis recusandae dignissimos nisi, voluptas dicta et impedit. Amet aliquid qui sapiente. Eaque veniam modi et labore quis obcaecati vitae?</h3>
-                        </div>
-                        <div class="post-body">
-                            <div class="post-body-profile-button">
-                                <a href="">
-                                    <img class="post-body-asset" src="{{ asset('img/icon.jpg') }}" alt="profile-button">
+                    @foreach ($posts as $post)
 
-                                </a>
+                    @if ($post->is_publised)
+                        
+                    @endif
+
+                        <div class="post" 
+                        
+                            category="{{$post->category->id}}" 
                             
+                            @foreach ($post->readeds as $readed)
+                                        @if ($readed->user_id == Auth::user()->id)
+                                           readed="readed"
+                                        @endif
+                            @endforeach
+                            
+
+                            title="{{$post->title}}"
+                            
+                            >
+                            <div class="post-header">
+                                <a href="{{route('post', $post->id)}}">
+                                    <h3 class="post-header-text">{{ $post->title }}</h3>
+                                </a>
                             </div>
-                            <span>postu kim yazdi profil fotogrefi</span>
+                            <div class="post-body">
+
+                                {{-- <div class="post-body-profile-button">
+                                   
+                                    <a href="">
+
+                                        <span>Category</span>
+                                        <img class="post-body-asset" src="" alt="profile-button">
+
+                                    </a>
+
+                                </div> --}}
+
+                            </div>
+                            <div class="post-footer">
+                                <div>
+                                    <button class="share-report-btn">Category: {{ $post->category->category }}</button>
+
+                                    <button class="share-report-btn">Comments:
+                                        @if ($post->comments == null)
+                                            0
+                                        @else
+                                            {{ $post->comment->count() }}
+                                        @endif
+
+                                    </button>
+
+                                    {{-- <span class="post-comments-amount">Comments: </span> --}}
+                                </div>
+
+
+
+                                <div class="category-container">
+                                    <img src="{{ asset('img/main/tag-image.png') }}" alt="Tag" class="category-image">
+                                    <span>by
+                                        @if (isset($post->user->username))
+                                        
+                                        <a href="{{route('profile-index')}}">
+                                            <button class="btn btn-link font-weight-light"   aria-expanded="true" aria-controls="collapseOne" style="color: #1ABCB6;">{{ $post->user->username }}</button>
+
+                                        </a>
+
+                                            
+                                        @else
+                                            <span class="error">Deleted User</span>
+                                        @endif
+                                        at
+                                        {{ $post->created_at->format('d/M/Y H:i') }}
+                                    </span>
+
+                                </div>
+
+                                <div>
+                                    {{-- <button class="upvote-downvote-btn">Unreaded</button> --}}
+
+                                    @foreach ($post->readeds as $readed)
+                                        @if ($readed->user_id == Auth::user()->id)
+                                            <button class="share-report-btn">Readed</button>
+                                        @endif
+                                    @endforeach
+
+                                    @foreach ($post->favorites as $favorite)
+                                        @if ($favorite->user_id == Auth::user()->id)
+                                            <button class="share-report-btn">Favorite</button>
+                                        @endif
+                                    @endforeach
+
+
+
+
+                                    <button class="upvote-downvote-btn">Likes:
+
+                                        @if ($post->postLikes == null)
+                                            0
+                                        @else
+                                            {{ $post->postLikes->count() }}
+                                        @endif
+
+
+                                    </button>
+                                    <button class="upvote-downvote-btn">Dislikes:
+
+                                        @if ($post->postDislikes == null)
+                                            0
+                                        @else
+                                            {{ $post->postDislikes->count() }}
+                                        @endif
+
+
+
+                                    </button>
+
+                                </div>
+                            </div>
                         </div>
-                        <div class="post-footer">
-                            <div>
-                                <button class="upvote-downvote-btn">{{ __('Upvote') }}</button>
-                                <button class="upvote-downvote-btn">{{ __('Downvote') }}</button>
-                                <span class="post-comments-amount">post kaç commenti var{{ __('Comments') }}</span>
-                            </div>
-
-                            <div class="category-container">
-                                <img src="{{ asset('img/main/tag-image.png') }}" alt="Tag" class="category-image">
-                                <span class="category-text">ne zaman yazilmis</span>
-                            </div>
-
-                            <div>
-                                <button class="share-report-btn">{{ __('Share') }}</button>
-                                <button class="share-report-btn">{{ __('Report') }}</button>
-                            </div>
-                        </div>
-                    </div>
-
+                    @endforeach
 
                     <div class="pagination" id="pagination"></div>
 
-                   
                 </div>
             </div>
-            
+
+
+
+
+
+
         </div>
-        
+
     </div>
 @endsection
 

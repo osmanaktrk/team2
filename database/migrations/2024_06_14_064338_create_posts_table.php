@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('category_id');
             $table->foreignId('user_id');
             $table->foreignId('cover_id')->nullable();
-            $table->foreignId('file_id')->nullable();
             $table->boolean('is_published')->default(false);
             $table->timestamps();
         });

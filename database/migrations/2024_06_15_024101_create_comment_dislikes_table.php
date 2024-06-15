@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('comment_dislikes', function (Blueprint $table) {
             $table->id();
-            $table->string('file');
             $table->foreignId('user_id');
-            $table->foreignId('post_id')->nullable();
-            $table->foreignId('comment_id')->nullable();
+            $table->foreignId('post_id');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('files');
+        Schema::dropIfExists('comment_dislikes');
     }
 };

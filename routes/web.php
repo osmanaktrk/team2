@@ -32,17 +32,16 @@ Route::get('/faq', function(){
 })->name('faq');
 
 
-Route::get('/profile-index', function(){
-    return view('profile-index');
-})->name('profile-index');
+Route::get('/profile-index', [ProfileController::class, 'edit'])->name('profile-index');
 
 Route::put('/avatar', [UserController::class, 'avatarUpload'])->name("avatar.upload");
 
 Route::delete('/avatar', [UserController::class, 'avatarDelete'])->name("avatar.delete");
     
-Route::put('/profile-education.upload', [UserController::class, 'educationUpdate'])->name('profile-education.upload');
+Route::post('/profile-education.upload', [UserController::class, 'educationUpdate'])->name('profile-education.upload');
     
 
+Route::get('/post/{id}', [PostController::class, 'index'])->name('post');
 
 
 
