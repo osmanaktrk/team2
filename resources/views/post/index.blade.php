@@ -17,7 +17,7 @@
                     <div class="text-justify mb-4">
 
                         {{-- <h2 class="font-weight-lighter mb-3">{{ $post->title }}</h2> --}}
-                        <div class="block" style="background-color: #1ABCB6;"></div>
+                        {{-- <div class="block" style="background-color: #1ABCB6;"></div> --}}
 
 
 
@@ -45,6 +45,7 @@
 
 
                             </button>
+
                             <button class="upvote-downvote-btn">Dislikes:
 
                                 @if ($post->postDislikes == null)
@@ -72,8 +73,6 @@
 
 
                     <div class="accordion">
-
-
                         <div class="card">
 
                             <div class="card-header row justify-content-around align-items-center">
@@ -107,14 +106,22 @@
                             </div>
 
 
-                            @if (isset($post->cover->cover))
-                                <div class="collapse show font-weight-light">
-                                    <div class="card-body">
-                                        <img src="{{ asset($post->cover->cover) }}" alt="post-cover">
-                                    </div>
 
-                                </div>
-                            @endif
+                            <div class="collapse show font-weight-light">
+
+
+                                @if (isset($post->cover->cover))
+                                    <div class="card-body">
+
+                                        <img src="{{ asset($post->cover->cover) }}" alt="post-cover">
+
+                                    </div>
+                                @endif
+
+
+
+                            </div>
+
 
 
                         </div>
@@ -130,7 +137,7 @@
 
 
 
-                        <h2 class="font-weight-lighter mb-3">{{ $post->title }}</h2>
+                        <h2 class="font-weight-lighter mb-3 text-justify">{{ $post->title }}</h2>
                         <br>
                         <hr>
 
@@ -216,7 +223,7 @@
 
                     @isset($post->comments)
                         @foreach ($post->comments as $comment)
-                            <div class="accordion">
+                            <div class="accordion mb-5">
 
 
                                 <div class="card mt-5">
@@ -258,20 +265,21 @@
                                     </div>
 
 
-                                    @isset($comment->cover->cover)
-                                        <div class="font-weight-light">
-                                            <div class="card-body">
-                                                <img src="{{ asset($comment->cover->cover) }}" alt="post-cover">
-                                            </div>
 
-                                        </div>
-                                    @endisset
+                                    <div class="font-weight-light">
+                                        @isset($comment->cover->cover)
+                                            <div class="card-body">
+                                                <img src="{{ asset($comment->cover->cover) }}" alt="comment-cover">
+                                            </div>
+                                        @endisset
+                                    </div>
+
 
 
 
 
                                     <div class="collapse show font-weight-light">
-                                        <div class="card-body">
+                                        <div class="card-body text-justify">
                                             {{ $comment->comment }}
                                         </div>
                                     </div>
@@ -293,9 +301,8 @@
                                     <br>
 
                                     @if (Auth::user()->usertype == 'admin' || ($comment->user_id = Auth::user()->id))
-                                        <div class="accordion mb-4">
-                                            <div class="collapse card pl-5 pr-5 mt-2 mr-3 ml-3"
-                                                id="collapse{{ $comment->id }}">
+                                        <div class="accordion mb-4 p-2">
+                                            <div class="collapse card mt-2 mr-3 ml-3" id="collapse{{ $comment->id }}">
 
                                                 <div class="card-header row justify-content-between align-items-center">
                                                     <h5 class="mb-0">
@@ -330,16 +337,17 @@
 
                                                 </div>
 
-                                                @isset($comment->cover->cover)
-                                                    <div class="font-weight-light">
+
+                                                <div class="font-weight-light">
+                                                    @isset($comment->cover->cover)
                                                         <div class="card-body">
-                                                            <img src="{{ asset($comment->cover->cover) }}" alt="post-cover">
+                                                            <img src="{{ asset($comment->cover->cover) }}" alt="comment-cover">
                                                         </div>
+                                                    @endisset
+                                                </div>
 
-                                                    </div>
-                                                @endisset
 
-                                                <div class="collapse show font-weight-light">
+                                                <div class="font-weight-light">
                                                     <div class="card-body">
                                                         {{ $comment->comment }}
                                                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Favorite;
 use App\Models\Post;
@@ -47,8 +48,11 @@ class PostController extends Controller
      */
     public function create()
     {
+
+
+        $categories = Category::all();
         
-        return view('post.create');
+        return view('post.create', compact('categories'));
     }
 
     /**
