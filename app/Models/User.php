@@ -70,13 +70,7 @@ class User extends Authenticatable
     }
 
 
-    public function commentLikes(){
-        return $this->hasMany(CommentLike::class);
-    }
-
-    public function commentDislikes(){
-        return $this->hasMany(CommentDislike::class);
-    }
+  
 
     public function postLikes(){
         return $this->hasMany(PostLike::class);
@@ -110,6 +104,9 @@ class User extends Authenticatable
     }
 
 
+    public function extras(){
+        return $this->hasMany(Extra::class);
+    }
 
 
 

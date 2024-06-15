@@ -18,6 +18,8 @@ class Post extends Model
         'user_id',
         'cover_id',
         'is_published',
+        'extra_id',
+        'created_at'
     ];
 
 
@@ -36,6 +38,9 @@ class Post extends Model
         return $this->hasOne(Cover::class);
     }
 
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 
     public function readeds(){
         return $this->hasMany(Readed::class);
@@ -54,7 +59,9 @@ class Post extends Model
     }
 
 
-
+    public function extra(){
+        return $this->hasOne(Extra::class);
+    }
 
 
 }

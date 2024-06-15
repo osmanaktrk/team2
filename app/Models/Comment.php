@@ -18,6 +18,8 @@ class Comment extends Model
         'user_id',
         'post_id',
         'cover_id',
+        'extra_id',
+        'created_at',
 
     ];
 
@@ -38,15 +40,8 @@ class Comment extends Model
 
 
 
-    public function commentLikes(){
-        return $this->hasMany(CommentLike::class);
+    public function extra(){
+        return $this->hasOne(Extra::class);
     }
-
-    public function commentDislikes(){
-        return $this->hasMany(CommentDislike::class);
-    }
-
-
-
 
 }

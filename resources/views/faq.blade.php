@@ -20,7 +20,12 @@
                     <p class="text-muted font-weight-light">{{ __('Got questions? We have answers! Check out our FAQ section below.') }}</p>
                     <!-- Need to change the questions and their answers - down below -->
                 </div>
+
+
+
                 <div class="accordion" id="faqAccordion">
+
+                   
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h5 class="mb-0">
@@ -35,6 +40,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="card">
                         <div class="card-header" id="headingTwo">
                             <h5 class="mb-0">
@@ -49,6 +55,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="card">
                         <div class="card-header" id="headingThree">
                             <h5 class="mb-0">

@@ -33,7 +33,7 @@
                     </a>
                     
                 </div>
-
+                
             </div>
 
             <div class="header-middle">
@@ -41,12 +41,12 @@
                 <div class="middle-bar-container">
                     <div class="text-center">
                         <div class="middle-bar">
-
+                            
                             <ul class="middle-links">
                                 <a class="middle-links-btn" href="{{route('main')}}">
                                     <li>MAIN</li>
                                 </a>
-                                <a class="middle-links-btn" href="">
+                                <a class="middle-links-btn" href="{{route('post-create')}}">
                                     <li>NEW POST</li>
                                 </a>
                                 <a class="middle-links-btn" href="{{route('faq')}}">
@@ -103,8 +103,25 @@
                 </div>
 
             </div>
-
+            
         </div>
+
+
+        <div class="status">
+            @if (session('warm'))
+                <h4 class="warm">{{session('warm')}}</h4>
+
+            @endif
+
+            @if (session('accept'))
+            <h4 class="accept">{{session('accept')}}</h4>
+
+            @endif
+           
+           
+           
+        </div>
+    
     </header>
 
     <main>

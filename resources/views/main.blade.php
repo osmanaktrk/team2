@@ -16,7 +16,7 @@
             <button class="leftmenu-top" id="leftmenu-top-one">
 
                 <div class="left-manage-assetdiv">
-                    <div class="icon general"></div>
+                    <div class="icon gainsboro"></div>
 
                 </div>
 
@@ -93,8 +93,7 @@
 
             <button class="leftmenu-top">
                 <div class="left-manage-assetdiv">
-                    <img class="left-manage-asset" src=""
-                        alt="">
+                    <img class="left-manage-asset" src="" alt="">
                 </div>
                 <div class="left-manage-word">
                     {{ __('Contact') }}
@@ -232,7 +231,7 @@
         <div class="right">
             <div class="right-ceiling">
                 <div class="right-sorting">
-                   
+
                     <label class="sortingbutton" for="all-posts">
                         All Posts
                         <input type="checkbox" name="all-posts" id="all-posts" checked>
@@ -242,6 +241,8 @@
                         Unread
                         <input type="checkbox" name="unread" id="unread">
                     </label>
+
+
 
 
                 </div>
@@ -293,33 +294,35 @@
                 <div class="posts-container">
 
                     @foreach ($posts as $post)
+                        @if ($post->is_published)
+                            <div class="post" category="{{ $post->category->id }}"
+                                @foreach ($post->favorites as $favorite)
+                                            @if ($favorite->user_id == Auth::user()->id)
+                                                favorite="true"
+                                            @endif @endforeach
 
-                    @if ($post->is_publised)
-                        
-                    @endif
 
-                        <div class="post" 
-                        
-                            category="{{$post->category->id}}" 
-                            
-                            @foreach ($post->readeds as $readed)
+                                @foreach ($post->readeds as $readed)
                                         @if ($readed->user_id == Auth::user()->id)
-                                           readed="readed"
-                                        @endif
-                            @endforeach
-                            
+                                           readed="true"
+                                        @endif @endforeach
 
-                            title="{{$post->title}}"
-                            
-                            >
-                            <div class="post-header">
-                                <a href="{{route('post', $post->id)}}">
-                                    <h3 class="post-header-text">{{ $post->title }}</h3>
-                                </a>
-                            </div>
-                            <div class="post-body">
 
-                                {{-- <div class="post-body-profile-button">
+                                title="{{ $post->title }}">
+
+
+
+
+
+
+                                <div class="post-header">
+                                    <a href="{{ route('post-index', $post->id) }}">
+                                        <h3 class="post-header-text">{{ $post->title }}</h3>
+                                    </a>
+                                </div>
+                                <div class="post-body">
+
+                                    {{-- <div class="post-body-profile-button">
                                    
                                     <a href="">
 
@@ -330,88 +333,90 @@
 
                                 </div> --}}
 
+                                </div>
+                                <div class="post-footer">
+                                    <div>
+                                        <button class="share-report-btn">Category:
+                                            {{ $post->category->category }}</button>
+
+                                        <button class="share-report-btn">Comments:
+                                            @if ($post->comments == null)
+                                                0
+                                            @else
+                                                {{ $post->comments->count() }}
+                                            @endif
+
+                                        </button>
+
+                                        {{-- <span class="post-comments-amount">Comments: </span> --}}
+                                    </div>
+
+
+
+                                    <div class="category-container">
+                                        <img src="{{ asset('img/main/tag-image.png') }}" alt="Tag"
+                                            class="category-image">
+                                        <span>by
+                                            @if (isset($post->user->username))
+                                                <a href="{{ route('profile-index') }}">
+                                                    <button class="btn btn-link font-weight-light" aria-expanded="true"
+                                                        aria-controls="collapseOne"
+                                                        style="color: #1ABCB6;">{{ $post->user->username }}</button>
+
+                                                </a>
+                                            @else
+                                                <span class="error">Deleted User</span>
+                                            @endif
+                                            at
+                                            {{ $post->created_at->format('d/M/Y H:i') }}
+                                        </span>
+
+                                    </div>
+
+                                    <div>
+                                        {{-- <button class="upvote-downvote-btn">Unreaded</button> --}}
+
+                                        @foreach ($post->readeds as $readed)
+                                            @if ($readed->user_id == Auth::user()->id)
+                                                <button class="share-report-btn">Readed</button>
+                                            @endif
+                                        @endforeach
+
+                                        @foreach ($post->favorites as $favorite)
+                                            @if ($favorite->user_id == Auth::user()->id)
+                                                <button class="share-report-btn">Favorite</button>
+                                            @endif
+                                        @endforeach
+
+
+
+
+                                        <button class="upvote-downvote-btn">Likes:
+
+                                            @if ($post->postLikes == null)
+                                                0
+                                            @else
+                                                {{ $post->postLikes->count() }}
+                                            @endif
+
+
+                                        </button>
+                                        <button class="upvote-downvote-btn">Dislikes:
+
+                                            @if ($post->postDislikes == null)
+                                                0
+                                            @else
+                                                {{ $post->postDislikes->count() }}
+                                            @endif
+
+
+
+                                        </button>
+
+                                    </div>
+                                </div>
                             </div>
-                            <div class="post-footer">
-                                <div>
-                                    <button class="share-report-btn">Category: {{ $post->category->category }}</button>
-
-                                    <button class="share-report-btn">Comments:
-                                        @if ($post->comments == null)
-                                            0
-                                        @else
-                                            {{ $post->comment->count() }}
-                                        @endif
-
-                                    </button>
-
-                                    {{-- <span class="post-comments-amount">Comments: </span> --}}
-                                </div>
-
-
-
-                                <div class="category-container">
-                                    <img src="{{ asset('img/main/tag-image.png') }}" alt="Tag" class="category-image">
-                                    <span>by
-                                        @if (isset($post->user->username))
-                                        
-                                        <a href="{{route('profile-index')}}">
-                                            <button class="btn btn-link font-weight-light"   aria-expanded="true" aria-controls="collapseOne" style="color: #1ABCB6;">{{ $post->user->username }}</button>
-
-                                        </a>
-
-                                            
-                                        @else
-                                            <span class="error">Deleted User</span>
-                                        @endif
-                                        at
-                                        {{ $post->created_at->format('d/M/Y H:i') }}
-                                    </span>
-
-                                </div>
-
-                                <div>
-                                    {{-- <button class="upvote-downvote-btn">Unreaded</button> --}}
-
-                                    @foreach ($post->readeds as $readed)
-                                        @if ($readed->user_id == Auth::user()->id)
-                                            <button class="share-report-btn">Readed</button>
-                                        @endif
-                                    @endforeach
-
-                                    @foreach ($post->favorites as $favorite)
-                                        @if ($favorite->user_id == Auth::user()->id)
-                                            <button class="share-report-btn">Favorite</button>
-                                        @endif
-                                    @endforeach
-
-
-
-
-                                    <button class="upvote-downvote-btn">Likes:
-
-                                        @if ($post->postLikes == null)
-                                            0
-                                        @else
-                                            {{ $post->postLikes->count() }}
-                                        @endif
-
-
-                                    </button>
-                                    <button class="upvote-downvote-btn">Dislikes:
-
-                                        @if ($post->postDislikes == null)
-                                            0
-                                        @else
-                                            {{ $post->postDislikes->count() }}
-                                        @endif
-
-
-
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
+                        @endif
                     @endforeach
 
                     <div class="pagination" id="pagination"></div>

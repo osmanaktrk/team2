@@ -180,6 +180,19 @@ main{
     justify-content: center;
 }
 
+.status{
+    display: block;
+    text-align: center;
+    
+}
+
+.warm{
+    color: red;
+}
+
+.accept{
+    color: green;
+}
 
 
 @media (max-width: 1200px) {

@@ -41,17 +41,17 @@ Route::delete('/avatar', [UserController::class, 'avatarDelete'])->name("avatar.
 Route::post('/profile-education.upload', [UserController::class, 'educationUpdate'])->name('profile-education.upload');
     
 
-Route::get('/post/{id}', [PostController::class, 'index'])->name('post');
+Route::get('/post/{id}', [PostController::class, 'index'])->name('post-index');
 
-
+Route::get('/post-create', [PostController::class, 'create'])->name('post-create');
 
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');;
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

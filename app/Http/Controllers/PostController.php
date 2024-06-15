@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Favorite;
 use App\Models\Post;
+use App\Models\PostDislike;
+use App\Models\PostLike;
 use App\Models\Readed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,17 +21,25 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        $readed = new Readed();
+        $is_readed = Readed::where('post_id', $id)->where('user_id', Auth::user()->id)->exists();
+        $is_liked = PostLike::where('post_id', $id)->where('user_id', Auth::user()->id)->exists();
+        $is_disliked = PostDislike::where('post_id', $id)->where('user_id', Auth::user()->id)->exists();
+        
+        $is_favorited = Favorite::where('post_id', $id)->where('user_id', Auth::user()->id)->exists();
 
-        $readed->post_id = $id;
-        $readed->user_id = Auth::user()->id;
+        
+        if (!$is_readed) {
 
-        $readed->save();
+            $readed = new Readed();
 
-       
+            $readed->post_id = $id;
+            $readed->user_id = Auth::user()->id;
+
+            $readed->save();
+        }
 
 
-        return view('post', compact('post'));
+        return view('post.index', compact('post', 'is_liked', 'is_disliked', 'is_readed', 'is_favorited'));
     }
 
     /**
@@ -36,7 +47,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('post.create');
     }
 
     /**

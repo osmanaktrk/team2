@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->longText('comment');
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();
             $table->foreignId('post_id');
             $table->foreignId('cover_id')->nullable();
+            $table->foreignId('extra_id')->nullable();
             $table->timestamps();
         });
     }
