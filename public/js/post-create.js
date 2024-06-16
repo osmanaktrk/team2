@@ -22,23 +22,23 @@ postInput.addEventListener('change', ()=>{
 
 
 
-let commentCover = document.querySelector('.comment-cover');
-let commentInput = document.querySelector('#comment-cover');
-let comment_src = commentCover.src;
+let newCommentCover = document.querySelector('.comment-cover');
+let newCommentInput = document.querySelector('#comment-cover');
+let comment_src = newCommentCover.src;
 
-commentInput.addEventListener('change', ()=>{
-    let file = commentInput.files[0];
+newCommentInput.addEventListener('change', ()=>{
+    let file = newCommentInput.files[0];
 
     if(file){
         let fileReader = new FileReader();
 
         fileReader.onload = ()=>{
-            commentCover.src = fileReader.result;
+            newCommentCover.src = fileReader.result;
         }
         fileReader.readAsDataURL(file);
 
     }else{
-        commentCover.src = comment_src;
+        newCommentCover.src = comment_src;
     }
 
 

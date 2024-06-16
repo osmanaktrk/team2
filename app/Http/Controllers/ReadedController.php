@@ -4,15 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Readed;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ReadedController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function unread($id)
     {
-        //
+        Readed::where('post_id', $id)->where('user_id', Auth::user()->id)->delete();
+
+        return redirect()->route('main')->with('accept', 'POST SET AS UNREADED');
+       
     }
 
     /**

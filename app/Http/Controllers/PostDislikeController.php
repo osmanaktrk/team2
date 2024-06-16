@@ -3,16 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Models\PostDislike;
+use App\Models\PostLike;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class PostDislikeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function postDislike($id)
     {
-        //
+        
+        $dislike = new PostDislike();
+        $dislike->post_id = $id;
+        $dislike->user_id = Auth::user()->id;
+        $dislike->save();
+        $is_liked = PostLike::where('post_id', $id)->where('user_id', Auth::user()->id)->exists();
+
+       
+        if($is_liked){
+            PostLike::where('post_id', $id)->where('user_id', Auth::user()->id)->delete();
+        }
+
+
+        return redirect()->back()->with('warm', 'POST DISLIKED');
+
     }
 
     /**

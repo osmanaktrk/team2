@@ -28,7 +28,7 @@ class MainController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('is_published', true)->get()->all();
+        $posts = Post::where('is_published', true)->latest()->get();
 
         $categories = Category::all();
 

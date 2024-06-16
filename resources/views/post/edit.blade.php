@@ -9,22 +9,17 @@
 @endsection
 
 @section('content')
-    <form action="" method="post" enctype="multipart/form-data">
-        <section class="post-edit-section mt-5">
-            <div class="container">
+    <section class="post-edit-section mt-5">
+        <div class="container">
+
+            <form action="{{ route('post-edit', $post->id) }}" method="post" enctype="multipart/form-data">
+
+
                 <div class="row justify-content-center">
-
-
-
 
                     <div class="col-lg-10">
 
-
                         <div class="text-justify mb-4">
-
-
-
-
 
                             <div class="row justify-content-between align-items-center">
 
@@ -32,13 +27,13 @@
 
                                 <div class="row justify-content-center align-items-center">
 
-                                    @error('category-select')
+                                    @error('category_id')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                     <div class="share-report-btn">Category:</div>
 
-                                    <select class="btn btn-light btn-outline-info" name="category-select"
-                                        id="category-select" required>
+                                    <select class="btn btn-light btn-outline-info" name="category_id" id="category-select"
+                                        required>
                                         <option disabled selected value="0">Select A Category</option>
                                         @foreach ($categories as $category)
                                             @if ($category->id == $post->category_id)
@@ -116,7 +111,7 @@
 
                                         {{-- <span class="btn btn-outline-info font-weight-light">Upload A Cover</span> --}}
 
-                                        @error('post-cover')
+                                        @error('post_cover')
                                             <span class=" text-danger">{{ $message }}</span>
                                         @enderror
 
@@ -143,7 +138,7 @@
 
                                         <div class=" text-center m-4">
                                             <input class="btn btn-outline-info" accept="image/*" type="file"
-                                                name="post-cover" id="post-cover">
+                                                name="post_cover" id="post-cover">
                                         </div>
                                     @endif
 
@@ -180,11 +175,11 @@
                                                     aria-controls="collapseOne">Update File</span>
 
 
-                                                @error('post-file-name')
+                                                @error('post_file_name')
                                                     <span class=" text-danger">{{ $message }}</span>
                                                 @enderror
 
-                                                @error('post-file')
+                                                @error('post_file')
                                                     <span class=" text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -212,14 +207,14 @@
 
 
                                                 <label class=" btn btn-outline-primary" for="post-file-name">File Name:
-                                                    <input class="update-name" type="text" name="post-file-name"
+                                                    <input class="update-name" type="text" name="post_file_name"
                                                         id="post-file-name">
                                                 </label>
 
 
 
-                                                <input class="update-file btn btn-primary" type="file" name="post-file"
-                                                    id="post-file">
+                                                <input class="update-file btn btn-primary" type="file" name="post_file"
+                                                    id="post-file" accept=".zip,.rar,.7zip">
                                             </div>
 
                                         </div>
@@ -235,11 +230,11 @@
                                                     aria-controls="collapseTwo">Upload A File</span>
 
 
-                                                @error('post-file-name')
+                                                @error('post_file_name')
                                                     <span class=" text-danger">{{ $message }}</span>
                                                 @enderror
 
-                                                @error('post-file')
+                                                @error('post_file')
                                                     <span class=" text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -255,13 +250,13 @@
 
 
                                                 <label class=" btn btn-outline-primary" for="post-file-name">File Name:
-                                                    <input type="text" name="post-file-name" id="post-file-name">
+                                                    <input type="text" name="post_file_name" id="post-file-name">
                                                 </label>
 
 
 
-                                                <input class=" btn btn-primary" type="file" name="post-file"
-                                                    id="post-file">
+                                                <input class=" btn btn-primary" type="file" name="post_file"
+                                                    id="post-file" accept=".zip,.rar,.7zip">
                                             </div>
 
                                         </div>
@@ -295,16 +290,33 @@
                 </div>
                 <hr>
                 <div class=" card-footer row justify-content-center">
-                    <input class="btn btn-success" type="submit" value="SUBMIT">
+                    <input class="btn btn-success" type="submit" value="UPDATE POST">
                 </div>
                 <hr>
 
+            </form>
 
 
+
+            <div class=" card-footer row justify-content-center">
+                <form action="{{route('post-edit', $post->id)}}" method="post">
+                    @csrf
+                    @method('delete')
+
+
+                    <input class="btn btn-danger" type="submit" value="DELETE POST">
+                </form>
+
+
+                
             </div>
-        </section>
+            <hr>
 
-    </form>
+        </div>
+
+
+
+    </section>
 @endsection
 
 @section('js')

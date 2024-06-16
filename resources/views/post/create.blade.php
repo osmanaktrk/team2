@@ -10,7 +10,9 @@
 
 
 @section('content')
-    <form action="" method="post">
+    <form action="{{route('post-create')}}" method="post" enctype="multipart/form-data">
+
+        @csrf
 
         <section class="post-create-section mt-5">
             <div class="container">
@@ -27,10 +29,10 @@
                             <br>
                             <div class="row justify-content-center align-items-center">
 
-                                @error('category-select')
+                                @error('category_id')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
-                                <select class="btn btn-light btn-outline-info" name="category-select" id="category-select"
+                                <select class="btn btn-light btn-outline-info" name="category_id" id="post-category"
                                     required>
                                     <option selected disabled value="0">Select A Category</option>
                                     @foreach ($categories as $category)
@@ -60,7 +62,7 @@
                                             data-target="#collapseOne" aria-expanded="false"
                                             aria-controls="collapseOne">Upload A Cover</span>
 
-                                        @error('post-cover')
+                                        @error('post_cover')
                                             <span class=" text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -68,12 +70,12 @@
                                 </div>
 
                                 <div id="collapseOne" class="collapse font-weight-light">
-                                    <div class="card-body bg-dark row justify-content-center">
-                                        <img class="post-cover" src="#" alt="post-cover">
+                                    <div class="card-body bg-dark row justify-content-center align-items-center">
+                                        <img class="post-cover" src="" alt="post-cover">
                                     </div>
                                     <div class=" text-center m-4">
                                         <input class="btn btn-outline-info" accept="image/*" type="file"
-                                            name="post-cover" id="post-cover">
+                                            name="post_cover" id="post-cover">
                                     </div>
                                 </div>
 
@@ -91,7 +93,7 @@
 
                                 <div class=" p-3 text-muted font-weight-light">
                                     <textarea class="form-control font-weight-lighter" required name="title" id="title" rows="10"
-                                        placeholder="{{ old('post-title') }}"></textarea>
+                                        placeholder="{{ old('title') }}"></textarea>
                                 </div>
 
                                 <hr>
@@ -105,11 +107,11 @@
                                             <span class="btn btn-link font-weight-light" data-toggle="collapse"
                                                 data-target="#collapseTwo" aria-expanded="false"
                                                 aria-controls="collapseTwo">Upload A File</span>
-                                            @error('post-file-name')
+                                            @error('post_file_name')
                                                 <span class=" text-danger">{{ $message }}</span>
                                             @enderror
 
-                                            @error('post-file')
+                                            @error('post_file')
                                                 <span class=" text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -122,13 +124,13 @@
                                             style="background-color: #1ABCB6;">
 
 
-                                            <label class=" btn btn-outline-primary" for="post-file-name">File Name:
-                                                <input type="text" name="post-file-name" id="post-file-name">
+                                            <label class=" btn btn-outline-primary" for="post_file_name">File Name:
+                                                <input type="text" name="post_file_name" id="post-file-name" >
                                             </label>
 
 
 
-                                            <input class=" btn btn-primary" type="file" name="post-file" id="post-file">
+                                            <input class=" btn btn-primary" type="file" name="post_file" id="post-file" accept=".zip,.rar,.7zip">
                                         </div>
 
                                     </div>
@@ -185,7 +187,7 @@
                                         <span class="btn btn-link font-weight-light" data-toggle="collapse"
                                             data-target="#collapseThree" aria-expanded="false"
                                             aria-controls="collapseThree">Upload A Cover</span>
-                                        @error('comment-cover')
+                                        @error('comment_cover')
                                             <span class=" text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -196,12 +198,12 @@
 
 
                                 <div id="collapseThree" class="collapse font-weight-light">
-                                    <div class="card-body bg-dark row justify-content-center">
-                                        <img class="comment-cover " src="#" alt="comment-cover">
+                                    <div class="card-body bg-dark row justify-content-center align-items-center">
+                                        <img class="comment-cover " src="" alt="comment-cover">
                                     </div>
                                     <div class=" text-center m-4">
                                         <input class="btn btn-outline-info" accept="image/*" type="file"
-                                            name="comment-cover" id="comment-cover">
+                                            name="comment_cover" id="comment-cover">
                                     </div>
                                 </div>
 
@@ -242,11 +244,11 @@
                                                 aria-controls="collapseFour">Upload A File</span>
 
 
-                                            @error('comment-file-name')
+                                            @error('comment_file_name')
                                                 <span class=" text-danger">{{ $message }}</span>
                                             @enderror
 
-                                            @error('comment-file')
+                                            @error('comment_file')
                                                 <span class=" text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -259,11 +261,11 @@
                                             style="background-color: #1ABCB6;">
 
                                             <label class=" btn btn-outline-primary" for="comment-file-name">File Name:
-                                                <input type="text" name="comment-file-name" id="comment-file-name">
+                                                <input type="text" name="comment_file_name" id="comment-file-name">
                                             </label>
 
-                                            <input class=" btn btn-primary" type="file" name="comment-file"
-                                                id="comment-file">
+                                            <input class=" btn btn-primary" type="file" name="comment_file"
+                                                id="comment-file" accept=".zip,.rar,.7zip">
                                         </div>
 
                                     </div>

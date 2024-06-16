@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Cover;
+use App\Models\Extra;
 use App\Models\Favorite;
 use App\Models\Post;
 use App\Models\PostDislike;
@@ -11,6 +13,7 @@ use App\Models\PostLike;
 use App\Models\Readed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 
 class PostController extends Controller
@@ -58,9 +61,125 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
+
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'category_id' => 'required',
+            'post_cover' => ['image', 'max:10240'],
+            'title' =>['required', 'min:5'],
+            'post_file_name' => '',
+            'post_file' => ['file', 'max:10240', 'mimes:zip,rar,7zip'],
+            'comment_cover' => ['image', 'max:10240'],
+            'comment' =>['required', 'min:5'],
+            'comment_file_name' => '',
+            'comment_file' => ['file', 'max:10240', 'mimes:zip,rar,7zip'],
+        ]);
+
+
+        $post = new Post();
+        $post->is_published = false;
+
+        $comment = new Comment();
+
+
+        $post->category_id = $validated['category_id'];
+        $post->user_id = Auth::user()->id;
+        $post->title = $validated['title'];
+        $post->save();
+
+        if(isset($validated['post_cover'])){
+
+            $post_cover = new Cover();
+
+            $post_cover_ext = $validated['post_cover']->getClientOriginalExtension();
+            $post_cover_name = time().rand(5, 10).'.'.$post_cover_ext;
+            $validated['post_cover']->move(public_path('img/covers/'), $post_cover_name);
+
+            $post_cover->cover = 'img/covers/'.$post_cover_name;
+            $post_cover->user_id = Auth::user()->id;
+            $post_cover->post_id = $post->id;
+            $post_cover->save();
+            $post->cover_id = $post_cover->id;
+            $post->save();
+
+
+
+        }
+
+
+        if(isset($validated['post_file_name']) && isset($validated['post_file'])){
+
+            $post_file = new Extra();
+
+            $post_file_ext = $validated['post_file']->getClientOriginalExtension();
+            $post_file_name = $validated['post_file_name'].time().rand(5, 10).'.'.$post_file_ext;
+
+            $validated['post_file']->move(public_path('extras/'), $post_file_name);
+
+            $post_file->name = $post_file_name;
+            $post_file->file = 'extras/'.$post_file_name;
+            $post_file->user_id = Auth::user()->id;
+            $post_file->post_id = $post->id;
+            $post_file->save();
+            $post->extra_id = $post_file->id;
+            $post->save();
+
+        }
+
+
+
+
+        $comment->comment = $validated['comment'];
+        $comment->user_id = Auth::user()->id;
+        $comment->post_id = $post->id;
+        $comment->save();
+
+
+
+
+
+        if(isset($validated['comment_cover'])){
+
+            $comment_cover = new Cover();
+
+            $comment_cover_ext = $validated['comment_cover']->getClientOriginalExtension();
+            $comment_cover_name = time().rand(5, 10).'.'.$comment_cover_ext;
+            $validated['comment_cover']->move(public_path('img/covers/'), $comment_cover_name);
+
+            $comment_cover->cover = 'img/covers/'.$comment_cover_name;
+            $comment_cover->user_id = Auth::user()->id;
+            $comment_cover->comment_id = $comment->id;
+            $comment_cover->save();
+            $comment->cover_id = $comment_cover->id;
+            $comment->save();
+
+
+
+        }
+
+
+        if(isset($validated['comment_file_name']) && isset($validated['comment_file'])){
+
+            $comment_file = new Extra();
+
+            $comment_file_ext = $validated['comment_file']->getClientOriginalExtension();
+            $comment_file_name = $validated['comment_file_name'].time().rand(5, 10).'.'.$comment_file_ext;
+
+            $validated['comment_file']->move(public_path('extras/'), $comment_file_name);
+
+            $comment_file->name = $comment_file_name;
+            $comment_file->file = 'public/extras/'.$comment_file_name;
+            $comment_file->user_id = Auth::user()->id;
+            $comment_file->comment_id = $comment->id;
+            $comment_file->save();
+            $comment->extra_id = $comment_file->id;
+            $comment->save();
+
+        }
+
+        return redirect()->route('main')->with('accept', 'POST CREATED');
     }
 
     /**
@@ -86,10 +205,90 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update($id, Request $request)
     {
-        //
+
+
+        $validated = $request->validate([
+            'category_id' => 'required',
+            'post_cover' => ['image', 'max:10240'],
+            'title' =>['required', 'min:5'],
+            'post_file_name' => 'min:5',
+            'post_file' => ['file', 'max:10240', 'mimes:zip,rar,7zip'],
+        ]);
+
+
+
+        $post = Post::findOrFail($id);
+
+        if(Auth::user()->usertype != 'admin'){
+            $post->is_published = false;
+
+        }
+
+        $post->category_id = $validated['category_id'];
+        $post->title = $validated['title'];
+        $post->save();
+
+        if(isset($validated['post_cover'])){
+
+            $post_cover = Cover::where('post_id', $id)->get();
+            File::delete($post_cover->cover);
+
+
+            $post_cover_ext = $validated['post_cover']->getClientOriginalExtension();
+            $post_cover_name = time().rand(5, 10).'.'.$post_cover_ext;
+            $validated['post_cover']->move(public_path('img/covers/'), $post_cover_name);
+
+            $post_cover->cover = 'img/covers/'.$post_cover_name;
+            $post_cover->post_id = $post->id;
+            $post_cover->save();
+            $post->cover_id = $post_cover->id;
+            $post->save();
+
+
+
+        }
+
+
+        if(isset($validated['post_file_name']) && isset($validated['post_file'])){
+
+            $post_file = Extra::where('post_id', $id)->get();
+
+            File::delete($post_file->file);
+
+            $post_file_ext = $validated['post_file']->getClientOriginalExtension();
+            $post_file_name = $validated['post_file_name'].time().rand(5, 10).'.'.$post_file_ext;
+
+            $validated['post_file']->move(public_path('extras/'), $post_file_name);
+
+            $post_file->name = $post_file_name;
+            $post_file->file = 'extras/'.$post_file_name;
+            $post_file->post_id = $post->id;
+            $post_file->save();
+            $post->extra_id = $post_file->id;
+            $post->save();
+
+        }
+
+
+
+
+
+        return redirect()->back()->with('accept', 'POST EDITED');
+
     }
+
+
+
+
+    public function delete($id, Request $request){
+
+
+
+
+    }
+
 
     /**
      * Remove the specified resource from storage.

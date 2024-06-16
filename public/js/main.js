@@ -1,3 +1,127 @@
+let inputSearch = document.querySelector(".input-search-bar");
+
+
+
+inputSearch.addEventListener("input", () => {
+    
+    let posts = document.querySelectorAll(".post");
+    
+    if (inputSearch.value == "") {
+        posts.forEach((post) => {
+            post.style.display = "block";
+        });
+    } else {
+        inputSearch.addEventListener("change", () => {
+            console.log(inputSearch.value);
+            posts.forEach((post) => {
+                post.style.display = "none";
+                if (
+                    post.getAttribute("title").toLowerCase().includes(inputSearch.value.toLowerCase())             
+                ) {
+                    post.style.display = "block";
+                } else if (inputSearch.value == "") {
+                    post.style.display = "block";
+                }
+            });
+        });
+    }
+});
+
+
+
+
+
+
+let checkboxes = document.querySelectorAll(".all-categories");
+let checkbox_all = document.querySelector("#all-posts");
+let allPosts = document.querySelectorAll(".post");
+
+
+
+
+if(checkbox_all.checked){
+    checkboxes.forEach((e)=>{
+        e.checked = true;
+    });
+    
+}
+
+checkbox_all.addEventListener('change', ()=>{
+    if(checkbox_all.checked){
+        checkboxes.forEach((e)=>{
+            e.checked = true;
+        });
+
+        allPosts.forEach((post)=>{
+            post.style.display = 'block';
+        });
+        
+    }else{
+        checkboxes.forEach((e)=>{
+            e.checked = false;
+        });
+
+        allPosts.forEach((post)=>{
+            post.style.display = 'none';
+        });
+    }
+});
+
+
+checkboxes.forEach((checkbox)=>{
+    checkbox.addEventListener('change', ()=>{
+        
+        let allChecked = true;
+        
+        checkboxes.forEach((e)=>{
+            if(!e.checked){
+                allChecked = false;
+            }
+        });
+
+        checkbox_all.checked = allChecked;
+
+    });
+});
+
+
+checkboxes.forEach((checkbox)=>{
+    checkbox.addEventListener('change', ()=>{
+        
+
+        allPosts.forEach((post)=>{
+            
+            if(post.getAttribute('category') == checkbox.value){
+                
+                if(!checkbox.checked){
+                    post.style.display = "none";
+            
+                }else{
+                    post.style.display = "block";
+                }
+                
+            }
+        });
+        
+
+        
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var collapsibleButtons = document.querySelectorAll('.collapsible');
 
 collapsibleButtons.forEach(function(button) {
@@ -11,30 +135,6 @@ button.addEventListener('click', function() {
 });
 
 
-// document.addEventListener("DOMContentLoaded", function() {
-// const maxTitleLength = 100;  // verander dit aantal om maximale lengte van de weergegeven titel te veranderen (voordat het wordt afgebroken door '...')
-// const maxContentLength = 200; // verander dit aantal om maximale lengte van de weergegeven content te veranderen (voordat het wordt afgebroken door '...')
-// const titleElements = document.querySelectorAll('.post-header');
-// const contentElements = document.querySelectorAll('.post-body');
-
-// titleElements.forEach(titleElement => {
-//     let titleText = titleElement.innerText;
-
-//     if (titleText.length > maxTitleLength) {
-//     titleText = titleText.substring(0, maxTitleLength) + '...';
-//     titleElement.innerText = titleText;
-//     }
-// });
-
-// contentElements.forEach(contentElement => {
-//     let contentText = contentElement.innerText;
-
-//     if (contentText.length > maxContentLength) {
-//     contentText = contentText.substring(0, maxContentLength) + '...';
-//     contentElement.innerText = contentText;
-//     }
-// });
-// });
 
 /* ------------------------------------------------------------------- CREATE POST BUTTON SETTINGS */
 document.addEventListener("DOMContentLoaded", function() {

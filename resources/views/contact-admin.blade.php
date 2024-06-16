@@ -24,20 +24,19 @@
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name" class="font-weight-light">{{ __('Name') }}</label>
-                            <input type="text" class="form-control font-weight-lighter" id="name" placeholder="{{ __('Enter your name') }}">
+                            <input type="text" class="form-control font-weight-lighter" name="name" id="name"  value="{{Auth::user()->username}}" readonly required>
                         </div>
                         <div class="form-group">
                             <label for="email" class="font-weight-light">{{ __('Email') }}</label>
-                            <input type="email" class="form-control font-weight-lighter" id="email" placeholder="{{ __('Enter your email') }}">
+                            <input type="email" class="form-control font-weight-lighter" name="email" id="email"  value="{{Auth::user()->email}}" readonly required>
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="subject" class="font-weight-light">{{ __('Subject') }}</label>
-                            <input type="text" class="form-control font-weight-lighter" id="subject" placeholder="{{ __('Enter the subject') }}">
-                        </div> --}}
+                        
                         <div class="form-group">
                             <label for="message" class="font-weight-light">{{ __('Message') }}</label>
-                            <textarea class="form-control font-weight-lighter" id="message" rows="10" placeholder="{{ __('Enter your message') }}"></textarea>
+                            <textarea class="form-control font-weight-lighter" name="contact" id="message" rows="10" placeholder="{{ __('Enter your message') }}" required></textarea>
                         </div>
+
+                        <input type="number" name="user_id" id="user-id" value="{{Auth::user()->id}}" hidden readonly required>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary mt-3">{{ __('Send Message') }}</button>
                         </div>

@@ -119,7 +119,7 @@
                     <div class="collapsible-contentbutton">
 
                         <label class="left-manage-assetdiv ">
-                            <input class="left-manage-word icon" type="checkbox" value="{{ $category->id }}"
+                            <input class="all-categories left-manage-word icon" type="checkbox" value="{{ $category->id }}"
                                 name="{{ $category->id }}" id="{{ $category->id }}" checked>
                             {{ $category->category }}
                         </label>
@@ -237,10 +237,16 @@
                         <input type="checkbox" name="all-posts" id="all-posts" checked>
                     </label>
 
-                    <label class="sortingbutton" for="unread">
+                    {{-- <label class="sortingbutton" for="unread">
                         Unread
                         <input type="checkbox" name="unread" id="unread">
                     </label>
+
+
+                    <label class="sortingbutton" for="favoride">
+                        My Fovorites
+                        <input type="checkbox" name="favorite" id="favorite">
+                    </label> --}}
 
 
 
@@ -251,7 +257,7 @@
                     <div class="text-center">
                         <div class="search-bar">
                             <label>
-                                <input class="input-search-bar" type="search" placeholder="{{ __('Search for topics') }}"
+                                <input class="input-search-bar" type="search" placeholder="{{ __('Search') }}"
                                     aria-label="Search">
                                 <button class="submit-search-btn">{{ __('Search') }}</button>
                             </label>
@@ -296,16 +302,16 @@
                     @foreach ($posts as $post)
                         @if ($post->is_published)
                             <div class="post" category="{{ $post->category->id }}"
-                                @foreach ($post->favorites as $favorite)
+                                {{-- @foreach ($post->favorites as $favorite)
                                             @if ($favorite->user_id == Auth::user()->id)
                                                 favorite="true"
-                                            @endif @endforeach
+                                            @endif @endforeach --}}
 
 
-                                @foreach ($post->readeds as $readed)
+                                {{-- @foreach ($post->readeds as $readed)
                                         @if ($readed->user_id == Auth::user()->id)
                                            readed="true"
-                                        @endif @endforeach
+                                        @endif @endforeach --}}
 
 
                                 title="{{ $post->title }}">

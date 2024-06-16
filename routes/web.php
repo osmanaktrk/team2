@@ -12,19 +12,27 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\PostDislikeController;
 use App\Http\Controllers\ReadedController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MainController;
-
+use App\Models\Favorite;
 
 Route::get('/main', [MainController::class, 'index'])->name('main');
 
 
 
 
-Route::get('/contact-admin', function(){
-    return view('contact-admin');
-})->name('contact-admin');
+Route::get('/contact-admin', [ContactController::class, 'index'])->name('contact-admin');
+
+
+
+Route::post('/contact-guest', [ContactController::class, 'guestContact'])->name('contact-guest');
+
+Route::post('/contact-admin', [ContactController::class, 'guestContact'])->name('contact-admin');
+
+
+
 
 
 Route::get('/faq', function(){
@@ -45,13 +53,47 @@ Route::get('/post-index/{id}', [PostController::class, 'index'])->name('post-ind
 
 Route::get('/post-edit/{id}', [PostController::class, 'edit'])->name('post-edit');
 
-Route::post('/post-edit/{id}', [PostController::class, 'store'])->name('post-edit');
+Route::post('/post-edit/{id}', [PostController::class, 'update'])->name('post-edit');
+
+Route::delete('/post-edit/{id}', [PostController::class, 'delete'])->name('post-edit');
+
+
+Route::post('/comment', [CommentController::class, 'store'])->name('comment-create');
+
+Route::put('/comment', [CommentController::class ,'update'])->name('comment-edit');
+
+Route::delete('/comment', [CommentController::class, 'delete'])->name('comment-delete');
+
+
 
 Route::get('/post-create', [PostController::class, 'create'])->name('post-create');
+
+Route::post('/post-create', [PostController::class, 'store'])->name('post-create');
+
+
+Route::get('/add-favorite/{post_id}', [FavoriteController::class, 'addFavorite'])->name('add-favorite');
+
+Route::get('/delete-favorite/{post_id}', [FavoriteController::class, 'deleteFavorite'])->name('delete-favorite');
+
+Route::get('/unread/{id}', [ReadedController::class, 'unread'])->name('unread');
+
+
 
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');;
+
+
+
+
+
+Route::get('/like/{id}', [PostLikeController::class, 'postLike'])->name('like');
+
+Route::get('/dislike/{id}', [PostDislikeController::class, 'postDislike'])->name('dislike');
+
+
+
+
 
 
 

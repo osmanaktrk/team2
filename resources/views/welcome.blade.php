@@ -218,30 +218,45 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
-                                    <form id="contactForm">
+
+
+                                    
+
+
+                                    <form id="contactForm" action="{{route('contact-guest')}}" method="post">
+                                        @csrf
                                         <div class="form-group">
                                             <label for="name" class="font-weight-light">{{ __('Name') }}</label>
-                                            <input type="text" class="form-control font-weight-lighter" id="name"
-                                                placeholder="{{ __('Enter your name') }}">
+                                            @error('name')
+                                                <span class=" text-danger">{{$message}}</span>
+                                            @enderror
+                                            <input type="text" class="form-control font-weight-lighter" name="name" id="name"
+                                                placeholder="{{ __('Enter your name') }}" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="email" class="font-weight-light">{{ __('Email') }}</label>
-                                            <input type="email" class="form-control font-weight-lighter" id="email"
-                                                placeholder="{{ __('Enter your email') }}">
+                                            @error('email')
+                                                <span class=" text-danger">{{$message}}</span>
+                                            @enderror
+                                            <input type="email" class="form-control font-weight-lighter" name="email" id="email"
+                                                placeholder="{{ __('Enter your email') }}" required>
                                         </div>
-                                        {{-- <div class="form-group">
-                                            <label for="subject" class="font-weight-light">{{ __('Subject') }}</label>
-                                            <input type="text" class="form-control font-weight-lighter" id="subject"
-                                                placeholder="{{ __('Enter the subject') }}">
-                                        </div> --}}
+                                       
                                         <div class="form-group">
                                             <label for="message" class="font-weight-light">{{ __('Message') }}</label>
-                                            <textarea class="form-control font-weight-lighter" id="message" rows="10"
-                                                placeholder="{{ __('Enter your message') }}"></textarea>
+                                            @error('contact')
+                                                <span class=" text-danger">{{$message}}</span>
+                                            @enderror
+                                            <textarea class="form-control font-weight-lighter" name="contact" id="message" rows="10"
+                                                placeholder="{{ __('Enter your message') }}" required></textarea>
                                         </div>
+
+                                        
                                         <div class="text-center">
                                             <button type="submit"
                                                 class="btn btn-primary mt-3">{{ __('Send Message') }}</button>
+
+                                                
                                         </div>
                                     </form>
                                 </div>

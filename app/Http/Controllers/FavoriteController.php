@@ -3,24 +3,43 @@
 namespace App\Http\Controllers;
 
 use App\Models\Favorite;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function addFavorite($post_id)
     {
-        //
+        
+      $favorite = new Favorite();
+
+      $favorite->post_id = $post_id;
+      $favorite->user_id = Auth::user()->id;
+      $favorite->save();
+
+
+
+        return redirect()->back()->with('accept', 'FAVORITE ADDET');
+
+
     }
+
+
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function deleteFavorite($post_id)
     {
-        //
+        $favorite = Favorite::where('post_id', $post_id)->where('user_id', Auth::user()->id);
+        $favorite->delete();
+
+        return redirect()->back()->with('warm', 'FAVORITE DELATED');
+
     }
 
     /**
