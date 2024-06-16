@@ -15,9 +15,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="text-justify mb-4">
-
-                        {{-- <h2 class="font-weight-lighter mb-3">{{ $post->title }}</h2> --}}
-                        {{-- <div class="block" style="background-color: #1ABCB6;"></div> --}}
+                        
+                   
 
 
 
@@ -59,27 +58,23 @@
                             </button>
 
 
-
                         </div>
-
-
-
 
                     </div>
 
                     <hr>
                     <br>
 
-
-
                     <div class="accordion">
-                        <div class="card">
+                        <div class="card mb-5">
 
                             <div class="card-header row justify-content-around align-items-center">
 
                                 <div class="text-muted font-weight-light">
-                                    <img src="{{ asset('img/main/tag-image.png') }}" alt="Tag" class="category-image">
-                                    <span>by
+                                    <span>
+                                        <img src="{{ asset('img/main/tag-image.png') }}" alt="Tag" class="category-image">
+
+                                        by
                                         @if (isset($post->user->username))
                                             <a href="{{ route('profile-index') }}">
                                                 <button class="btn btn-link font-weight-light"
@@ -96,7 +91,7 @@
 
                                 <h5 class="mb-0">
                                     @if (Auth::user()->usertype == 'admin' || Auth::user()->usertype == 'writer')
-                                        <a href="">
+                                        <a href="{{route('post-edit', $post->id)}}">
                                             <button class="btn btn-info font-weight-light">Edit</button>
                                         </a>
                                     @endif
@@ -107,38 +102,28 @@
 
 
 
-                            <div class="collapse show font-weight-light">
+                            <div class=" font-weight-light">
 
 
                                 @if (isset($post->cover->cover))
-                                    <div class="card-body">
+                                    <div class="card-body text-justify">
 
                                         <img src="{{ asset($post->cover->cover) }}" alt="post-cover">
-
+                                        <br><br>
                                     </div>
                                 @endif
-
+                                    
 
 
                             </div>
-
+                          
 
 
                         </div>
 
-
-                        <br>
                         <hr>
-                        <br>
 
-
-
-
-
-
-
-                        <h2 class="font-weight-lighter mb-3 text-justify">{{ $post->title }}</h2>
-                        <br>
+                        <h2 class="mt-5 mb-5 font-weight-lighter mb-3 text-justify">{{ $post->title }}</h2>
                         <hr>
 
 
@@ -195,8 +180,6 @@
                         </div>
 
                     </div>
-
-
 
 
                 </div>
@@ -278,7 +261,7 @@
 
 
 
-                                    <div class="collapse show font-weight-light">
+                                    <div class="font-weight-light">
                                         <div class="card-body text-justify">
                                             {{ $comment->comment }}
                                         </div>
@@ -353,6 +336,7 @@
                                                     </div>
                                                 </div>
 
+                                                    
 
                                                 <div class="block pt-2 pb-2 pl-5 pr-5 row justify-content-between align-items-center"
                                                     style="background-color: #1ABCB6;">

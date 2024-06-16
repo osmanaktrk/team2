@@ -52,10 +52,14 @@
 
                         <div class="accordion">
                             <div class="card">
+
                                 <div class="card-header row justify-content-around align-items-center">
 
                                     <div class="text-muted font-weight-light">
-                                        <span>Upload A Cover</span>
+                                        <span class="btn btn-link font-weight-light" data-toggle="collapse"
+                                            data-target="#collapseOne" aria-expanded="false"
+                                            aria-controls="collapseOne">Upload A Cover</span>
+
                                         @error('post-cover')
                                             <span class=" text-danger">{{ $message }}</span>
                                         @enderror
@@ -63,15 +67,16 @@
 
                                 </div>
 
-                                <div class="font-weight-light">
+                                <div id="collapseOne" class="collapse font-weight-light">
                                     <div class="card-body bg-dark row justify-content-center">
-                                        <img class="post-cover " src="#" alt="post-cover">
+                                        <img class="post-cover" src="#" alt="post-cover">
                                     </div>
                                     <div class=" text-center m-4">
                                         <input class="btn btn-outline-info" accept="image/*" type="file"
                                             name="post-cover" id="post-cover">
                                     </div>
                                 </div>
+
                             </div>
 
 
@@ -91,16 +96,47 @@
 
                                 <hr>
 
-                                <div class="block pt-1 pb-1 pr-5 mt-3 row justify-content-around align-items-center"
-                                    style="background-color: #1ABCB6;">
-                                    <span class=" p-2">Upload A File</span>
 
-                                    @error('post-file')
-                                        <span class=" text-danger">{{ $message }}</span>
-                                    @enderror
 
-                                    <input class=" btn btn-primary" type="file" name="post-file" id="post-file">
+                                <div class="card">
+                                    <div class="card-body row justify-content-around align-items-center">
+
+                                        <div class="text-muted font-weight-light">
+                                            <span class="btn btn-link font-weight-light" data-toggle="collapse"
+                                                data-target="#collapseTwo" aria-expanded="false"
+                                                aria-controls="collapseTwo">Upload A File</span>
+                                            @error('post-file-name')
+                                                <span class=" text-danger">{{ $message }}</span>
+                                            @enderror
+
+                                            @error('post-file')
+                                                <span class=" text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+
+                                    <div id="collapseTwo" class="collapse font-weight-light">
+
+                                        <div class="pt-1 pb-1 pr-5 mt-3 card-body row justify-content-around align-items-center"
+                                            style="background-color: #1ABCB6;">
+
+
+                                            <label class=" btn btn-outline-primary" for="post-file-name">File Name:
+                                                <input type="text" name="post-file-name" id="post-file-name">
+                                            </label>
+
+
+
+                                            <input class=" btn btn-primary" type="file" name="post-file" id="post-file">
+                                        </div>
+
+                                    </div>
+
                                 </div>
+
+
+
 
 
 
@@ -146,7 +182,9 @@
                                 <div class="card-header row justify-content-center align-items-center">
 
                                     <div class="text-muted text-center font-weight-light">
-                                        <span>Upload A Cover</span>
+                                        <span class="btn btn-link font-weight-light" data-toggle="collapse"
+                                            data-target="#collapseThree" aria-expanded="false"
+                                            aria-controls="collapseThree">Upload A Cover</span>
                                         @error('comment-cover')
                                             <span class=" text-danger">{{ $message }}</span>
                                         @enderror
@@ -157,7 +195,7 @@
 
 
 
-                                <div class="font-weight-light">
+                                <div id="collapseThree" class="collapse font-weight-light">
                                     <div class="card-body bg-dark row justify-content-center">
                                         <img class="comment-cover " src="#" alt="comment-cover">
                                     </div>
@@ -172,7 +210,7 @@
 
 
 
-                                <div class="collapse show font-weight-light">
+                                <div class="font-weight-light">
 
                                     <div class="card-body">
                                         <hr>
@@ -192,32 +230,63 @@
 
                                 </div>
 
-                                <div class="block pt-1 pb-1 pr-5 mt-3 row justify-content-around align-items-center"
-                                    style="background-color: #1ABCB6;">
-                                    <span class=" p-2">Upload A File</span>
 
-                                    @error('comment-file')
-                                        <span class=" text-danger">{{ $message }}</span>
-                                    @enderror
 
-                                    <input class=" btn btn-primary" type="file" name="comment-file" id="comment-file">
+
+                                <div class="card">
+                                    <div class="card-body row justify-content-around align-items-center">
+
+                                        <div class="text-muted font-weight-light">
+                                            <span class="btn btn-link font-weight-light" data-toggle="collapse"
+                                                data-target="#collapseFour" aria-expanded="false"
+                                                aria-controls="collapseFour">Upload A File</span>
+
+
+                                            @error('comment-file-name')
+                                                <span class=" text-danger">{{ $message }}</span>
+                                            @enderror
+
+                                            @error('comment-file')
+                                                <span class=" text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+
+                                    <div id="collapseFour" class="collapse font-weight-light">
+
+                                        <div class="pt-1 pb-1 pr-5 mt-3 card-body row justify-content-around align-items-center"
+                                            style="background-color: #1ABCB6;">
+
+                                            <label class=" btn btn-outline-primary" for="comment-file-name">File Name:
+                                                <input type="text" name="comment-file-name" id="comment-file-name">
+                                            </label>
+
+                                            <input class=" btn btn-primary" type="file" name="comment-file"
+                                                id="comment-file">
+                                        </div>
+
+                                    </div>
+
                                 </div>
                                 <br>
                             </div>
 
-                           
+
 
 
                         </div>
                         <hr>
-                        <div class=" row justify-content-center">
-                            <input class="btn btn-success" type="submit" value="SUBMIT">
-                        </div>
 
-                        <hr>
+
+                        
 
 
                     </div>
+                </div>
+                <hr>
+                <div class=" card-footer row justify-content-center">
+                    <input class="btn btn-success" type="submit" value="SUBMIT">
                 </div>
                 <hr>
             </div>
