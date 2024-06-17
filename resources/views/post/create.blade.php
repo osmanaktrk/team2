@@ -93,7 +93,7 @@
 
                                 <div class=" p-3 text-muted font-weight-light">
                                     <textarea class="form-control font-weight-lighter" required name="title" id="title" rows="10"
-                                        placeholder="{{ old('title') }}"></textarea>
+                                    >{{ old('title') }}</textarea>
                                 </div>
 
                                 <hr>
@@ -225,7 +225,7 @@
 
                                     <div class=" p-3 text-muted font-weight-light">
                                         <textarea class="form-control font-weight-lighter" required name="comment" id="comment" rows="10"
-                                            placeholder="{{ old('comment') }}"></textarea>
+                                            >{{ old('comment') }}</textarea>
                                     </div>
 
 

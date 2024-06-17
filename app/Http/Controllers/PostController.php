@@ -240,11 +240,12 @@ class PostController extends Controller
 
         if(isset($validated['post_cover'])){
 
-            $post_cover = Cover::where('post_id', $id);
+            $post_cover_ex = Cover::where('post_id', $id);
 
-            if($post_cover->exists()){
-                File::delete($post_cover->cover);
-                $post_cover->delete();
+            if($post_cover_ex->exists()){
+                File::delete($post_cover_ex->first()->cover);
+                $post_cover = Cover::where('post_id', $id)->first();
+                
 
             }else{
                 $post_cover = new Cover();
@@ -270,10 +271,14 @@ class PostController extends Controller
 
         if(isset($validated['post_file_name']) && isset($validated['post_file'])){
 
-            $post_file = Extra::where('post_id', $id);
+            $post_file_ex = Extra::where('post_id', $id);
 
-            if($post_file->exists()){
-                File::delete($post_file->file);
+            if($post_file_ex->exists()){
+                File::delete($post_file_ex->first()->file);
+                $post_file = Extra::where('post_id', $id)->first();
+
+            }else{
+                $post_file = new Extra();
             }
 
             

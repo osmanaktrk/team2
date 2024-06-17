@@ -134,12 +134,16 @@ class CommentController extends Controller
             $comment_cover_ex = Cover::where('comment_id', $comment_id);
             if($comment_cover_ex->exists()){
                 File::delete(public_path($comment_cover_ex->first()->cover));
+                $comment_cover = Cover::where('comment_id', $comment_id)->first();
+
+
+            }else{
+                $comment_cover = new Cover();
             }
 
 
 
 
-            $comment_cover = Cover::where('comment_id', $comment_id)->first();
 
 
             $comment_cover_ext = $validated['comment_cover']->getClientOriginalExtension();
@@ -159,10 +163,14 @@ class CommentController extends Controller
 
         if(isset($validated['comment_file_name']) && isset($validated['comment_file'])){
 
-            $comment_file = Extra::where('comment_id', $comment_id);
+            $comment_file_ex = Extra::where('comment_id', $comment_id);
 
-            if($comment_file->exists()){
-                File::delete(public_path($comment_file->first()->file));
+            if($comment_file_ex->exists()){
+                File::delete(public_path($comment_file_ex->first()->file));
+                $comment_file = Extra::where('comment_id', $comment_id)->first();
+
+            }else{
+                $comment_file = new Extra();
             }
 
 
@@ -173,11 +181,11 @@ class CommentController extends Controller
 
             $validated['comment_file']->move(public_path('extras/'), $comment_file_name);
 
-            $comment_file->first()->name = $comment_file_name;
-            $comment_file->first()->file = 'public/extras/'.$comment_file_name;
-            $comment_file->first()->comment_id = $comment->id;
+            $comment_file->name = $comment_file_name;
+            $comment_file->file = 'public/extras/'.$comment_file_name;
+            $comment_file->comment_id = $comment->id;
             $comment_file->save();
-            $comment->extra_id = $comment_file->first()->id;
+            $comment->extra_id = $comment_file->id;
             $comment->save();
 
         }
