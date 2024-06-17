@@ -1,0 +1,410 @@
+.main {
+    display: grid;
+    position: relative;
+    grid-template-columns: 20% 2.5% 77.5%;
+    margin-bottom: 50px;
+}
+
+.left-menu {
+    background-color: transparent;  
+    height: 100vh;
+    box-shadow: 0px 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.leftmenu-top {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 32px;
+    width: 100%;
+    border: none;
+    margin: 3px 0;
+    background-color: white;
+    transition: 0.5s;
+}
+
+#leftmenu-top-one {
+    margin-top: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+#leftmenu-top-one:hover {
+    border-radius: 10px 10px 0 0;
+}
+
+.leftmenu-top:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.left-manage-assetdiv {
+    align-items: center;
+    margin-left: 10px;
+}
+
+.left-manage-asset {
+    align-items: center;
+    height: 20px;
+}
+
+.left-manage-word {
+    display: flex;
+    margin-left: 10px;
+}
+
+.collapsible {
+    align-items: center;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    margin: 3px 0;
+    height: 32px;
+    border: none;
+    text-align: left;
+    width: 100%;
+}
+
+.collapsible-contentbutton {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+}
+
+.collapsible-div {
+    margin-left: 20px;
+}
+
+.collapsible-asset {
+    height: 20px;
+    align-items: center;
+}
+
+.icon {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#collapsible-topics {
+    border-radius: 10px;
+}
+
+.education {
+    background-color: red;
+    border-radius: 10px;
+}
+
+.general {
+    background-color: blue;
+    border-radius: 10px;
+}
+
+.gainsboro {
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+
+.general2 {
+    background-color: rgb(0, 145, 255);
+    border-radius: 10px;
+}
+
+.staff {
+    background-color: rgb(255, 162, 0);
+    border-radius: 10px;
+}
+
+.content {
+    display: none;
+}
+
+.collapsible.active + .content {
+    display: grid;
+}
+
+.divider {
+    background-color: transparent;
+}
+
+.right {
+    max-height: 100vh;
+    background-color: white;
+}
+
+.right-ceiling {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2);
+    height: 60px;
+}
+
+.right-sorting {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    margin-left: 15px;
+}
+
+.sortingbutton {
+    margin-right: 8px;
+    padding: 10px;
+    background-color: #1ABCB6;
+    transition: 0.5s;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.sortingbutton:hover {
+    color: white;
+    background-color: red;
+    cursor: pointer;
+}
+
+.sortingbutton:active {
+    background-color: rgb(207, 0, 0);
+}
+
+.createpostbutton {
+    margin-right: 8px;
+    padding: 10px;
+    background-color: rgb(214, 213, 213);
+    transition: 0.5s;
+    border: none;
+    border-radius: 5px;
+}
+
+.createpostbutton:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+.createpostbutton:active {
+    background-color: rgb(207, 0, 0);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+    text-align: left;
+}
+
+.popup-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.popup-close:hover,
+.popup-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.popup label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.popup input[type="text"],
+.popup textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.popup select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+}
+
+.popup button[type="submit"] {
+    background-color: #1ABCB6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup button[type="submit"]:hover {
+    background-color: #16aba6;
+    transition: 0.5s;
+}
+
+.post {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.post-header {
+    margin-bottom: 10px;
+    max-width: 100%;
+    max-height: 100%;
+    font-weight: 600;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.post-footer button {
+    margin-right: 10px;
+}
+
+.upvote-downvote-btn {
+    color: red;
+    background-color: white;
+    border-radius: 6px;
+    padding: 5px;
+    border: 1px solid red;
+}
+
+.upvote-downvote-btn:hover {
+    cursor: pointer;
+}
+
+.category-container {
+    display: flex;
+    align-items: center;
+}
+
+.category-image {
+    width: 18px; 
+    height: auto;
+    margin-right: 5px; 
+}
+
+.category-text {
+    font-size: 14px;
+    color: #555;
+}
+
+.share-report-btn {
+    color: grey;
+    background-color: white;
+    border-radius: 6px;
+    padding: 5px;
+    border: 1px solid grey;
+}
+
+.share-report-btn:hover {
+    cursor: pointer;
+}
+
+.posts-container {
+    max-height: 90vh;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pagination-prev-btn, 
+#pagination-next-btn {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(214, 213, 213);
+    color: black;
+    border: none;
+}
+
+#pagination-prev-btn:hover, 
+#pagination-next-btn:hover {
+    background-color: rgb(189, 189, 189);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.left, .right {
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .main {
+        margin-left: 50px;
+        margin-right: 50px;
+        grid-template-columns: 25% 5% 70%;
+    }
+}
+
+@media (max-width: 992px) {
+    .main {
+        margin-left: 20px;
+        margin-right: 20px;
+        grid-template-columns: 30% 5% 65%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        margin-left: 10px;
+        margin-right: 10px;
+        grid-template-columns: 1fr;
+    }
+
+    .left-menu {
+        display: none;
+    }
+
+    .right-ceiling {
+        flex-direction: column;
+    }
+
+    .sortingbutton, .createpostbutton {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .posts-container {
+        max-height: none;
+    }
+
+    .popup-content {
+        width: 90%;
+    }
+}

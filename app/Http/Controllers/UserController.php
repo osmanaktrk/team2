@@ -25,7 +25,7 @@ class UserController extends Controller
         ]);
         
 
-        return redirect()->route('profile.edit')->with('status', 'Profile Photo Updated');
+        return redirect()->route('profile.edit')->with('accept', 'Profile Photo Updated');
     }
 
     public function avatarDelete(){
@@ -36,7 +36,7 @@ class UserController extends Controller
             'avatar' => 'img/users/default.svg',
         ]);
 
-        return redirect()->route('profile.edit')->with('status', 'Profile Photo Deleted');
+        return redirect()->route('profile.edit')->with('accept', 'Profile Photo Deleted');
 
 
     }
@@ -55,7 +55,7 @@ class UserController extends Controller
             'education_year' => $request->education_year,
         ]);
 
-        return redirect()->back()->with('status', 'Education Informations Updated');
+        return redirect()->back()->with('accept', 'Education Informations Updated');
 
 
     }

@@ -79,7 +79,15 @@ class PostController extends Controller
 
 
         $post = new Post();
-        $post->is_published = false;
+
+        if(Auth::user()->usertype == 'admin'){
+            $post->is_published = true;
+
+        }else{
+            $post->is_published = false;
+
+        }
+
 
         $comment = new Comment();
 
@@ -213,7 +221,7 @@ class PostController extends Controller
             'category_id' => 'required',
             'post_cover' => ['image', 'max:10240'],
             'title' =>['required', 'min:5'],
-            'post_file_name' => 'min:5',
+            'post_file_name' => '',
             'post_file' => ['file', 'max:10240', 'mimes:zip,rar,7zip'],
         ]);
 
@@ -221,8 +229,8 @@ class PostController extends Controller
 
         $post = Post::findOrFail($id);
 
-        if(Auth::user()->usertype != 'admin'){
-            $post->is_published = false;
+        if(Auth::user()->usertype == 'admin'){
+            $post->is_published = true;
 
         }
 
@@ -232,9 +240,17 @@ class PostController extends Controller
 
         if(isset($validated['post_cover'])){
 
-            $post_cover = Cover::where('post_id', $id)->get();
-            File::delete($post_cover->cover);
+            $post_cover = Cover::where('post_id', $id);
 
+            if($post_cover->exists()){
+                File::delete($post_cover->cover);
+                $post_cover->delete();
+
+            }else{
+                $post_cover = new Cover();
+            }
+
+            
 
             $post_cover_ext = $validated['post_cover']->getClientOriginalExtension();
             $post_cover_name = time().rand(5, 10).'.'.$post_cover_ext;
@@ -242,6 +258,7 @@ class PostController extends Controller
 
             $post_cover->cover = 'img/covers/'.$post_cover_name;
             $post_cover->post_id = $post->id;
+            $post_cover->user_id = Auth::user()->id;
             $post_cover->save();
             $post->cover_id = $post_cover->id;
             $post->save();
@@ -253,9 +270,13 @@ class PostController extends Controller
 
         if(isset($validated['post_file_name']) && isset($validated['post_file'])){
 
-            $post_file = Extra::where('post_id', $id)->get();
+            $post_file = Extra::where('post_id', $id);
 
-            File::delete($post_file->file);
+            if($post_file->exists()){
+                File::delete($post_file->file);
+            }
+
+            
 
             $post_file_ext = $validated['post_file']->getClientOriginalExtension();
             $post_file_name = $validated['post_file_name'].time().rand(5, 10).'.'.$post_file_ext;
@@ -282,10 +303,80 @@ class PostController extends Controller
 
 
 
-    public function delete($id, Request $request){
+    public function delete($id){
 
 
+        Post::findOrFail($id)->delete();
+     
+        $postLike = PostLike::where('post_id', $id);
 
+        if($postLike->exists()){
+            $postLike->delete();
+        }
+
+        $postDislike = PostDislike::where('post_id', $id);
+
+        if($postDislike->exists()){
+            $postDislike->delete();
+        }
+
+        $favorite = Favorite::where('post_id', $id);
+
+        if($favorite->exists()){
+            $favorite->delete();
+        }
+
+        $readed = Readed::where('post_id', $id);
+
+        if($readed ->exists()){
+            $readed->delete();
+        }
+
+        $postCover = Cover::where('post_id', $id);
+
+        if($postCover->exists()){
+            File::delete(public_path($postCover->first()->cover));
+            $postCover->delete();
+        }
+
+    
+
+        $postExtra = Extra::where('post_id', $id);
+
+
+        if($postExtra->exists()){
+            File::delete(public_path($postExtra->first()->file));
+            $postExtra->delete();
+        }
+
+        
+
+        $comments = Comment::all()->where('post_id', $id);
+
+        foreach ($comments as $comment) {
+            
+            
+            
+            $commentCover = Cover::where('comment_id', $comment->id);
+
+            if($commentCover->exists()){
+                File::delete(public_path($commentCover->first()->cover));
+                $commentCover->delete();
+            }
+            $commentExtra = Extra::where('comment_id', $comment->id);
+
+            if($commentExtra->exists()){
+                File::delete(public_path($commentExtra->first()->extra));
+                $commentExtra->delete();
+            }
+            $comment->delete();
+            
+        }
+
+        
+        
+
+       return redirect()->route('main')->with('warm', 'POST DELETED');
 
     }
 

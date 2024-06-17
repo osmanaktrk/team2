@@ -181,21 +181,64 @@
                 <h2 class="font-weight-lighter text-danger">{{ __('Contact Us') }}</h2>
                 <div class="block" style="background-color: #1ABCB6;"></div>
                 <p class="text-muted font-weight-light">{{ __('Have more questions or need assistance? Feel free to reach out to us.') }}</p>
-                <form action="#" method="POST">
+                
+                @auth
+                <form action="{{route('contact-admin')}}" method="POST">
+                    <input type="number" name="user_id" id="user_id" value="{{Auth::user()->id}}" required hidden readonly>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="{{ __('Your Name') }}" required>
+                        @error('name')
+                            <span class=" text-danger">{{$message}}</span>
+                        @enderror
+                        <input type="text" name="name" class="form-control" value="{{Auth::user()->username}}" readonly required>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="{{ __('Your Email') }}" required>
+                        @error('email')
+                            <span class=" text-danger">{{$message}}</span>
+                        @enderror
+                        <input type="email" name="email" class="form-control" value="{{Auth::user()->email}}" readonly required>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" rows="10" placeholder="{{ __('Your Message') }}" required></textarea>
+                        @error('contact')
+                            <span class=" text-danger">{{$message}}</span>
+                        @enderror
+                        <textarea class="form-control" name="contact" rows="10" placeholder="{{ __('Your Message') }}" required></textarea>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
                     </div>
                     
                 </form>
+
+                @endauth
+                
+
+                @guest
+                    <form action="{{route('contact-guest')}}" method="POST">
+                    <div class="form-group">
+                        @error('name')
+                            <span class=" text-danger">{{$message}}</span>
+                        @enderror
+                        <input type="text" name="name" class="form-control" placeholder="{{ __('Your Name') }}" required>
+                    </div>
+                    <div class="form-group">
+                        @error('email')
+                            <span class=" text-danger">{{$message}}</span>
+                        @enderror
+                        <input type="email" name="email" class="form-control" placeholder="{{ __('Your Email') }}" required>
+                    </div>
+                    <div class="form-group">
+                        @error('contact')
+                            <span class=" text-danger">{{$message}}</span>
+                        @enderror
+                        <textarea class="form-control" name="contact" rows="10" placeholder="{{ __('Your Message') }}" required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+                    </div>
+                    
+                </form>
+                @endguest
+                
 
             </div>
         </div>

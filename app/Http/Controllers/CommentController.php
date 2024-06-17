@@ -38,7 +38,7 @@ class CommentController extends Controller
             'post_id' => 'required',
             'comment_cover' => ['image', 'max:10240'],
             'comment' =>['required', 'min:5'],
-            'comment_file_name' => 'min:5',
+            'comment_file_name' => '',
             'comment_file' => ['file', 'max:10240', 'mimes:zip,rar,7zip'],
         ]);
 
@@ -64,7 +64,7 @@ class CommentController extends Controller
 
             $comment_cover->cover = 'img/covers/'.$comment_cover_name;
             $comment_cover->user_id = Auth::user()->id;
-            $comment_cover->cover_id = $comment->id;
+            $comment_cover->comment_id = $comment->id;
             $comment_cover->save();
             $comment->cover_id = $comment_cover->id;
             $comment->save();
@@ -114,7 +114,7 @@ class CommentController extends Controller
             'id' => 'required',
             'comment_cover' => ['image', 'max:10240'],
             'comment' =>['required', 'min:5'],
-            'comment_file_name' => 'min:5',
+            'comment_file_name' => '',
             'comment_file' => ['file', 'max:10240', 'mimes:zip,rar,7zip'],
         ]);
 
@@ -141,7 +141,7 @@ class CommentController extends Controller
             $validated['comment_cover']->move(public_path('img/covers/'), $comment_cover_name);
 
             $comment_cover->cover = 'img/covers/'.$comment_cover_name;
-            $comment_cover->cover_id = $comment->id;
+            $comment_cover->comment_id = $comment->id;
             $comment_cover->save();
             $comment->cover_id = $comment_cover->id;
             $comment->save();
@@ -181,7 +181,35 @@ class CommentController extends Controller
     }
 
 
-    public function delete(){
+    public function delete(Request $request){
+        $request->validate([
+            'comment_id'=> 'required',
+        ]);
+
+        $id = $request->comment_id;
+
+
+
+
+        Comment::findOrFail($id)->delete();
+
+        $extra = Extra::where('comment_id', $id);
+
+        if($extra->exists()){
+            File::delete(public_path($extra->first()->file));
+            $extra->delete();
+        }
+
+
+        $cover = Cover::where('comment_id', $id);
+
+        
+
+        if($cover->exists()){
+            File::delete(public_path($cover->first()->cover));
+            $cover->delete();
+        }
+        return redirect()->back()->with('warm', 'COMMENT DELETED');
 
     }
     /**

@@ -239,6 +239,8 @@ main{
 }
 
 @media (max-width: 576px) {
+    
+
     .header {
         margin: 5px 10px 15px 10px;
     }

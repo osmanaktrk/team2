@@ -13,7 +13,7 @@
         <div class="container">
 
             <form action="{{ route('post-edit', $post->id) }}" method="post" enctype="multipart/form-data">
-
+                @csrf
 
                 <div class="row justify-content-center">
 
@@ -128,19 +128,27 @@
                                 <div class=" font-weight-light">
 
 
-                                    @if (isset($post->cover->cover))
-                                        <div class="card-body text-justify row justify-content-center align-content-center">
 
-                                            <img class="post-cover" src="{{ asset($post->cover->cover) }}"
-                                                alt="post-cover">
+                                    <div class="card-body bg-dark text-justify row justify-content-center align-content-center">
 
-                                        </div>
+                                        <img class="post-cover"
+                                            @if (isset($post->cover->cover)) src="{{ asset($post->cover->cover) }}"
+                                            @else
+                                                src="" @endif
+                                            alt="post-cover">
 
-                                        <div class=" text-center m-4">
-                                            <input class="btn btn-outline-info" accept="image/*" type="file"
-                                                name="post_cover" id="post-cover">
-                                        </div>
-                                    @endif
+                                    </div>
+
+                                    <div class=" text-center m-4">
+                                        <input class="btn btn-outline-info" accept="image/*" type="file"
+                                            name="post_cover" id="post-cover">
+                                    </div>
+
+
+
+
+
+
 
 
 
@@ -299,7 +307,7 @@
 
 
             <div class=" card-footer row justify-content-center">
-                <form action="{{route('post-edit', $post->id)}}" method="post">
+                <form action="{{ route('post-edit', $post->id) }}" method="post">
                     @csrf
                     @method('delete')
 
@@ -308,7 +316,7 @@
                 </form>
 
 
-                
+
             </div>
             <hr>
 

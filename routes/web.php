@@ -16,7 +16,9 @@ use App\Http\Controllers\PostDislikeController;
 use App\Http\Controllers\ReadedController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MainController;
-use App\Models\Favorite;
+
+
+
 
 Route::get('/main', [MainController::class, 'index'])->name('main');
 

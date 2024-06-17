@@ -21,7 +21,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <form id="contactForm">
+                    <form id="contactForm" action="{{route('contact-admin')}}" method="POST">
                         <div class="form-group">
                             <label for="name" class="font-weight-light">{{ __('Name') }}</label>
                             <input type="text" class="form-control font-weight-lighter" name="name" id="name"  value="{{Auth::user()->username}}" readonly required>

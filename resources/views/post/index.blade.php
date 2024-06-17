@@ -117,11 +117,11 @@
 
 
 
-                            <div class=" font-weight-light">
+                            <div class=" font-weight-light ">
 
 
                                 @if (isset($post->cover->cover))
-                                    <div class="card-body rox justify-content-center align-content-center text-justify">
+                                    <div class="card-body row justify-content-center align-content-center text-justify">
 
                                         <img src="{{ asset($post->cover->cover) }}" alt="post-cover">
 
@@ -588,7 +588,7 @@
                             <span class=" text-danger">{{ $message }}</span>
                         @enderror
 
-                        <input type="number" name="post_id" id="post-id" readonly required hidden>
+                        <input type="number" name="post_id" id="post-id" value="{{$post->id}}" readonly required hidden>
 
 
                         <div class="accordion mb-5">

@@ -228,7 +228,9 @@
                                         <div class="form-group">
                                             <label for="name" class="font-weight-light">{{ __('Name') }}</label>
                                             @error('name')
+                                                
                                                 <span class=" text-danger">{{$message}}</span>
+                                                
                                             @enderror
                                             <input type="text" class="form-control font-weight-lighter" name="name" id="name"
                                                 placeholder="{{ __('Enter your name') }}" required>
