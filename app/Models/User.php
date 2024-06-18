@@ -108,6 +108,9 @@ class User extends Authenticatable
         return $this->hasMany(Extra::class);
     }
 
+    public function UsertypeRequest(){
+        return $this->hasMany(UsertypeRequest::class);
+    }
 
 
 }

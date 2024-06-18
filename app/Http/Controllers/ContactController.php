@@ -60,13 +60,7 @@ class ContactController extends Controller
             'user_id' => 'required',
         ]);
 
-        if($validated['name'] != Auth::user()->username || 
-            $validated['email'] != Auth::user()->email ||
-            $validated['user_id'] != Auth::user()->user_id){
-
-            abort(403, 'HA HA YOU ARE HACKER!!!');
-
-        }
+    
         
 
         $contact = new Contact();

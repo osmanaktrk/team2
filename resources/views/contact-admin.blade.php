@@ -22,6 +22,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <form id="contactForm" action="{{route('contact-admin')}}" method="POST">
+                        @csrf
+
+                        <input type="number" name="user_id" id="user_id" value="{{Auth::user()->id}}" readonly required hidden>
                         <div class="form-group">
                             <label for="name" class="font-weight-light">{{ __('Name') }}</label>
                             <input type="text" class="form-control font-weight-lighter" name="name" id="name"  value="{{Auth::user()->username}}" readonly required>

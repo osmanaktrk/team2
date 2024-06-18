@@ -184,6 +184,8 @@
                 
                 @auth
                 <form action="{{route('contact-admin')}}" method="POST">
+                    @csrf
+
                     <input type="number" name="user_id" id="user_id" value="{{Auth::user()->id}}" required hidden readonly>
                     <div class="form-group">
                         @error('name')
@@ -214,6 +216,7 @@
 
                 @guest
                     <form action="{{route('contact-guest')}}" method="POST">
+                        @csrf
                     <div class="form-group">
                         @error('name')
                             <span class=" text-danger">{{$message}}</span>

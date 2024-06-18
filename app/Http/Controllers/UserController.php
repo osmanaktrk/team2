@@ -46,7 +46,7 @@ class UserController extends Controller
         $request->validate([
             'education_type' => 'required',
             'education_name' => 'required',
-            "education_year" => ['required', 'digits:1'],
+            "education_year" => ['required', 'integer', 'min:1', 'max:3'],
         ]);
 
         User::where('id', Auth::user()->id)->update([

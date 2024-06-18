@@ -64,9 +64,9 @@
                                 </a>
 
                                 @if (Auth::user()->usertype == 'admin')
-                                <a class="middle-links-btn" href="">
-                                    <li>ADMIN DASHBOARD</li>
-                                </a>
+                                    <a class="middle-links-btn" href="">
+                                        <li>ADMIN DASHBOARD</li>
+                                    </a>
                                 @endif
                             </ul>
                         </div>
@@ -88,8 +88,16 @@
                         <button class="btn btn-link text-decoration-none" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="header-profile-button">
+                                @if (Auth::user()->avatar)
                                 <img class="profilebutton-asset" src="{{ asset(Auth::user()->avatar) }}"
+                                alt="profile-button">
+                                @else
+                                <img class="profilebutton-asset" src="{{ asset('img/users/default.svg') }}"
                                     alt="profile-button">
+                                    
+                                @endif
+
+                                
                             </div>
                         </button>
 

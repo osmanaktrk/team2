@@ -16,6 +16,7 @@ use App\Http\Controllers\PostDislikeController;
 use App\Http\Controllers\ReadedController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\UsertypeRequestController;
 
 
 
@@ -31,7 +32,7 @@ Route::get('/contact-admin', [ContactController::class, 'index'])->name('contact
 
 Route::post('/contact-guest', [ContactController::class, 'guestContact'])->name('contact-guest');
 
-Route::post('/contact-admin', [ContactController::class, 'guestContact'])->name('contact-admin');
+Route::post('/contact-admin', [ContactController::class, 'adminContact'])->name('contact-admin');
 
 
 
@@ -42,14 +43,23 @@ Route::get('/faq', function(){
 })->name('faq');
 
 
+
+
+
 Route::get('/profile-index', [ProfileController::class, 'edit'])->name('profile-index');
 
 Route::put('/avatar', [UserController::class, 'avatarUpload'])->name("avatar.upload");
 
 Route::delete('/avatar', [UserController::class, 'avatarDelete'])->name("avatar.delete");
     
-Route::post('/profile-education.upload', [UserController::class, 'educationUpdate'])->name('profile-education.upload');
-    
+Route::put('/profile-education', [UserController::class, 'educationUpdate'])->name('profile-education');
+
+Route::post("/usertype-request", [UsertypeRequestController::class, 'store'])->name('usertype-request');
+
+
+
+
+
 
 Route::get('/post-index/{id}', [PostController::class, 'index'])->name('post-index');
 
