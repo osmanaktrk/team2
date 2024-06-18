@@ -235,7 +235,7 @@
                                             <div class="text-muted font-weight-light">
                                                 <span class="btn btn-primary font-weight-light" data-toggle="collapse"
                                                     data-target="#collapseTwo" aria-expanded="false"
-                                                    aria-controls="collapseTwo">Upload A File</span>
+                                                    aria-controls="collapseTwo">Upload A File Only Archive</span>
 
 
                                                 @error('post_file_name')

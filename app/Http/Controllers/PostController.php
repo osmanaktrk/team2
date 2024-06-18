@@ -102,7 +102,7 @@ class PostController extends Controller
             $post_cover = new Cover();
 
             $post_cover_ext = $validated['post_cover']->getClientOriginalExtension();
-            $post_cover_name = time().rand(5, 10).'.'.$post_cover_ext;
+            $post_cover_name = time().rand(1, 10000000000).'.'.$post_cover_ext;
             $validated['post_cover']->move(public_path('img/covers/'), $post_cover_name);
 
             $post_cover->cover = 'img/covers/'.$post_cover_name;
@@ -122,11 +122,11 @@ class PostController extends Controller
             $post_file = new Extra();
 
             $post_file_ext = $validated['post_file']->getClientOriginalExtension();
-            $post_file_name = $validated['post_file_name'].time().rand(5, 10).'.'.$post_file_ext;
+            $post_file_name = $validated['post_file_name'].time().rand(1, 10000000000).'.'.$post_file_ext;
 
             $validated['post_file']->move(public_path('extras/'), $post_file_name);
 
-            $post_file->name = $post_file_name;
+            $post_file->name = $validated['post_file_name'];
             $post_file->file = 'extras/'.$post_file_name;
             $post_file->user_id = Auth::user()->id;
             $post_file->post_id = $post->id;
@@ -153,7 +153,7 @@ class PostController extends Controller
             $comment_cover = new Cover();
 
             $comment_cover_ext = $validated['comment_cover']->getClientOriginalExtension();
-            $comment_cover_name = time().rand(5, 10).'.'.$comment_cover_ext;
+            $comment_cover_name = time().rand(1, 10000000000).'.'.$comment_cover_ext;
             $validated['comment_cover']->move(public_path('img/covers/'), $comment_cover_name);
 
             $comment_cover->cover = 'img/covers/'.$comment_cover_name;
@@ -173,12 +173,12 @@ class PostController extends Controller
             $comment_file = new Extra();
 
             $comment_file_ext = $validated['comment_file']->getClientOriginalExtension();
-            $comment_file_name = $validated['comment_file_name'].time().rand(5, 10).'.'.$comment_file_ext;
+            $comment_file_name = $validated['comment_file_name'].time().rand(1, 10000000000).'.'.$comment_file_ext;
 
             $validated['comment_file']->move(public_path('extras/'), $comment_file_name);
 
-            $comment_file->name = $comment_file_name;
-            $comment_file->file = 'public/extras/'.$comment_file_name;
+            $comment_file->name = $validated['comment_file_name'];
+            $comment_file->file = 'extras/'.$comment_file_name;
             $comment_file->user_id = Auth::user()->id;
             $comment_file->comment_id = $comment->id;
             $comment_file->save();
@@ -243,7 +243,7 @@ class PostController extends Controller
             $post_cover_ex = Cover::where('post_id', $id);
 
             if($post_cover_ex->exists()){
-                File::delete($post_cover_ex->first()->cover);
+                File::delete(public_path($post_cover_ex->first()->cover));
                 $post_cover = Cover::where('post_id', $id)->first();
                 
 
@@ -254,7 +254,7 @@ class PostController extends Controller
             
 
             $post_cover_ext = $validated['post_cover']->getClientOriginalExtension();
-            $post_cover_name = time().rand(5, 10).'.'.$post_cover_ext;
+            $post_cover_name = time().rand(1, 10000000000).'.'.$post_cover_ext;
             $validated['post_cover']->move(public_path('img/covers/'), $post_cover_name);
 
             $post_cover->cover = 'img/covers/'.$post_cover_name;
@@ -268,34 +268,50 @@ class PostController extends Controller
 
         }
 
+        if(isset($request->delete)){
+
+            $post_file = Extra::where('post_id', $id)->first();
+
+            File::delete(public_path($post_file->file));
+
+            $post->extra_id = null;
+            $post->save();
+            $post_file->delete();
+        }
+
 
         if(isset($validated['post_file_name']) && isset($validated['post_file'])){
 
             $post_file_ex = Extra::where('post_id', $id);
 
             if($post_file_ex->exists()){
-                File::delete($post_file_ex->first()->file);
+                File::delete(public_path($post_file_ex->first()->file));
                 $post_file = Extra::where('post_id', $id)->first();
 
             }else{
                 $post_file = new Extra();
+                
             }
 
             
 
             $post_file_ext = $validated['post_file']->getClientOriginalExtension();
-            $post_file_name = $validated['post_file_name'].time().rand(5, 10).'.'.$post_file_ext;
+            $post_file_name = $validated['post_file_name'].time().rand(1, 10000000000).'.'.$post_file_ext;
 
             $validated['post_file']->move(public_path('extras/'), $post_file_name);
 
-            $post_file->name = $post_file_name;
+            $post_file->name = $validated['post_file_name'];
             $post_file->file = 'extras/'.$post_file_name;
             $post_file->post_id = $post->id;
+            $post_file->user_id = Auth::user()->id;
             $post_file->save();
             $post->extra_id = $post_file->id;
             $post->save();
 
         }
+
+
+
 
 
 
@@ -371,7 +387,7 @@ class PostController extends Controller
             $commentExtra = Extra::where('comment_id', $comment->id);
 
             if($commentExtra->exists()){
-                File::delete(public_path($commentExtra->first()->extra));
+                File::delete(public_path($commentExtra->first()->file));
                 $commentExtra->delete();
             }
             $comment->delete();

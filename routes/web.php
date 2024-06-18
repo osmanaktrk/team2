@@ -7,6 +7,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CommentLikeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CoverController;
+use App\Http\Controllers\ExtraController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\MessageController;
@@ -105,7 +106,7 @@ Route::get('/dislike/{id}', [PostDislikeController::class, 'postDislike'])->name
 
 
 
-
+Route::post('/donwload', [ExtraController::class, 'download'])->name('download');
 
 
 

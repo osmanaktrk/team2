@@ -83,7 +83,7 @@
 
                                             </a>
                                         @else
-                                            <span class="error">Deleted User</span>
+                                            <span class="text-danger">Deleted User</span>
                                         @endif
                                         at
                                         {{ $post->created_at->format('d/M/Y H:i') }}
@@ -188,16 +188,23 @@
 
 
 
-                            unutma!!!!!!!!!!!!!!!!
+
 
                             @isset($post->extra_id)
                                 <div class="block pt-1 pb-1 pl-5 pr-5 mt-3 row justify-content-between align-items-center"
                                     style="background-color: #1ABCB6;">
                                     <span class=" p-2">File Name: {{ $post->extra->name }}</span>
 
-                                    <a href="">
-                                        <button class="btn btn-primary">Download</button>
-                                    </a>
+                                    <form action="{{route('download')}}" method="post">
+                                        @csrf
+
+                                        @error('path')
+                                            <span class=" text-danger">{{$message}}</span>
+                                        @enderror
+                                        <input type="hidden" name="path" value="{{$post->extra->file}}" readonly required>
+                                    <button class="btn btn-primary">Download</button>
+                                    </form>
+                                    
 
                                 </div>
                             @endisset
@@ -300,7 +307,7 @@
 
                                     <div class="font-weight-light">
                                         @isset($comment->cover->cover)
-                                            <div class="card-body">
+                                            <div class="card-body row justify-content-center align-items-center">
                                                 <img src="{{ asset($comment->cover->cover) }}" alt="comment-cover">
                                             </div>
                                         @endisset
@@ -316,12 +323,24 @@
                                         </div>
                                     </div>
 
-                                    unutma!!!!!!!!!!!!
                                     @isset($comment->extra_id)
                                         <div class="block pt-2 pb-2 pl-5 pr-5 row justify-content-between align-items-center"
                                             style="background-color: #1ABCB6;">
                                             <span class=" p-2">File Name: {{ $comment->extra->name }}</span>
-                                            <button class="btn btn-primary">Download</button>
+
+                                            <form action="{{route('download')}}" method="post">
+                                                @csrf
+
+                                                @error('path')
+                                                    <span class=" text-danger">{{$message}}</span>
+                                                @enderror
+                                                <input type="hidden" name="path" value="{{$comment->extra->file}}" readonly required>
+                                                <button class="btn btn-primary">Download</button>
+                                            </form>
+
+
+
+                                            
                                         </div>
                                     @endisset
 
@@ -427,7 +446,7 @@
                                                                         data-target="#collapseFile{{ $comment->id }}"
                                                                         aria-expanded="false"
                                                                         aria-controls="collapseFile{{ $comment->id }}">Update
-                                                                        File</span>
+                                                                        File Only Archive</span>
 
 
                                                                     @error('comment_file_name')
@@ -471,7 +490,7 @@
 
 
                                                                     <input class="update-file btn btn-primary" type="file"
-                                                                        name="post_file" id="post-file"
+                                                                        name="comment_file" id="comment-file"
                                                                         accept=".zip,.rar,.7zip">
                                                                 </div>
 
@@ -490,7 +509,7 @@
                                                                         aria-expanded="false"
                                                                         aria-controls="collapseFile{{ $comment->id }}">Upload
                                                                         A
-                                                                        File</span>
+                                                                        File Only Archive</span>
 
 
                                                                     @error('comment_file_name')
@@ -522,7 +541,7 @@
 
 
                                                                     <input class=" btn btn-primary" type="file"
-                                                                        name="post_file" id="post-file"
+                                                                        name="comment_file" id="comment-file"
                                                                         accept=".zip,.rar,.7zip">
                                                                 </div>
 
@@ -632,8 +651,15 @@
                                     <div class="card-body">
                                         <hr>
                                         <p class="font-weight-lighter mb-3 text-center">Comment</p>
+
+
                                         @error('comment')
+                                        <div class=" row justify-content-center align-items-center">
+
                                             <span class=" text-danger">{{ $message }}</span>
+
+                                        </div>
+
                                         @enderror
                                         <hr>
                                     </div>
@@ -656,7 +682,7 @@
                                         <div class="text-muted font-weight-light">
                                             <span class="btn btn-link font-weight-light" data-toggle="collapse"
                                                 data-target="#collapseCommentFile" aria-expanded="false"
-                                                aria-controls="collapseCommentFile">Upload A File</span>
+                                                aria-controls="collapseCommentFile">Upload A File Only Archive</span>
 
 
                                             @error('comment_file_name')

@@ -27,11 +27,9 @@
                             <h1 class="font-weight-lighter text-primary text-center mb-3">POST CREATE</h1>
                             <hr>
                             <br>
-                            <div class="row justify-content-center align-items-center">
+                            <div class=" text-center col justify-content-center align-items-center">
 
-                                @error('category_id')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                
                                 <select class="btn btn-light btn-outline-info" name="category_id" id="post-category"
                                     required>
                                     <option selected disabled value="0">Select A Category</option>
@@ -39,6 +37,10 @@
                                         <option value="{{ $category->id }}">{{ $category->category }}</option>
                                     @endforeach
                                 </select>
+                                @error('category_id')
+                                <br><br>
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
 
                             </div>
 
@@ -86,7 +88,10 @@
                             <hr>
                             <h2 class="font-weight-lighter mb-3 text-center">Title</h2>
                             @error('title')
+                            <div class=" row justify-content-center align-items-center">
                                 <span class=" text-danger">{{ $message }}</span>
+
+                            </div>
                             @enderror
                             <hr>
                             <div class="text-justify mb-4">
@@ -106,7 +111,7 @@
                                         <div class="text-muted font-weight-light">
                                             <span class="btn btn-link font-weight-light" data-toggle="collapse"
                                                 data-target="#collapseTwo" aria-expanded="false"
-                                                aria-controls="collapseTwo">Upload A File</span>
+                                                aria-controls="collapseTwo">Upload A File Only Archive</span>
                                             @error('post_file_name')
                                                 <span class=" text-danger">{{ $message }}</span>
                                             @enderror
@@ -218,7 +223,11 @@
                                         <hr>
                                         <p class="font-weight-lighter mb-3 text-center">Comment</p>
                                         @error('comment')
+
+                                        <div class=" row justify-content-center align-items-center">
                                             <span class=" text-danger">{{ $message }}</span>
+
+                                        </div>
                                         @enderror
                                         <hr>
                                     </div>
@@ -241,7 +250,7 @@
                                         <div class="text-muted font-weight-light">
                                             <span class="btn btn-link font-weight-light" data-toggle="collapse"
                                                 data-target="#collapseFour" aria-expanded="false"
-                                                aria-controls="collapseFour">Upload A File</span>
+                                                aria-controls="collapseFour">Upload A File Only Archive</span>
 
 
                                             @error('comment_file_name')

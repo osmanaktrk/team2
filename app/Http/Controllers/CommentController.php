@@ -59,7 +59,7 @@ class CommentController extends Controller
             $comment_cover = new Cover();
 
             $comment_cover_ext = $validated['comment_cover']->getClientOriginalExtension();
-            $comment_cover_name = time().rand(5, 10).'.'.$comment_cover_ext;
+            $comment_cover_name = time().rand(1, 10000000000).'.'.$comment_cover_ext;
             $validated['comment_cover']->move(public_path('img/covers/'), $comment_cover_name);
 
             $comment_cover->cover = 'img/covers/'.$comment_cover_name;
@@ -79,11 +79,11 @@ class CommentController extends Controller
             $comment_file = new Extra();
 
             $comment_file_ext = $validated['comment_file']->getClientOriginalExtension();
-            $comment_file_name = $validated['comment_file_name'].time().rand(5, 10).'.'.$comment_file_ext;
+            $comment_file_name = $validated['comment_file_name'].time().rand(1, 10000000000).'.'.$comment_file_ext;
 
             $validated['comment_file']->move(public_path('extras/'), $comment_file_name);
 
-            $comment_file->name = $comment_file_name;
+            $comment_file->name = $validated['comment_file_name'];
             $comment_file->file = 'extras/'.$comment_file_name;
             $comment_file->user_id = Auth::user()->id;
             $comment_file->comment_id = $comment->id;
@@ -147,9 +147,9 @@ class CommentController extends Controller
 
 
             $comment_cover_ext = $validated['comment_cover']->getClientOriginalExtension();
-            $comment_cover_name = time().rand(5, 10).'.'.$comment_cover_ext;
+            $comment_cover_name = time().rand(1, 10000000000).'.'.$comment_cover_ext;
             $validated['comment_cover']->move(public_path('img/covers/'), $comment_cover_name);
-
+            $comment_cover->user_id = Auth::user()->id;
             $comment_cover->cover = 'img/covers/'.$comment_cover_name;
             $comment_cover->comment_id = $comment->id;
             $comment_cover->save();
@@ -159,6 +159,20 @@ class CommentController extends Controller
 
 
         }
+        if(isset($request->delete)){
+
+            $comment_file = Extra::where('comment_id', $comment_id)->first();
+
+            File::delete(public_path($comment_file->file));
+
+            $comment->extra_id = null;
+            $comment->save();
+            $comment_file->delete();
+        }
+
+
+
+
 
 
         if(isset($validated['comment_file_name']) && isset($validated['comment_file'])){
@@ -177,12 +191,12 @@ class CommentController extends Controller
             
 
             $comment_file_ext = $validated['comment_file']->getClientOriginalExtension();
-            $comment_file_name = $validated['comment_file_name'].time().rand(5, 10).'.'.$comment_file_ext;
+            $comment_file_name = $validated['comment_file_name'].time().rand(1, 10000000000).'.'.$comment_file_ext;
 
             $validated['comment_file']->move(public_path('extras/'), $comment_file_name);
-
-            $comment_file->name = $comment_file_name;
-            $comment_file->file = 'public/extras/'.$comment_file_name;
+            $comment_file->user_id = Auth::user()->id;
+            $comment_file->name = $validated['comment_file_name'];
+            $comment_file->file = 'extras/'.$comment_file_name;
             $comment_file->comment_id = $comment->id;
             $comment_file->save();
             $comment->extra_id = $comment_file->id;
@@ -212,6 +226,7 @@ class CommentController extends Controller
 
 
         Comment::findOrFail($id)->delete();
+
 
         $extra = Extra::where('comment_id', $id);
 

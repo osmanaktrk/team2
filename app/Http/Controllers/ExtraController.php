@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 
 class ExtraController extends Controller
 {
+
+
+    public function download(Request $request){
+        $request->validate([
+            'path' => 'required',
+        ]);
+        $path = public_path($request->path);
+
+
+        return response()->download($path);
+    }
+
+
     /**
      * Display a listing of the resource.
      */

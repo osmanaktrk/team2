@@ -107,12 +107,16 @@
 
                                     </div>
 
-                                    @if ($user->UsertypeRequest->count() > 0)
-                                        <input type="submit" value="REQUEST" disabled>
-                                        <span class=" text-danger">Already Requested</span>
-                                    @else
-                                        <input class=" btn btn-success" type="submit" value="Request">
+                                    @if (Auth::user()->id == $user->id || Auth::user()->usertype == 'admin')
+                                        @if ($user->UsertypeRequest->count() > 0)
+                                            <input type="submit" value="REQUEST" disabled>
+                                            <span class=" text-danger">Already Requested</span>
+                                        @else
+                                            <input class=" btn btn-success" type="submit" value="Request">
+                                        @endif
                                     @endif
+
+
 
 
 
@@ -150,26 +154,32 @@
                     </div>
                 </div>
             </div>
-            <div class="row text-center justify-content-center mt-4">
-                <div class="col-md-2 col-6 action-buttons">
-                    <button class="btn btn-info">Messages</button>
+
+            @if (Auth::user()->id == $user->id || Auth::user()->usertype == 'admin')
+                <div class="row text-center justify-content-center mt-4">
+                    <div class="col-md-2 col-6 action-buttons">
+                        <button class="btn btn-info">Messages</button>
+                    </div>
+                    <div class="col-md-2 col-6 action-buttons">
+                        <button class="btn btn-info">Writed Posts</button>
+                    </div>
+                    <div class="col-md-2 col-6 action-buttons">
+                        <button class="btn btn-info">Writed Comments</button>
+                    </div>
+                    <div class="col-md-2 col-6 action-buttons">
+                        <button class="btn btn-info">Favorite Posts</button>
+                    </div>
+                    <div class="col-md-2 col-6 action-buttons">
+                        <button class="btn btn-info">Liked Posts</button>
+                    </div>
+                    <div class="col-md-2 col-6 action-buttons">
+                        <button class="btn btn-info">Disliked Posts</button>
+                    </div>
                 </div>
-                <div class="col-md-2 col-6 action-buttons">
-                    <button class="btn btn-info">Writed Posts</button>
-                </div>
-                <div class="col-md-2 col-6 action-buttons">
-                    <button class="btn btn-info">Writed Comments</button>
-                </div>
-                <div class="col-md-2 col-6 action-buttons">
-                    <button class="btn btn-info">Favorite Posts</button>
-                </div>
-                <div class="col-md-2 col-6 action-buttons">
-                    <button class="btn btn-info">Liked Posts</button>
-                </div>
-                <div class="col-md-2 col-6 action-buttons">
-                    <button class="btn btn-info">Disliked Posts</button>
-                </div>
-            </div>
+            @endif
+
+
+
         </div>
     </section>
 
@@ -388,7 +398,7 @@
 
                                                         <label for="usertype">User Type Request</label>
                                                         @error('usertype')
-                                                            <span class=" text-danger">{{$message}}</span>
+                                                            <span class=" text-danger">{{ $message }}</span>
                                                         @enderror
 
                                                         @if ($user->UsertypeRequest->count() > 0)

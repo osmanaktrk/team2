@@ -266,7 +266,7 @@
                                                             <div class="text-muted font-weight-light">
                                                                 <span class="btn btn-link font-weight-light" data-toggle="collapse"
                                                                     data-target="#collapseTwo" aria-expanded="false"
-                                                                    aria-controls="collapseTwo">Upload A File</span>
+                                                                    aria-controls="collapseTwo">Upload A File Only Archive</span>
                                                                 @error('post_file_name')
                                                                     <span class=" text-danger">{{ $message }}</span>
                                                                 @enderror
@@ -401,7 +401,7 @@
                                                             <div class="text-muted font-weight-light">
                                                                 <span class="btn btn-link font-weight-light" data-toggle="collapse"
                                                                     data-target="#collapseFour" aria-expanded="false"
-                                                                    aria-controls="collapseFour">Upload A File</span>
+                                                                    aria-controls="collapseFour">Upload A File Only Archive</span>
                     
                     
                                                                 @error('comment_file_name')
