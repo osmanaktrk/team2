@@ -11,9 +11,16 @@ class UserController extends Controller
 {
 
     public function avatarUpload(Request $request){
+       
         $request->validate([
-            'avatar' => ['required', 'image', 'max:10240']
+            'avatar' => ['required', 'image', 'max:10240'],
+
         ]);
+
+
+         
+
+       
 
         $avatarName = Auth::user()->email;
         $avatarExt = $request->avatar->getClientOriginalExtension();
@@ -21,25 +28,14 @@ class UserController extends Controller
         $request->avatar->move(public_path('img/users'), $avatar);
 
         User::where('id', Auth::user()->id)->update([
-            'profile_photo_path' => 'img/users/'.$avatar,
+            'avatar' => 'img/users/'.$avatar,
         ]);
         
 
-        return redirect()->route('profile.edit')->with('accept', 'Profile Photo Updated');
+        return redirect()->back()->with('accept', 'Profile Photo Updated');
     }
 
-    public function avatarDelete(){
-        
-        File::delete(Auth::user()->avatar);
-
-        User::where('id', Auth::user()->id)->update([
-            'avatar' => 'img/users/default.svg',
-        ]);
-
-        return redirect()->route('profile.edit')->with('accept', 'Profile Photo Deleted');
-
-
-    }
+ 
     
     public function educationUpdate(Request $request){
 

@@ -49,11 +49,10 @@ Route::get('/faq', function(){
 
 Route::get('/profile-index', [ProfileController::class, 'edit'])->name('profile-index');
 
-Route::put('/avatar', [UserController::class, 'avatarUpload'])->name("avatar.upload");
+Route::put('/avatar', [UserController::class, 'avatarUpload'])->name("avatar");
 
-Route::delete('/avatar', [UserController::class, 'avatarDelete'])->name("avatar.delete");
     
-Route::put('/profile-education', [UserController::class, 'educationUpdate'])->name('profile-education');
+Route::put('/education', [UserController::class, 'educationUpdate'])->name('education');
 
 Route::post("/usertype-request", [UsertypeRequestController::class, 'store'])->name('usertype-request');
 

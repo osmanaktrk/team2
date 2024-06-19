@@ -19,12 +19,24 @@
             <div class="row justify-content-center mt-5">
                 <div class="col-lg-4 text-center mb-4">
                     <div class="profile-photo mt-5" id="dashboardProfilePhoto">
-                        {{-- <span class="text-dark">Profile photo</span> --}}
-                        @if ($user->avatar)
+                        
+                        
+                            <img class="avatar-photo" 
+                            @if ($user->avatar)
+                                src="{{ asset($user->avatar) }}"
+                            @else
+                                src="{{ asset('img/users/default.svg') }}"   
+                            @endif
+                        alt="">
+                       
+                        
+
+
+                        {{-- @if ($user->avatar)
                             <img src="{{ asset($user->avatar) }}" alt="">
                         @else
                             <img src="{{ asset('img/users/default.svg') }}" alt="">
-                        @endif
+                        @endif --}}
 
 
                     </div>
@@ -205,7 +217,7 @@
                                     <div class="col-lg-12">
 
                                         <div class="card shadow-sm mb-3">
-                                            <form action="" method="post" enctype="multipart/form-data">
+                                            <form action="{{route('avatar')}}" method="post" enctype="multipart/form-data">
 
                                                 @csrf
                                                 @method('put')
@@ -218,35 +230,25 @@
                                                         <hr>
                                                         <p class=" font-weight-light">Update your profile photo</p>
 
-                                                        @error('request-user')
-                                                            <hr>
-                                                            <span class=" text-danger">{{ $message }}</span>
-                                                        @enderror
+                                                       
 
-                                                        <input type="hidden" name="user_id" value="{{ $user->id }}"
-                                                            name="request-user" required readonly>
+                                                        
                                                     </div>
                                                 </div>
 
 
 
-                                                <div
-                                                    class="card-header avatar-container  text-center bg-white text-center">
+                                                <div class="card-header avatar-container  text-center bg-white text-center">
 
 
-                                                    <div
-                                                        class=" avatar text-center row justify-content-center align-items-center">
-
+                                                    <div class=" avatar text-center row justify-content-center">
+                                                        <img class="avatar-photo" 
                                                         @if ($user->avatar)
-                                                            <img class="avatar-photo" src="{{ asset($user->avatar) }}"
-                                                                alt="">
+                                                            src="{{ asset($user->avatar) }}"
                                                         @else
-                                                            <img class="avatar-photo"
-                                                                src="{{ asset('img/users/default.svg') }}"
-                                                                alt="">
+                                                            src="{{ asset('img/users/default.svg') }}"   
                                                         @endif
-
-
+                                                            alt="">
                                                     </div>
 
                                                     <input type="number" name="user_id" value="{{ $user->id }}"
@@ -255,9 +257,8 @@
                                                         <span class=" text-danger">{{ $message }}</span>
                                                     @enderror
 
-                                                    <input class="avatar-photo-input btn btn-outline-primary btn-sm"
-                                                        name="avatar" type="file" value="Upload Profile Photo"
-                                                        accept="image/*">
+                                                    <input class="avatar-photo-input mt-3 btn btn-outline-primary btn-sm"
+                                                        name="avatar" type="file" accept="image/*">
 
 
 
@@ -273,8 +274,8 @@
 
 
                                                     <div class="text-center pt-3 pb-2">
-                                                        <button type="submit" class="btn btn-primary">Save
-                                                            Changes</button>
+                                                        <input class=" btn btn-primary" type="submit" value="Upload Profile Photo">
+                                                        
                                                     </div>
 
                                                 </div>
@@ -286,10 +287,10 @@
 
 
                                         <div class="card shadow-sm mb-3">
-                                            <form action="" method="post" enctype="multipart/form-data">
+                                            <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data">
 
                                                 @csrf
-                                                @method('put')
+                                                @method('patch')
 
 
                                                 <div class="card-header text-center bg-white text-center">
@@ -299,7 +300,7 @@
                                                             Information</p>
                                                         <hr>
                                                         <p class=" font-weight-light">Update your account's profile
-                                                            information and email address</p>
+                                                            information</p>
                                                         @error('request-user')
                                                             <hr>
                                                             <span class=" text-danger">{{ $message }}</span>
@@ -324,7 +325,7 @@
                                                             <span class=" text-danger">{{ $message }}</span>
                                                         @enderror
                                                         <input type="text" class="form-control font-weight-lighter"
-                                                            name="firstname" value="{{ $user->firstname }}">
+                                                            name="firstname" value="{{ $user->firstname }}" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="profileName" class="font-weight-light">Last
@@ -333,7 +334,7 @@
                                                             <span class=" text-danger">{{ $message }}</span>
                                                         @enderror
                                                         <input type="text" class="form-control font-weight-lighter"
-                                                            name="lastname" value="{{ $user->lastname }}">
+                                                            name="lastname" value="{{ $user->lastname }}" required>
                                                     </div>
 
                                                     <div class="form-group">
@@ -343,15 +344,16 @@
                                                             <span class=" text-danger">{{ $message }}</span>
                                                         @enderror
                                                         <input type="text" class="form-control font-weight-lighter"
-                                                            name="username" value="{{ $user->username }}">
+                                                            name="username" value="{{ $user->username }}" required>
                                                     </div>
 
 
 
 
                                                     <div class="text-center pt-3 pb-2">
-                                                        <button type="submit" class="btn btn-primary">Save
-                                                            Changes</button>
+
+                                                        <input type="submit" class="btn btn-primary" value="Update Profile">
+                                                        
                                                     </div>
 
                                                 </div>
@@ -481,7 +483,7 @@
                                         </div>
 
                                         <div class="card shadow-sm mb-3">
-                                            <form action="{{ route('profile-education') }}" method="post"
+                                            <form action="{{ route('education') }}" method="post"
                                                 enctype="multipart/form-data">
 
                                                 @csrf
@@ -516,6 +518,7 @@
                                                         @enderror
                                                         <select class="form-control font-weight-lighter"
                                                             id="education_type" name="education_type" required>
+                                                            <option value="Select" selected disabled>Select Education</option>
                                                             <option value="Graduaat">Graduaat</option>
                                                             <option value="Bachelor">Bachelor</option>
                                                             <option value="Lerarenopleiding">Lerarenopleiding</option>
@@ -528,13 +531,12 @@
 
 
 
-                                                    <div class="form-group edu" id="Graduaat" style="display: none;">
+                                                    <div class="form-group edu Graduaat"  style="display: none;">
                                                         @error('education_name')
                                                             <span class=" text-danger">{{ $message }}</span>
                                                         @enderror
 
-                                                        <select class="form-control font-weight-lighter"
-                                                            name="education_name" required>
+                                                        <select id="Graduaat"  class="form-control font-weight-lighter edu1" name="" required>
                                                             <option value="Accounting Administration">Accounting
                                                                 Administration
                                                             </option>
@@ -583,12 +585,12 @@
 
 
 
-                                                    <div class="form-group edu" id="Bachelor" style="display: none;">
+                                                    <div class="form-group edu Bachelor" style="display: none;">
                                                         @error('education_name')
                                                             <span class=" text-danger">{{ $message }}</span>
                                                         @enderror
-                                                        <select class="form-control font-weight-lighter"
-                                                            name="education_name" required>
+                                                        <select id="Bachelor"  class="form-control font-weight-lighter edu1"
+                                                             required>
 
                                                             <option value="Biomedische Laboratoriumtechnologie">Biomedische
                                                                 Laboratoriumtechnologie
@@ -640,13 +642,13 @@
 
 
 
-                                                    <div class="form-group edu" id="Lerarenopleiding"
+                                                    <div class="form-group edu Lerarenopleiding" 
                                                         style="display: none;">
                                                         @error('education_name')
                                                             <span class=" text-danger">{{ $message }}</span>
                                                         @enderror
-                                                        <select class="form-control font-weight-lighter"
-                                                            name="education_name" required>
+                                                        <select id="Lerarenopleiding" class="form-control font-weight-lighter edu1" 
+                                                             required>
 
                                                             <option value="Educatief Graduaat Secundair Onderwijs">
                                                                 Educatief
@@ -673,13 +675,13 @@
 
 
 
-                                                    <div class="form-group edu" id="Kunstopleiding"
+                                                    <div class="form-group edu Kunstopleiding" 
                                                         style="display: none;">
                                                         @error('education_name')
                                                             <span class=" text-danger">{{ $message }}</span>
                                                         @enderror
-                                                        <select class="form-control font-weight-lighter"
-                                                            name="education_name" required>
+                                                        <select id="Kunstopleiding" class="form-control font-weight-lighter edu1" 
+                                                            required>
 
                                                             <option
                                                                 value="Academische Bachelor/Master Audiovisuele Kunsten">
@@ -713,12 +715,12 @@
 
 
 
-                                                    <div class="form-group edu" id="Postgraduaat" style="display: none;">
+                                                    <div class="form-group edu Postgraduaat"  style="display: none;">
                                                         @error('education_name')
                                                             <span class=" text-danger">{{ $message }}</span>
                                                         @enderror
-                                                        <select class="form-control font-weight-lighter"
-                                                            name="education_name" required>
+                                                        <select id="Postgraduaat" class="form-control font-weight-lighter edu1" 
+                                                             required>
 
                                                             <option value="Applied Artificial Intelligence ('24-'25)">
                                                                 Applied
@@ -775,13 +777,13 @@
 
 
 
-                                                    <div class="form-group edu" id="Bachelor-na-bachelor"
+                                                    <div class="form-group edu Bachelor-na-bachelor" 
                                                         style="display: none;">
                                                         @error('education_name')
-                                                            <span class=" text-danger">{{ $message }}</span>
+                                                            <span  class=" text-danger">{{ $message }}</span>
                                                         @enderror
-                                                        <select class="form-control font-weight-lighter"
-                                                            name="education_name" required>
+                                                        <select id="Bachelor-na-bachelor" class="form-control font-weight-lighter edu1" 
+                                                             required>
                                                             <option value="Zorgmanagement">Zorgmanagement </option>
                                                         </select>
                                                     </div>
@@ -844,7 +846,7 @@
                                                         <label for="update_password_current_password"
                                                             class="font-weight-light">Current Password
                                                         </label>
-                                                        @error('update_password_current_password')
+                                                        @error('current_password')
                                                             <span class=" text-danger"></span>
                                                         @enderror
 
@@ -862,12 +864,12 @@
                                                         <label for="update_password_password"
                                                             class="font-weight-light">New Password
                                                         </label>
-                                                        @error('update_password_password')
+                                                        @error('password')
                                                             <span class=" text-danger"></span>
                                                         @enderror
 
                                                         <input class="form-control font-weight-lighter" type="password"
-                                                            name="password" id="update_password_current_password"
+                                                            name="password" id="update_password_password"
                                                             autocomplete="new-password" required>
 
 
@@ -879,7 +881,7 @@
                                                         <label for="update_password_password_confirmation"
                                                             class="font-weight-light">New Password
                                                         </label>
-                                                        @error('update_password_password_confirmation')
+                                                        @error('password_confirmation')
                                                             <span class=" text-danger"></span>
                                                         @enderror
 
@@ -962,7 +964,7 @@
 
 
                                                     <div class="text-center pt-3 pb-2">
-                                                        <button type="submit" class="btn btn-primary"
+                                                        <button type="submit" class="btn btn-danger"
                                                             onclick=" return confirm('Are you sure you want to delete your account?')">Delete
                                                             Account</button>
                                                     </div>

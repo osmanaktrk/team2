@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('usertype_requests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->enum('request', ['user', 'writer', 'admin']);
+            $table->enum('request', ['user', 'admin']);
             $table->timestamps();
         });
     }

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('education_name')->default('No Education Information, Please Update');
             $table->string('education_year')->default('No Education Information, Please Update');
             $table->boolean('is_banned')->default(false);
-            $table->enum('usertype', ['user', 'writer', 'admin'])->default('user');
+            $table->string('usertype')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

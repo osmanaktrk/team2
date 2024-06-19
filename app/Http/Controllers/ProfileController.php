@@ -8,6 +8,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\CommentLike;
+use App\Models\Contact;
+use App\Models\Cover;
+use App\Models\Favorite;
+use App\Models\FileModel; 
+use App\Models\Message;
+use App\Models\Post;
+use App\Models\PostLike;
+use App\Models\Readed;
+use App\Models\User;
+use Illuminate\Support\Facades\File;
+
 
 class ProfileController extends Controller
 {
@@ -26,6 +40,7 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -34,7 +49,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return redirect()->back()->with('accept', 'PROFILE UPDATED');
     }
 
     /**
@@ -42,11 +57,26 @@ class ProfileController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+
+
+
+
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
         ]);
 
         $user = $request->user();
+
+        $avatar = $user->avatar;
+
+        File::delete(public_path($avatar));
+
+
+
+
+
+
+
 
         Auth::logout();
 

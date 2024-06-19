@@ -194,38 +194,65 @@ avatar_input.addEventListener('change', ()=>{
 
 
 let edu_type = document.querySelector("#education_type");
-let graduaat = document.querySelector("#Graduaat");
-let bachelor = document.querySelector("#Bachelor");
-let lerarenopleiding = document.querySelector("#Lerarenopleiding");
-let kunstopleiding = document.querySelector("#Kunstopleiding");
-let postgraduaat = document.querySelector("#Postgraduaat");
-let bachelor_na_bachelor = document.querySelector("#Bachelor-na-bachelor");
+
+let graduaat_id = document.querySelector("#Graduaat");
+let graduaat_class = document.querySelector(".Graduaat");
+
+let bachelor_id = document.querySelector("#Bachelor");
+let bachelor_class = document.querySelector(".Bachelor");
+
+let lerarenopleiding_id = document.querySelector("#Lerarenopleiding");
+let lerarenopleiding_class = document.querySelector(".Lerarenopleiding");
+
+let kunstopleiding_id = document.querySelector("#Kunstopleiding");
+let kunstopleiding_class = document.querySelector(".Kunstopleiding");
+
+let postgraduaat_id = document.querySelector("#Postgraduaat");
+let postgraduaat_class = document.querySelector("#Postgraduaat");
+
+let bachelor_na_bachelor_id = document.querySelector("#Bachelor-na-bachelor");
+let bachelor_na_bachelor_class = document.querySelector(".Bachelor-na-bachelor");
+
 let year = document.querySelector("#education_year");
 let edu = document.querySelectorAll(".edu");
 
 edu_type.addEventListener("change", (e)=>{
     let val = e.target.value;
     
-    console.log(val);
+    
 
     switch (val) {
         case "Select":
             edu.forEach((e)=>{
+                
                 e.style.display = "none";
-                e.setAttribute('name', '');
+                
 
             });
+
+            graduaat_id.setAttribute('name', '');
+            bachelor_id.setAttribute('name', '');
+            lerarenopleiding_id.setAttribute('name', '');
+            kunstopleiding_id.setAttribute('name', '');
+            postgraduaat_id.setAttribute('name', '');
+            bachelor_na_bachelor_id.setAttribute('name', '');
             year.style.display = 'none';
         break;
 
         case "Graduaat":
             edu.forEach((e)=>{
                 e.style.display = "none";
-                e.setAttribute('name', '');
+
             });
             year.style.display = 'none';
-            graduaat.style.display = "block";
-            graduaat.setAttribute('name', 'education_name');
+            graduaat_class.style.display = "block";
+            graduaat_id.setAttribute('name', 'education_name');
+            bachelor_id.setAttribute('name', '');
+            lerarenopleiding_id.setAttribute('name', '');
+            kunstopleiding_id.setAttribute('name', '');
+            postgraduaat_id.setAttribute('name', '');
+            bachelor_na_bachelor_id.setAttribute('name', '');
+
             year.style.display = "block";
 
             break;
@@ -233,24 +260,34 @@ edu_type.addEventListener("change", (e)=>{
         case "Bachelor":
             edu.forEach((e)=>{
                 e.style.display = "none";
-                e.setAttribute('name', '');
+              
 
             });
             year.style.display = 'none';
-            bachelor.style.display = "block";
-            bachelor.setAttribute('name', 'education_name');
+            bachelor_class.style.display = "block";
+            graduaat_id.setAttribute('name', '');
+            bachelor_id.setAttribute('name', 'education_name');
+            lerarenopleiding_id.setAttribute('name', '');
+            kunstopleiding_id.setAttribute('name', '');
+            postgraduaat_id.setAttribute('name', '');
+            bachelor_na_bachelor_id.setAttribute('name', '');
             year.style.display = "block";
             break;
 
         case "Lerarenopleiding":
             edu.forEach((e)=>{
                 e.style.display = "none";
-                e.setAttribute('name', '');
+              
 
             });
             year.style.display = 'none';
-            lerarenopleiding.style.display = "block";
-            lerarenopleiding.setAttribute('name', 'education_name');
+            lerarenopleiding_class.style.display = "block";
+            graduaat_id.setAttribute('name', '');
+            bachelor_id.setAttribute('name', '');
+            lerarenopleiding_id.setAttribute('name', 'education_name');
+            kunstopleiding_id.setAttribute('name', '');
+            postgraduaat_id.setAttribute('name', '');
+            bachelor_na_bachelor_id.setAttribute('name', '');
             year.style.display = "block";
             
             break;
@@ -258,12 +295,16 @@ edu_type.addEventListener("change", (e)=>{
         case "Kunstopleiding":
             edu.forEach((e)=>{
                 e.style.display = "none";
-                e.setAttribute('name', '');
 
             });
             year.style.display = 'none';
-            kunstopleiding.style.display = "block";
-            kunstopleiding.setAttribute('name', 'education_name');
+            kunstopleiding_class.style.display = "block";
+            graduaat_id.setAttribute('name', '');
+            bachelor_id.setAttribute('name', '');
+            lerarenopleiding_id.setAttribute('name', '');
+            kunstopleiding_id.setAttribute('name', 'education_name');
+            postgraduaat_id.setAttribute('name', '');
+            bachelor_na_bachelor_id.setAttribute('name', '');
             year.style.display = "block";
             
             break;
@@ -271,12 +312,16 @@ edu_type.addEventListener("change", (e)=>{
         case "Postgraduaat":
             edu.forEach((e)=>{
                 e.style.display = "none";
-                e.setAttribute('name', '');
 
             });
             year.style.display = 'none';
-            postgraduaat.style.display = "block";
-            postgraduaat.setAttribute('name', 'education_name');
+            postgraduaat_class.style.display = "block";
+            graduaat_id.setAttribute('name', '');
+            bachelor_id.setAttribute('name', '');
+            lerarenopleiding_id.setAttribute('name', '');
+            kunstopleiding_id.setAttribute('name', '');
+            postgraduaat_id.setAttribute('name', 'education_name');
+            bachelor_na_bachelor_id.setAttribute('name', '');
             year.style.display = "block";
             
             break;
@@ -284,12 +329,16 @@ edu_type.addEventListener("change", (e)=>{
         case "Bachelor-na-bachelor":
             edu.forEach((e)=>{
                 e.style.display = "none";
-                e.setAttribute('name', '');
 
             });
             year.style.display = 'none';
-            bachelor_na_bachelor.style.display = "block";
-            b.setAttribute('name', 'education_name');
+            bachelor_na_bachelor_class.style.display = "block";
+            graduaat_id.setAttribute('name', '');
+            bachelor_id.setAttribute('name', '');
+            lerarenopleiding_id.setAttribute('name', '');
+            kunstopleiding_id.setAttribute('name', '');
+            postgraduaat_id.setAttribute('name', '');
+            bachelor_na_bachelor_id.setAttribute('name', 'education_name');
             year.style.display = "block";
             
             break;
@@ -298,5 +347,9 @@ edu_type.addEventListener("change", (e)=>{
     }
 
 });
+
+
+
+
 
 
