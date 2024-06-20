@@ -94,11 +94,11 @@
                                                     <option value="user">user</option>
                                                 @endif
 
-                                                @if ($user->usertype == 'writer')
+                                                {{-- @if ($user->usertype == 'writer')
                                                     <option selected disabled value="writer">writer</option>
                                                 @else
                                                     <option value="writer">writer</option>
-                                                @endif
+                                                @endif --}}
 
                                                 @if ($user->usertype == 'admin')
                                                     <option selected disabled value="admin">admin</option>
@@ -515,12 +515,12 @@
                                                                     <option value="user">user</option>
                                                                 @endif
 
-                                                                @if ($user->usertype == 'writer')
+                                                                {{-- @if ($user->usertype == 'writer')
                                                                     <option selected disabled value="writer">writer
                                                                     </option>
                                                                 @else
                                                                     <option value="writer">writer</option>
-                                                                @endif
+                                                                @endif --}}
 
                                                                 @if ($user->usertype == 'admin')
                                                                     <option selected disabled value="admin">admin</option>

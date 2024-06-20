@@ -151,11 +151,73 @@ class AdminController extends Controller
         return view('admin.users', compact('users'));
     }
 
+
+    public function createUser(Request $request){
+
+        $validated = $request->validate([
+            'firstname' => ['required', 'string', 'max:255' ,'min:3'],
+            'lastname' => ['required', 'string', 'max:255', 'min:3'],
+            'username' => ['required', 'string', 'max:255', 'min:3'],
+            "email" => ['required', 'email'],
+            'avatar' => ['image', 'max:10240'],
+            'usertype' => 'required',
+            'password' => ['required', 'min:8'],
+            'education_type' => 'required',
+            'education_name' => 'required',
+            "education_year" => ['required', 'integer', 'min:1', 'max:3'],
+
+        ]);
+
+        $user = new User();
+
+        $user->firstname = $validated['firstname'];
+        $user->lastname = $validated['lastname'];
+        $user->username = $validated['username'];
+        $user->email = $validated['email'];
+        $user->education_type = $validated['education_type'];
+        $user->education_name = $validated['education_name'];
+        $user->education_year = $validated['education_year'];
+        $user->usertype = $validated['usertype'];
+        $user->password = Hash::make($validated['password']);
+
+
+        if(isset($validated['avatar'])){
+            $avatarName = $user->email;
+            $avatarExt = $validated['avatar']->getClientOriginalExtension();
+            $avatar = $avatarName . '.' . $avatarExt;
+            $validated['avatar']->move(public_path('img/avatars/'), $avatar);
+            $user->avatar = 'img/avatars/' . $avatar;
+
+        }
+
+        $user->save();
+
+
+
+        return redirect()->back()->with("accept", "USER CREATED");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function showAdminPostCategories(){
        
+        
 
         $categories = Category::all();
 
+        
         
         return view('admin.post-categories', compact("categories"));
     }

@@ -1,15 +1,4 @@
 
-
-
-
-function toggleEditProfile() {
-    document.getElementById("profileForm").classList.toggle("d-none");
-}
-
-
-
-
-
 let avatar = document.querySelector('.avatar-photo');
 let avatar_input = document.querySelector('.avatar-photo-input');
 let avatar_src = avatar.src;
@@ -194,9 +183,5 @@ edu_type.addEventListener("change", (e)=>{
     }
 
 });
-
-
-
-
 
 

@@ -65,13 +65,20 @@ Route::middleware(['auth', 'banned'])->group(function () {
         Route::put('/admin-user-block', [AdminController::class, 'userBlock'])->name('admin-user-block');
 
         Route::delete('admin-user-delete/{id}', [AdminController::class, 'deleteUser'])->name('admin-user-delete');
+        
+        Route::post('admin-user-create', [AdminController::class, 'createUser'])->name('admin-user-create');
 
 
         Route::get('/admin-users', [AdminController::class, 'showAdminUsers'])->name("admin-users");
+
+
+
+
         Route::get('/admin-post-categories', [AdminController::class, 'showAdminPostCategories'])->name("admin-post-categories");
         Route::post('/admin-post-categories-create', [AdminController::class, 'createCategory'])->name('admin-post-categories-create');
         Route::delete('/admin-post-categories-delete/{id}', [AdminController::class, 'deleteCategory'])->name('admin-post-categories-delete');
         Route::put('admin-post-categories-edit/{id}', [AdminController::class, 'editCategory'])->name('admin-post-categories-edit');
+        Route::post('/admin-user-create', [AdminController::class, 'createUser'])->name("admin-user-create");
 
 
 

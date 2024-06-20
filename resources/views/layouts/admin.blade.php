@@ -103,7 +103,7 @@
 
             </button>
 
-            {{-- <button class="collapsible">
+            <button class="collapsible">
 
                 <div class="collapsible-div">
                     <div class="collapsible-assetdiv">
@@ -111,7 +111,7 @@
                     <a class=" text-white" href="{{route('admin-users')}}">Users</a>
                 </div>
 
-            </button> --}}
+            </button>
 
             <button class="collapsible">
 
@@ -165,4 +165,5 @@
 @endsection
 
 @section('js')
+<script src="{{asset('js/admin-layout.js')}}"></script>
 @endsection
