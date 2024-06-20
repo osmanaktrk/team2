@@ -20,13 +20,12 @@ class UserController extends Controller
 
          
 
-       
-
         $avatarName = Auth::user()->email;
         $avatarExt = $request->avatar->getClientOriginalExtension();
         $avatar = $avatarName.'.'.$avatarExt;
-        $request->avatar->move(public_path('img/users'), $avatar);
+        $request->avatar->move(public_path('img/users/'), $avatar);
 
+        
         User::where('id', Auth::user()->id)->update([
             'avatar' => 'img/users/'.$avatar,
         ]);

@@ -185,8 +185,8 @@ class AdminController extends Controller
             $avatarName = $user->email;
             $avatarExt = $validated['avatar']->getClientOriginalExtension();
             $avatar = $avatarName . '.' . $avatarExt;
-            $validated['avatar']->move(public_path('img/avatars/'), $avatar);
-            $user->avatar = 'img/avatars/' . $avatar;
+            $validated['avatar']->move(public_path('img/users/'), $avatar);
+            $user->avatar = 'img/users/' . $avatar;
 
         }
 

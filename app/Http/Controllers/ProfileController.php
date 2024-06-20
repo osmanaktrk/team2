@@ -28,11 +28,12 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function edit($id, Request $request): View
     {
 
         
         $users = User::all();
+    
         return view('profile-index', [
             'user' => $request->user(),
         ], compact('users'));
