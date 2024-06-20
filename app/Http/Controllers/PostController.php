@@ -80,13 +80,7 @@ class PostController extends Controller
 
         $post = new Post();
 
-        if(Auth::user()->usertype == 'admin'){
-            $post->is_published = true;
-
-        }else{
-            $post->is_published = false;
-
-        }
+        
 
 
         $comment = new Comment();
@@ -229,10 +223,7 @@ class PostController extends Controller
 
         $post = Post::findOrFail($id);
 
-        if(Auth::user()->usertype == 'admin'){
-            $post->is_published = true;
-
-        }
+        
 
         $post->category_id = $validated['category_id'];
         $post->title = $validated['title'];

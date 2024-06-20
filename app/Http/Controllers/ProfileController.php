@@ -30,9 +30,12 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+
+        
+        $users = User::all();
         return view('profile-index', [
             'user' => $request->user(),
-        ]);
+        ], compact('users'));
     }
 
     /**

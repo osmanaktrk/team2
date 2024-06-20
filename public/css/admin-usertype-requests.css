@@ -1,0 +1,48 @@
+.a-admin-userstype-requests{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px !important;
+    transform: scale(1.2);
+}
+
+.request-box{
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.request-box>h4{
+    display: block;
+    text-align: center;
+}
+
+.requested-users{
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.requested-users>div{
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.requested-users>div>*{
+    margin: 5px;
+}
+.user-password-reset>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

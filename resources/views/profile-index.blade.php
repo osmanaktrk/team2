@@ -32,11 +32,7 @@
                         
 
 
-                        {{-- @if ($user->avatar)
-                            <img src="{{ asset($user->avatar) }}" alt="">
-                        @else
-                            <img src="{{ asset('img/users/default.svg') }}" alt="">
-                        @endif --}}
+                       
 
 
                     </div>
@@ -72,11 +68,11 @@
                                                     <option value="user">user</option>
                                                 @endif
 
-                                                @if ($user->usertype == 'writer')
+                                                {{-- @if ($user->usertype == 'writer')
                                                     <option selected disabled value="writer">writer</option>
                                                 @else
                                                     <option value="writer">writer</option>
-                                                @endif
+                                                @endif --}}
 
                                                 @if ($user->usertype == 'admin')
                                                     <option selected disabled value="admin">admin</option>
@@ -167,7 +163,7 @@
                 </div>
             </div>
 
-            @if (Auth::user()->id == $user->id || Auth::user()->usertype == 'admin')
+            {{-- @if (Auth::user()->id == $user->id || Auth::user()->usertype == 'admin')
                 <div class="row text-center justify-content-center mt-4">
                     <div class="col-md-2 col-6 action-buttons">
                         <button class="btn btn-info">Messages</button>
@@ -188,12 +184,90 @@
                         <button class="btn btn-info">Disliked Posts</button>
                     </div>
                 </div>
-            @endif
+            @endif --}}
 
 
 
         </div>
+
+
+
+
+
+
+
+
+
+        {{-- <div class="bg-light">
+            <section class="contact-section py-5 mt-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <h2 class="font-weight-lighter text-danger mb-3">{{ __('Send Message') }}</h2>
+                            <div class="block" style="background-color: #1ABCB6;"></div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <form id="contactForm" action="{{route('message')}}" method="POST">
+                                @csrf
+        
+
+                                <input type="hidden" name="user_from" id="user_from" value="{{$user->id}}">
+        
+                                <div class="form-group">
+                                    <label for="user_to" class="font-weight-light">{{ __('User Name') }}</label>
+                                        @error('user_to')
+                                            <span class=" text-danger">{{$message}}</span>
+                                        @enderror
+
+                                    <select class="form-control selector" name="user_to" id="user_to" required>
+                                        <option disabled selected>Select A User Name</option>
+                                        @foreach ($users as $item)
+                                            <option value="{{$item->id}}">{{$item->username}}</option>
+                                        @endforeach
+
+                                    </select>                                    
+                                </div>
+        
+        
+                          
+                                <div class="form-group">
+                                    <label for="message" class="font-weight-light">{{ __('Message') }}</label>
+                                    @error('message')
+                                            <span class=" text-danger">{{$message}}</span>
+                                        @enderror
+                                    <textarea class="form-control font-weight-lighter" name="message" id="message" rows="10" placeholder="{{ __('Enter your message') }}" required></textarea>
+                                </div>
+        
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary mt-3">{{ __('Send Message') }}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+        </div> --}}
+
+
+
+
+
+
+
+
+
+
+
     </section>
+
+
+
+
+
+ 
 
 
     @if (Auth::user()->id == $user->id || Auth::user()->usertype == 'admin')
@@ -413,12 +487,12 @@
                                                                     <option value="user">user</option>
                                                                 @endif
 
-                                                                @if ($user->usertype == 'writer')
+                                                                {{-- @if ($user->usertype == 'writer')
                                                                     <option selected disabled value="writer">writer
                                                                     </option>
                                                                 @else
                                                                     <option value="writer">writer</option>
-                                                                @endif
+                                                                @endif --}}
 
                                                                 @if ($user->usertype == 'admin')
                                                                     <option selected disabled value="admin">admin</option>

@@ -31,7 +31,7 @@
                 </div>
             </a>
 
-            @if (Auth::user()->usertype == 'admin' || Auth::user()->usertype == 'writer')
+            
                 <a href="{{ route('post-create') }}" class="leftmenu-top" id="leftmenu-top-one">
                     <div class="left-manage-assetdiv">
                         <div class="icon gainsboro"></div>
@@ -40,7 +40,7 @@
                         {{ __('New Post') }}
                     </div>
                 </a>
-            @endif
+          
 
 
 
@@ -64,7 +64,7 @@
             </a>
 
             @if (Auth::user()->usertype == 'admin')
-                <a href="" class="leftmenu-top" id="leftmenu-top-one">
+                <a href="{{route('admin')}}" class="leftmenu-top" id="leftmenu-top-one">
                     <div class="left-manage-assetdiv">
                         <div class="icon gainsboro"></div>
                     </div>

@@ -1,0 +1,206 @@
+
+
+.main {
+    
+    display: grid;
+    position: relative;
+    grid-template-columns: 20% 2.5% 77.5%;
+    margin-bottom: 50px;
+ 
+    
+    
+  }
+  
+  
+  .left-menu {
+    background-color: transparent;  
+    height: 100vh;
+    box-shadow: 0px 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  .leftmenu-top {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 32px;
+    width: 100%;
+    border: none;
+    margin: 3px 0;
+    background-color: white;
+    transition: 0.5s;
+  }
+  
+  #leftmenu-top-one {
+    margin-top: 0;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  #leftmenu-top-one:hover {
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .leftmenu-top:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .left-manage-assetdiv {
+    align-items: center;
+    margin-left: 10px;
+  }
+  
+  .left-manage-asset {
+    align-items: center;
+    height: 20px;
+  }
+  
+  .left-manage-word {
+    display: flex;
+    margin-left: 10px;
+  }
+  
+  .collapsible {
+    align-items: center;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    margin: 3px 0;
+    height: 32px;
+    border: none;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .collapsible-contentbutton {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .collapsible-div {
+    margin-left: 20px;
+  }
+  
+  .collapsible-asset {
+    height: 20px;
+    align-items: center;
+  }
+  
+  .icon {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  #collapsible-topics {
+    border-radius: 10px;
+  }
+  .education {
+    background-color: red;
+    border-radius: 10px;
+  }
+  .general {
+    background-color: blue;
+    border-radius: 10px;
+  }
+  
+  .gainsboro{
+    background-color: gainsboro;
+    border-radius: 10px;
+  }
+  .general2 {
+    background-color: rgb(0, 145, 255);
+    border-radius: 10px;
+  }
+  .staff {
+    background-color: rgb(255, 162, 0);
+    border-radius: 10px;
+  }
+  
+  .content {
+    display: none;
+  }
+  
+  .collapsible.active + .content {
+    display: grid;
+  }
+  
+  .divider {
+    background-color: transparent;
+  }
+  
+  .right {
+    max-height: 100vh;
+    background-color: white;
+  }
+  
+  .right-ceiling {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2);
+    height: 60px;
+  }
+  
+  .right-sorting {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    margin-left: 15px;
+  }
+  
+  .sortingbutton {
+    margin-right: 8px;
+    padding: 10px;
+    background-color: #1ABCB6;
+    transition: 0.5s;
+    border: none;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .sortingbutton:hover {
+    color: white;
+    background-color: red;
+    cursor: pointer;
+  }
+  
+  .sortingbutton:active {
+    background-color: rgb(207, 0, 0);
+  }
+  
+  .createpostbutton {
+    margin-right: 8px;
+    padding: 10px;
+    background-color: rgb(214, 213, 213);
+    transition: 0.5s;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .createpostbutton:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .createpostbutton:active {
+    background-color: rgb(207, 0, 0);
+  }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+  }

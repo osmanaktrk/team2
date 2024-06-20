@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable();
             $table->foreignId('cover_id')->nullable();
             $table->foreignId('extra_id')->nullable();
-            $table->boolean('is_published')->default(false);
+            $table->boolean('is_published')->default(true);
             $table->timestamps();
         });
     }

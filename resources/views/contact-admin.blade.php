@@ -27,15 +27,24 @@
                         <input type="number" name="user_id" id="user_id" value="{{Auth::user()->id}}" readonly required hidden>
                         <div class="form-group">
                             <label for="name" class="font-weight-light">{{ __('Name') }}</label>
+                            @error('name')
+                                <span class=" text-danger">{{$message}}</span>
+                            @enderror
                             <input type="text" class="form-control font-weight-lighter" name="name" id="name"  value="{{Auth::user()->username}}" readonly required>
                         </div>
                         <div class="form-group">
                             <label for="email" class="font-weight-light">{{ __('Email') }}</label>
+                            @error('email')
+                                <span class=" text-danger">{{$message}}</span>
+                            @enderror
                             <input type="email" class="form-control font-weight-lighter" name="email" id="email"  value="{{Auth::user()->email}}" readonly required>
                         </div>
                         
                         <div class="form-group">
                             <label for="message" class="font-weight-light">{{ __('Message') }}</label>
+                            @error('contact')
+                                <span class=" text-danger">{{$message}}</span>
+                            @enderror
                             <textarea class="form-control font-weight-lighter" name="contact" id="message" rows="10" placeholder="{{ __('Enter your message') }}" required></textarea>
                         </div>
 

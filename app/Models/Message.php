@@ -20,13 +20,11 @@ class Message extends Model
     ];
 
 
-    public function userFrom(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 
 
-    public function userTo(){
-        return $this->hasOne(User::class);
-    }
+   
 
 }

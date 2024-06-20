@@ -1,0 +1,103 @@
+.a-admin-faq-requests{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px !important;
+    transform: scale(1.2);
+}
+
+.request-container-box{
+    margin: 50px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    
+
+}
+
+.request-container-box>h4{
+    text-align: center;
+}
+
+.request-container{
+    margin: 30px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.writer{
+    display: block;
+    text-align: center;
+}
+.edit-request{
+    margin: 30px;
+    padding: 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+   
+}
+
+.request-content{
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+    
+}
+
+.request-content>*{
+    margin: 10px;
+}
+
+.buttons>*{
+    display: inline-block;
+    margin: 10px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.edit-request{
+    display: none;
+}
+
+.edit-request>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-request>form>*{
+    margin: 10px;
+}
+
+
+.edit-request>form>textarea{
+    width: 600px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+.edit-request>div{
+    margin: 10px;
+    text-align: center;
+}

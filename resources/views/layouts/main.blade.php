@@ -47,11 +47,11 @@
                                     <li>MAIN</li>
                                 </a>
 
-                                @if (Auth::user()->usertype == 'admin' || Auth::user()->usertype == 'writer')
-                                    <a class="middle-links-btn" href="{{ route('post-create') }}">
-                                        <li>NEW POST</li>
-                                    </a>
-                                @endif
+                                
+                                <a class="middle-links-btn" href="{{ route('post-create') }}">
+                                    <li>NEW POST</li>
+                                </a>
+                               
 
                                 <a class="middle-links-btn" href="{{ route('faq') }}">
                                     <li>FAQ</li>
@@ -64,7 +64,7 @@
                                 </a>
 
                                 @if (Auth::user()->usertype == 'admin')
-                                    <a class="middle-links-btn" href="">
+                                    <a class="middle-links-btn" href="{{route('admin')}}">
                                         <li>ADMIN DASHBOARD</li>
                                     </a>
                                 @endif
@@ -104,8 +104,6 @@
 
                         <!-- Logo will be added later -->
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="">{{ __('Dashboard') }}</a>
-                            <a class="dropdown-item" href="">{{ __('FAQ') }}</a>
                             <a class="dropdown-item" href="{{ route('profile-index') }}">{{ __('Profile') }}</a>
                             <a class="dropdown-item"
                                 href="{{ route('contact-admin') }}">{{ __('Contact With Admin') }}</a>

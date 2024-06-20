@@ -1,0 +1,80 @@
+.a-admin-news-categories{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px !important;
+    transform: scale(1.2);
+}
+
+.main-container{
+    padding: 20px;
+}
+
+.category-create{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.category-create>form>*{
+    margin: 5px;
+}
+
+.all-categories{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+
+
+.all-categories>div>*{
+    display: inline-block;
+    margin: 10px;
+}
+
+.delete-btn{
+    color: white;
+    background-color: red;
+}
+
+.category-edit-form{
+    display: inline-block;
+}
+
+.all-category-news{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.category-news{
+    
+    margin: 20px;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.category-news>div{
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+    text-align: justify;
+    border-radius: 20px;
+}
+.category-news>div>div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.all-categories>h4{
+    display: block;
+    text-align: center;
+}
+
+.news-by-category{
+    text-align: center;
+}

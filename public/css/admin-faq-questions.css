@@ -1,0 +1,157 @@
+.a-admin-faq-questions{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px !important;
+    transform: scale(1.2);
+}
+
+.faq-container-top{
+    margin: 50px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.faq-container-top>*{
+
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    height: 60px;
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-question{
+    margin: 80px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: none;
+}
+
+.create-question>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-question>form>*{
+    margin: 10px;
+    font-size: 20px;
+}
+
+.create-question>form>textarea{
+    width: 60%;
+    height: 150px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.create-cancel{
+    text-align: center;
+    padding: 10px;
+
+}
+
+.create-cancel-btn{
+    background-color: red;
+    color: white;
+}
+
+#category{
+    font-size: 20px;
+}
+
+
+
+.faq-categories{
+    margin: 50px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.faq-categories>h4{
+    display: block;
+    text-align: center;
+}
+
+.faq-category{
+    margin: 30px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.faq-categories>div>h4{
+    display: block;
+    text-align: center;
+}
+
+
+
+.category-questions-box, .question, .answer{
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: justify;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+.edit-question{
+    margin: 50px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: none;
+    
+}
+.edit-question>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-cancel{
+    text-align: center;
+    margin: 10px;
+}
+
+
+.edit-question>form>*{
+    margin: 10px;
+    font-size: 20px;
+}
+
+.edit-question>form>textarea{
+    width: 500px;
+    height: 200px;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: justify;
+}
+#edit-category{
+    font-size: 20px;
+}
+
+.edit-cancel-btn{
+    background-color: red;
+    color: white;
+}
